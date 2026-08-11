@@ -514,9 +514,9 @@ body, html {
    Media Query untuk Responsivitas Mobile (HP)
    ========================================== */
 @media (max-width: 768px) {
-    /* PENCARIAN (Diturunkan agar tidak bersembunyi di balik Header) */
+    /* PENCARIAN */
     #search-container { 
-        top: 70px !important; /* KUNCI PERBAIKAN: Ubah dari 15px menjadi 70px */
+        top: 70px !important; 
         left: 55px !important; 
         width: 175px !important; 
     }
@@ -525,11 +525,11 @@ body, html {
     #search-btn { padding: 8px 12px !important; font-size: 12px !important; flex-shrink: 0 !important; }
     #search-suggestions { width: 100% !important; }
 
-    /* WATERMARK KKN (Dikendalikan agar tidak menabrak Legenda) */
+    /* WATERMARK KKN (Dinaikkan sedikit agar tidak tabrak Status Bar) */
     .leaflet-control-attribution {
         position: fixed !important; 
-        z-index: 9000 !important; /* KUNCI 1: Turunkan di bawah lapisan Legenda */
-        bottom: 22px !important;  /* Posisikan persis di atas status bar hitam */
+        z-index: 9000 !important; 
+        bottom: 35px !important;  /* KUNCI: Naikkan dari 22px menjadi 35px */
         left: 5px !important;   
         top: auto !important;    
         right: auto !important;  
@@ -540,14 +540,14 @@ body, html {
         border-radius: 6px !important; 
         font-size: 8px !important;
         white-space: nowrap !important;
-        max-width: 65vw !important; /* KUNCI 2: Batasi lebar agar tidak menyentuh area Legenda di kanan */
+        max-width: 65vw !important; 
         overflow: hidden !important;
         text-overflow: ellipsis !important;
     }
     
-    /* POSISI WADAH TOMBOL LEGENDA (Diangkat ke atas) */
+    /* POSISI WADAH TOMBOL LEGENDA */
     .leaflet-bottom.leaflet-right {
-        bottom: 55px !important; /* KUNCI 3: Angkat tombol jauh ke atas Watermark & Status Bar */
+        bottom: 55px !important; 
         right: 10px !important;
     }
 
@@ -555,18 +555,27 @@ body, html {
         margin-bottom: 0 !important; 
     }
 
-    /* KOTAK LEGENDA SAAT TERBUKA DI HP */
     .legend-content {
-        max-height: 50vh !important; /* KUNCI 4: Batasi tinggi maksimal agar tidak menabrak tombol atas */
+        max-height: 50vh !important; 
         bottom: 0 !important; 
         right: 0 !important;
-        font-size: 11px !important; /* Teks sedikit dikecilkan agar lebih lega */
+        font-size: 11px !important; 
     }
 
     #route-info { bottom: 30px; font-size: 11px; padding: 6px 15px; width: max-content; border-width: 1px; }
     #route-info b { font-size: 12px; }
 
     #earth-status-bar { font-size: 9px; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 3px 5px; }
+
+    /* ========================================================
+       PERBAIKAN SPASI TOMBOL MENU DI HP (Agar Tidak Dempet)
+       ======================================================== */
+    /* Beri jarak antar tombol 10px */
+    #filter-container { top: 75px !important; }
+    .lapor-warga-control { top: 130px !important; } /* (75 + 44 + 11) */
+    #btn-bahasa { top: 185px !important; }          /* (130 + 44 + 11) */
+    #btn-toggle-label { top: 240px !important; }    /* (185 + 44 + 11) */
+    #btn-lacak-laporan { top: 295px !important; }   /* (240 + 44 + 11) */
 }
 
 /* ==========================================
@@ -1086,11 +1095,11 @@ STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
     #search-container { top: 55px !important; width: 160px !important; }
 
     /* Jarak Antar Tombol Kanan Dirapatkan agar tidak tembus ke bawah layar */
-    #filter-container { top: 50px !important; }
-    .lapor-warga-control { top: 90px !important; }
-    #btn-bahasa { top: 130px !important; }
-    #btn-toggle-label { top: 170px !important; }
-    #btn-lacak-laporan { top: 210px !important; }
+    #filter-container { top: 55px !important; }
+    .lapor-warga-control { top: 97px !important; }   /* (55 + 34 + 8) */
+    #btn-bahasa { top: 139px !important; }           /* (97 + 34 + 8) */
+    #btn-toggle-label { top: 181px !important; }     /* (139 + 34 + 8) */
+    #btn-lacak-laporan { top: 223px !important; }    /* (181 + 34 + 8) */
 
     /* Tombol Menu Dikecilkan */
     #filter-toggle-btn, .lapor-warga-control, #btn-bahasa, #btn-toggle-label, #btn-lacak-laporan {
@@ -1105,3 +1114,4 @@ STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
 .galeri-modal {
     max-width: 90vw !important; /* Modal foto maksimal 90% layar agar tidak terpotong di HP */
 }
+
