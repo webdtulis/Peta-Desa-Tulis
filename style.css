@@ -514,52 +514,54 @@ body, html {
    Media Query untuk Responsivitas Mobile (HP)
    ========================================== */
 @media (max-width: 768px) {
+    /* PENCARIAN (Diturunkan agar tidak bersembunyi di balik Header) */
     #search-container { 
-        top: 15px !important; 
+        top: 70px !important; /* KUNCI PERBAIKAN: Ubah dari 15px menjadi 70px */
         left: 55px !important; 
         width: 175px !important; 
     }
-    .search-box-wrapper {
-        display: flex !important;
-        width: 100% !important;
-    }
-    #search-input { 
-        padding: 8px !important; 
-        font-size: 11px !important; 
-        width: 100% !important; 
-        min-width: 0 !important; 
-    }
-    #search-btn { 
-        padding: 8px 12px !important; 
-        font-size: 12px !important; 
-        flex-shrink: 0 !important; 
-    }
-    #search-suggestions {
-        width: 100% !important; 
-    }
+    .search-box-wrapper { display: flex !important; width: 100% !important; }
+    #search-input { padding: 8px !important; font-size: 11px !important; width: 100% !important; min-width: 0 !important; }
+    #search-btn { padding: 8px 12px !important; font-size: 12px !important; flex-shrink: 0 !important; }
+    #search-suggestions { width: 100% !important; }
 
+    /* WATERMARK KKN (Dikendalikan agar tidak menabrak Legenda) */
     .leaflet-control-attribution {
         position: fixed !important; 
-        z-index: 10000 !important; 
-        bottom: 25px !important; 
-        left: 10px !important;   
+        z-index: 9000 !important; /* KUNCI 1: Turunkan di bawah lapisan Legenda */
+        bottom: 22px !important;  /* Posisikan persis di atas status bar hitam */
+        left: 5px !important;   
         top: auto !important;    
         right: auto !important;  
         writing-mode: horizontal-tb !important; 
         transform: none !important;
         text-align: left !important;
-        padding: 5px 10px !important;
+        padding: 4px 8px !important;
         border-radius: 6px !important; 
-        font-size: 8.5px !important;
+        font-size: 8px !important;
         white-space: nowrap !important;
-        max-width: 70vw !important; 
+        max-width: 65vw !important; /* KUNCI 2: Batasi lebar agar tidak menyentuh area Legenda di kanan */
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
     }
     
+    /* POSISI WADAH TOMBOL LEGENDA (Diangkat ke atas) */
     .leaflet-bottom.leaflet-right {
-        bottom: 30px !important; 
+        bottom: 55px !important; /* KUNCI 3: Angkat tombol jauh ke atas Watermark & Status Bar */
+        right: 10px !important;
     }
 
-    .leaflet-bottom .leaflet-control.legend-container { margin-bottom: 10px; }
+    .leaflet-bottom .leaflet-control.legend-container { 
+        margin-bottom: 0 !important; 
+    }
+
+    /* KOTAK LEGENDA SAAT TERBUKA DI HP */
+    .legend-content {
+        max-height: 50vh !important; /* KUNCI 4: Batasi tinggi maksimal agar tidak menabrak tombol atas */
+        bottom: 0 !important; 
+        right: 0 !important;
+        font-size: 11px !important; /* Teks sedikit dikecilkan agar lebih lega */
+    }
 
     #route-info { bottom: 30px; font-size: 11px; padding: 6px 15px; width: max-content; border-width: 1px; }
     #route-info b { font-size: 12px; }
@@ -841,15 +843,28 @@ body, html {
     transition: opacity 0.2s ease !important;
 }
 
-#filter-toggle-btn:hover, .lapor-warga-control:hover, #btn-bahasa:hover, #btn-toggle-label:hover, #btn-lacak-laporan:hover, .lapor-warga-control.active {
-    width: 155px !important; 
+/* 4. Efek Melebar & Teks Muncul (Dikendalikan murni oleh JS dengan kelas .terbuka) */
+#filter-toggle-btn.terbuka, 
+.lapor-warga-control.terbuka, 
+#btn-bahasa.terbuka, 
+#btn-toggle-label.terbuka, 
+#btn-lacak-laporan.terbuka, 
+.lapor-warga-control.active {
+    width: 155px !important; /* Melebar proporsional */
     box-shadow: 0 6px 12px rgba(0,0,0,0.5) !important;
 }
-#filter-toggle-btn:hover .btn-text, .lapor-warga-control:hover .btn-text, #btn-bahasa:hover .btn-text, #btn-toggle-label:hover .btn-text, #btn-lacak-laporan:hover .btn-text, .lapor-warga-control.active .btn-text {
-    opacity: 1; 
+
+#filter-toggle-btn.terbuka .btn-text, 
+.lapor-warga-control.terbuka .btn-text, 
+#btn-bahasa.terbuka .btn-text, 
+#btn-toggle-label.terbuka .btn-text, 
+#btn-lacak-laporan.terbuka .btn-text, 
+.lapor-warga-control.active .btn-text {
+    opacity: 1; /* Memunculkan teks perlahan */
     transition-delay: 0.1s;
 }
 
+/* 5. Posisi Masing-masing Tombol */
 #filter-container { position: fixed !important; top: 70px !important; right: 15px !important; z-index: 2000 !important; display: flex !important; flex-direction: column !important; align-items: flex-end !important; }
 #filter-toggle-btn { position: relative !important; top: 0 !important; right: 0 !important; left: auto !important; }
 #filter-panel { margin-top: 8px !important; z-index: 2000 !important; }
@@ -985,7 +1000,8 @@ STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
         width: 34px !important; height: 34px !important;
     }
     .btn-icon { width: 34px !important; height: 34px !important; font-size: 14px !important; }
-    #filter-toggle-btn:hover, .lapor-warga-control:hover, #btn-bahasa:hover, #btn-toggle-label:hover, #btn-lacak-laporan:hover, .lapor-warga-control.active {
+    
+    #filter-toggle-btn.terbuka, .lapor-warga-control.terbuka, #btn-bahasa.terbuka, #btn-toggle-label.terbuka, #btn-lacak-laporan.terbuka, .lapor-warga-control.active {
         width: 135px !important;
     }
     #btn-lacak-laporan { top: 190px !important; }
@@ -1013,4 +1029,79 @@ STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
    ========================================== */
 #logo-kampus {
     margin-right: -5px !important; 
+}
+
+/* =========================================================
+   ULTIMATE RESPONSIVE & FLUID DESIGN (Adaptasi Semua Device)
+   ========================================================= */
+
+/* 1. MENCEGAH KOTAK PENCARIAN TERTUTUP HEADER ATAU MELEBAR KELUAR LAYAR */
+#search-container {
+    top: 75px !important; /* Memastikan selalu di bawah header */
+    left: 60px !important; /* Di samping tombol Zoom */
+    max-width: 70vw !important; /* Fleksibel! Lebarnya maksimal 70% dari lebar layar perangkat */
+    transition: all 0.3s ease;
+}
+
+/* 2. ADAPTASI TABLET / IPAD (Layar Menengah: 769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #search-container { width: 220px !important; }
+    .leaflet-control-attribution { font-size: 10px !important; bottom: 25px !important; }
+    .legend-content { max-height: 60vh !important; }
+    /* Menu Pop-up Info menyesuaikan ukuran tablet */
+    .popup-content { max-width: 300px !important; } 
+}
+
+/* 3. ADAPTASI HP SANGAT KECIL / HP LIPAT (Galaxy Fold dsb: Maksimal 380px) */
+@media (max-width: 380px) {
+    #search-container { width: 140px !important; left: 50px !important; }
+    
+    /* Susutkan Header dan Logo agar tidak bertumpukan */
+    .header-title h1 { font-size: 11.5px !important; }
+    .header-title p { font-size: 8px !important; }
+    .logo-item { height: 26px !important; }
+    #logo-kampus { height: 30px !important; }
+
+    /* Tombol Menu Sebelah Kanan Dibuat Sedikit Lebih Mungil */
+    #filter-toggle-btn, .lapor-warga-control, #btn-bahasa, #btn-toggle-label, #btn-lacak-laporan {
+        width: 38px !important; height: 38px !important;
+    }
+    .btn-icon { width: 38px !important; height: 38px !important; font-size: 15px !important; }
+    
+    /* Legenda Disusutkan */
+    .legend-content { min-width: 150px !important; font-size: 10px !important; max-height: 45vh !important; }
+}
+
+/* 4. ADAPTASI MODE LANDSCAPE / MIRING (Tinggi Layar Pendek: Maksimal 450px) */
+@media (max-height: 450px) {
+    /* Header Dibuat Tipis agar peta tetap luas */
+    #header-webgis { height: 45px !important; padding: 0 10px !important; }
+    .header-title h1 { font-size: 12px !important; }
+    .header-title p { display: none !important; } /* Sembunyikan sub-judul agar hemat ruang vertikal */
+    .logo-item { height: 25px !important; }
+    #logo-kampus { height: 28px !important; }
+
+    /* Elemen Peta Naik ke Atas menyesuaikan Header baru */
+    .leaflet-top.leaflet-left { margin-top: 50px !important; }
+    #search-container { top: 55px !important; width: 160px !important; }
+
+    /* Jarak Antar Tombol Kanan Dirapatkan agar tidak tembus ke bawah layar */
+    #filter-container { top: 50px !important; }
+    .lapor-warga-control { top: 90px !important; }
+    #btn-bahasa { top: 130px !important; }
+    #btn-toggle-label { top: 170px !important; }
+    #btn-lacak-laporan { top: 210px !important; }
+
+    /* Tombol Menu Dikecilkan */
+    #filter-toggle-btn, .lapor-warga-control, #btn-bahasa, #btn-toggle-label, #btn-lacak-laporan {
+        width: 34px !important; height: 34px !important;
+    }
+    .btn-icon { width: 34px !important; height: 34px !important; font-size: 14px !important; }
+    
+    .legend-content { max-height: 55vh !important; }
+}
+
+/* 5. MEMASTIKAN WADAH POPUP BERSIFAT FLUID (Responsif) */
+.galeri-modal {
+    max-width: 90vw !important; /* Modal foto maksimal 90% layar agar tidak terpotong di HP */
 }

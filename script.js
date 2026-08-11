@@ -936,3 +936,51 @@ if (getUrlParameter('mode') === 'lapor') {
         }
     }, 1000);
 }
+
+// ==========================================
+// LOGIKA CERDAS TOMBOL MENU (SISTEM 2 KLIK)
+// ==========================================
+document.addEventListener('click', function(e) {
+    // 1. Cek apakah klik terjadi di dalam area Panel Filter
+    const isFilterPanel = e.target.closest('#filter-panel');
+    if (isFilterPanel) return; // Jika klik di dalam menu filter, biarkan saja
+
+    // 2. Kenali apakah yang diklik adalah salah satu dari 5 tombol utama kita
+    const targetBtn = e.target.closest('#filter-toggle-btn, .lapor-warga-control, #btn-bahasa, #btn-toggle-label, #btn-lacak-laporan');
+
+    // 3. JIKA KLIK DI LUAR TOMBOL (MENYENTUH PETA/AREA LAIN)
+    if (!targetBtn) {
+        // Tutup (kuncupkan) semua tombol menjadi logo kembali
+        document.querySelectorAll('.terbuka').forEach(btn => {
+            btn.classList.remove('terbuka');
+        });
+        
+        // Tutup juga menu popup filter jika sedang terbuka
+        const filterPanel = document.getElementById('filter-panel');
+        if (filterPanel && filterPanel.classList.contains('show')) {
+            filterPanel.classList.remove('show');
+        }
+        return;
+    }
+
+    // 4. JIKA TOMBOL DIKLIK, TAPI POSISINYA MASIH KUNCUP (HANYA LOGO)
+    // Syarat: tombol belum terbuka, dan bukan tombol Lapor yang sedang mode berkedip/aktif
+    if (!targetBtn.classList.contains('terbuka') && !targetBtn.classList.contains('active')) {
+        
+        // KUNCI UTAMA: Cegat dan hentikan aksi bawaan tombol! (Tidak akan pindah halaman / tidak akan ganti bahasa dulu)
+        e.preventDefault(); 
+        e.stopPropagation(); 
+        e.stopImmediatePropagation(); 
+
+        // Kuncupkan tombol lain yang mungkin sedang melebar
+        document.querySelectorAll('.terbuka').forEach(btn => {
+            if (btn !== targetBtn) btn.classList.remove('terbuka');
+        });
+
+        // Mekarkan (Lebarkan) tombol ini
+        targetBtn.classList.add('terbuka');
+    }
+    
+    // 5. Jika tombol diklik untuk KEDUA KALINYA (kondisi sudah memanjang),
+    // logika akan melewati tahap di atas, dan fungsi asli tombol akan dieksekusi oleh sistem!
+}, true); // Menggunakan fase 'Capture' untuk mencegat aksi klik pertama
