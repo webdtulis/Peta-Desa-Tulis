@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Desa Tulis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* RESET & DASAR */
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: #f1f5f9; color: #334155; margin: 0; min-height: 100vh; }
+    
+    /* ================================================= */
+    /* DESAIN HALAMAN LOGIN */
+    /* ================================================= */
+    #login-screen { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%); padding: 20px; }
+    .login-card { background: white; padding: 40px 32px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; }
+    .login-card h2 { margin-top: 0; color: #0f172a; margin-bottom: 8px; font-size: 24px; }
+    .login-card p { color: #64748b; font-size: 14px; margin-bottom: 24px; }
+    .input-grup { margin-bottom: 16px; text-align: left; }
+    .input-grup label { display: block; font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 6px; }
+    .input-grup input { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-family: 'Inter'; outline: none; transition: 0.2s; font-size: 14px; }
+    .input-grup input:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+    .btn-login { background: #3b82f6; color: white; border: none; width: 100%; padding: 14px; border-radius: 8px; font-weight: 600; font-size: 15px; cursor: pointer; transition: 0.2s; margin-top: 10px; }
+    .btn-login:hover { background: #2563eb; }
+    .error-msg { color: #dc2626; background: #fee2e2; padding: 10px; border-radius: 6px; font-size: 13px; font-weight: 500; margin-top: 16px; display: none; border: 1px solid #fecaca; }
+
+    /* ================================================= */
+    /* DESAIN DASHBOARD ADMIN */
+    /* ================================================= */
+    #dashboard-screen { padding: 20px; display: none; }
+    .kotak { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin: 0 auto; max-width: 98%; }
+    
+    .header-container { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 16px; margin-bottom: 20px; }
+    .header-container h2 { margin: 0; color: #0f172a; font-size: 22px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    
+    .header-aksi { display: flex; gap: 10px; }
+    .btn-refresh { background: #3b82f6; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 4px rgba(59,130,246,0.3); transition: background 0.2s; }
+    .btn-refresh:hover { background: #2563eb; }
+    .btn-logout { background: #ef4444; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 4px rgba(239,68,68,0.3); transition: background 0.2s; }
+    .btn-logout:hover { background: #dc2626; }
+    
+    /* ================================================= */
+    /* KARTU RINGKASAN (FITUR BARU) */
+    /* ================================================= */
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; display: none; }
+    .summary-card { background: white; padding: 10px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); display: flex; flex-direction: column; position: relative; overflow: hidden; }
+    .summary-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
+    
+    .card-total::before { background-color: #3b82f6; } /* Biru */
+    .card-belum::before { background-color: #ef4444; } /* Merah */
+    .card-proses::before { background-color: #f59e0b; } /* Kuning */
+    .card-selesai::before { background-color: #10b981; } /* Hijau */
+    
+    .summary-title { font-size: 10px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .summary-value { font-size: 25px; font-weight: 700; color: #0f172a; line-height: 1; }
+
+    /* TABEL */
+    .table-responsive { overflow-x: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    table { width: 100%; border-collapse: collapse; min-width: 1500px; background: white; }
+    th, td { padding: 16px 14px; border: 1px solid #e2e8f0; text-align: left; vertical-align: top; }
+    th { background-color: #f8fafc; color: #475569; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid #cbd5e1; white-space: nowrap; position: sticky; top: 0; }
+    tbody tr:nth-child(even) { background-color: #f8fafc; }
+    tbody tr:hover { background-color: #f1f5f9; }
+    
+    .teks-utama { font-size: 12px; font-weight: 600; color: #1e293b; display: block; margin-bottom: 4px; }
+    .teks-sekunder { font-size: 12px; color: #64748b; display: block; margin-top: 2px; }
+    .teks-sekunder strong { color: #475569; }
+    
+    .kategori-badge { background-color: #e0f2fe; color: #0284c7; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; display: inline-block; border: 1px solid #bae6fd; }
+    .anonim-badge { background-color: #fee2e2; color: #b91c1c; padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 600; margin-left: 6px; border: 1px solid #fecaca; }
+    
+    .btn-aksi { padding: 6px 12px; text-decoration: none; border-radius: 6px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; transition: all 0.2s; text-align: center; width: 100%; box-sizing: border-box; cursor: pointer; border: none; }
+    .btn-peta { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+    .btn-peta:hover { background: #bbf7d0; }
+    .btn-bukti { background: #f3f4f6; color: #374151; border: 1px solid #d1d5db; }
+    .btn-bukti:hover { background: #e5e7eb; }
+    
+    .btn-hapus { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; margin-top: 8px;}
+    .btn-hapus:hover { background: #fca5a5; color: #991b1b; }
+    .btn-hapus:disabled { opacity: 0.5; cursor: not-allowed; }
+    
+    .status-container { position: relative; width: 100%; }
+    .status-select { appearance: none; width: 100%; padding: 8px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid transparent; outline: none; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+    .status-select:disabled { opacity: 0.6; cursor: wait; }
+    
+    .status-belum { background-color: #fee2e2; color: #991b1b; border-color: #fecaca; }
+    .status-proses { background-color: #fef3c7; color: #b45309; border-color: #fde68a; }
+    .status-selesai { background-color: #dcfce7; color: #166534; border-color: #bbf7d0; }
+    .status-batal { background-color: #f1f5f9; color: #475569; border-color: #cbd5e1; }
+    
+    #loading { text-align: center; padding: 40px 20px; font-size: 15px; font-weight: 500; color: #64748b; background: #f8fafc; border-radius: 8px; border: 1px dashed #cbd5e1; margin-top: 20px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================== -->
+  <!-- 1. TAMPILAN LOGIN -->
+  <!-- ============================================== -->
+  <div id="login-screen">
+    <div class="login-card">
+      <h2>🔒 Login Admin</h2>
+      <p>Masuk untuk mengelola pengaduan Desa Tulis</p>
+      
+      <div class="input-grup">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Masukkan username admin" autocomplete="off">
+      </div>
+      
+      <div class="input-grup">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Masukkan password rahasia">
+      </div>
+      
+      <button class="btn-login" onclick="prosesLogin()">Masuk ke Dashboard</button>
+      
+      <div id="login-error" class="error-msg">❌ Username atau Password salah!</div>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- 2. TAMPILAN DASHBOARD -->
+  <!-- ============================================== -->
+  <div id="dashboard-screen">
+    <div class="kotak">
+      <div class="header-container">
+        <h2>📂 Dashboard Rekapitulasi Pengaduan Warga</h2>
+        
+        <div class="header-aksi">
+          <button class="btn-refresh" onclick="muatData()">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+            Segarkan
+          </button>
+          <button class="btn-logout" onclick="prosesLogout()">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+            Logout
+          </button>
+        </div>
+      </div>
+
+      <!-- KARTU RINGKASAN DATA -->
+      <div class="summary-grid" id="summary-section">
+        <div class="summary-card card-total">
+          <span class="summary-title">Total Laporan</span>
+          <span class="summary-value" id="count-total">0</span>
+        </div>
+        <div class="summary-card card-belum">
+          <span class="summary-title">Belum Ditangani</span>
+          <span class="summary-value" id="count-belum">0</span>
+        </div>
+        <div class="summary-card card-proses">
+          <span class="summary-title">Sedang Diproses</span>
+          <span class="summary-value" id="count-proses">0</span>
+        </div>
+        <div class="summary-card card-selesai">
+          <span class="summary-title">Sudah Selesai</span>
+          <span class="summary-value" id="count-selesai">0</span>
+        </div>
+      </div>
+
+      <!-- LOADING INDICATOR -->
+      <div id="loading">
+        <div style="margin-bottom: 10px;">
+          <svg class="animate-spin" style="animation: spin 1s linear infinite; width: 24px; height: 24px; color: #3b82f6; margin: 0 auto;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" style="opacity: 0.25;"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" style="opacity: 0.75;"></path></svg>
+        </div>
+        Mengambil data dari server...
+      </div>
+      
+      <!-- TABEL DATA -->
+      <div class="table-responsive">
+        <table id="tabel-data" style="display:none;">
+          <thead>
+            <tr>
+              <th width="10%">Waktu Lapor</th>
+              <th width="12%">Pelapor & Kontak</th>
+              <th width="12%">Lokasi Lengkap</th>
+              <th width="10%">Kategori Laporan</th>
+              <th width="10%">Waktu Kejadian</th>
+              <th width="14%">Deskripsi Laporan</th>
+              <th width="6%" style="text-align: center;">Lampiran</th>
+              <th width="8%" style="text-align: center;">Koordinat</th>
+              <th width="10%">Status Penanganan</th>
+              <th width="8%" style="text-align: center;">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="isi-tabel"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ========================================================
+    // KONFIGURASI LOGIN & API SERVER
+    // ========================================================
+    const USERNAME_ADMIN = "admin";           
+    const PASSWORD_ADMIN = "desatulis2026";   
+    
+    // ⚠️ PASTIKAN URL API KAMU DIMASUKKAN DI BAWAH INI:
+    const API_URL = "https://script.google.com/macros/s/AKfycbyKfpvbWAKpus_5mU78uDktC2PoLL2ODsF0KZ-R3K40rfmW2r3QkUa20QhKKIPDW6PLNQ/exec"; 
+
+    // ========================================================
+    // SISTEM LOGIN (SESSION STORAGE)
+    // ========================================================
+    function cekSesiLogin() {
+      if (sessionStorage.getItem("isLoggedIn") === "true") {
+        document.getElementById("login-screen").style.display = "none";
+        document.getElementById("dashboard-screen").style.display = "block";
+        muatData(); 
+      } else {
+        document.getElementById("login-screen").style.display = "flex";
+        document.getElementById("dashboard-screen").style.display = "none";
+      }
+    }
+
+    function prosesLogin() {
+      let inputUser = document.getElementById("username").value;
+      let inputPass = document.getElementById("password").value;
+      
+      if (inputUser === USERNAME_ADMIN && inputPass === PASSWORD_ADMIN) {
+        sessionStorage.setItem("isLoggedIn", "true"); 
+        document.getElementById("login-error").style.display = "none";
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        cekSesiLogin(); 
+      } else {
+        document.getElementById("login-error").style.display = "block";
+      }
+    }
+
+    function prosesLogout() {
+      if (confirm("Apakah Anda yakin ingin keluar dari Dashboard?")) {
+        sessionStorage.removeItem("isLoggedIn"); 
+        document.getElementById("tabel-data").style.display = "none";
+        document.getElementById("summary-section").style.display = "none";
+        cekSesiLogin(); 
+      }
+    }
+    
+    document.getElementById("password").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        prosesLogin();
+      }
+    });
+
+    // ========================================================
+    // FUNGSI DASHBOARD (Ambil, Update, Hapus, Hitung Ringkasan)
+    // ========================================================
+    function perbaikiKoordinat(val) {
+      let str = String(val).replace(/[^0-9-]/g, '');
+      if (!str || str.length < 4) return val; 
+      if (str.startsWith('-')) return str.substring(0, 2) + "." + str.substring(2);
+      else return str.substring(0, 3) + "." + str.substring(3);
+    }
+
+    async function ubahStatus(elemenSelect, baris) {
+      const statusBaru = elemenSelect.value;
+      elemenSelect.disabled = true; 
+      
+      elemenSelect.className = "status-select";
+      if (statusBaru === "Belum Ditangani") elemenSelect.classList.add("status-belum");
+      else if (statusBaru === "Sedang Diproses") elemenSelect.classList.add("status-proses");
+      else if (statusBaru === "Sudah Ditangani") elemenSelect.classList.add("status-selesai");
+      else if (statusBaru === "Tidak Bisa Ditangani") elemenSelect.classList.add("status-batal");
+      
+      try {
+        const response = await fetch(`${API_URL}?action=update&row=${baris}&status=${encodeURIComponent(statusBaru)}`);
+        const result = await response.json();
+        
+        if (result.sukses) {
+           // Memuat ulang data secara otomatis agar kartu ringkasan ikut ter-update
+           muatData();
+        } else {
+           alert("❌ Gagal memperbarui status.");
+        }
+      } catch (err) {
+        alert("❌ Terjadi kesalahan jaringan saat menyimpan data.");
+      } finally {
+        elemenSelect.disabled = false;
+      }
+    }
+
+    async function hapusLaporan(tombol, baris) {
+      if (!confirm("⚠️ PERINGATAN!\n\nApakah Anda yakin ingin MENGHAPUS laporan ini secara PERMANEN?")) {
+        return; 
+      }
+
+      tombol.innerHTML = "⏳ Menghapus...";
+      tombol.disabled = true;
+
+      try {
+        const response = await fetch(`${API_URL}?action=delete&row=${baris}`);
+        const result = await response.json();
+        
+        if (result.sukses) muatData(); 
+        else {
+          alert("❌ Gagal menghapus laporan.");
+          tombol.innerHTML = "🗑️ Hapus";
+          tombol.disabled = false;
+        }
+      } catch (err) {
+        alert("❌ Terjadi kesalahan jaringan saat menghapus data.");
+        tombol.innerHTML = "🗑️ Hapus";
+        tombol.disabled = false;
+      }
+    }
+
+    async function muatData() {
+      document.getElementById('loading').style.display = 'block';
+      document.getElementById('tabel-data').style.display = 'none';
+      document.getElementById('summary-section').style.display = 'none';
+      const tbody = document.getElementById('isi-tabel');
+      
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        
+        document.getElementById('loading').style.display = 'none';
+        
+        if (data.length > 0 && data[0].error) {
+          document.getElementById('tabel-data').style.display = 'table';
+          tbody.innerHTML = `<tr><td colspan='10' style='color:#b91c1c; background:#fee2e2; text-align:center; padding: 20px;'><strong>Gagal Membaca Server:</strong><br>${data[0].error}</td></tr>`;
+          return;
+        }
+
+        // Tampilkan Bagian Tabel dan Kartu Ringkasan
+        document.getElementById('summary-section').style.display = 'grid';
+        document.getElementById('tabel-data').style.display = 'table';
+        
+        if (data.length === 0) {
+          document.getElementById('count-total').innerText = "0";
+          document.getElementById('count-belum').innerText = "0";
+          document.getElementById('count-proses').innerText = "0";
+          document.getElementById('count-selesai').innerText = "0";
+          tbody.innerHTML = "<tr><td colspan='10' style='text-align:center; color:#64748b; padding: 40px;'>Belum ada laporan pengaduan yang masuk.</td></tr>";
+          return;
+        }
+
+        // Variabel untuk menghitung ringkasan
+        let totalBelum = 0;
+        let totalProses = 0;
+        let totalSelesai = 0;
+        
+        let html = "";
+        
+        data.forEach(lap => {
+          // Logika Penghitungan Ringkasan
+          if (lap.status === "Belum Ditangani") totalBelum++;
+          else if (lap.status === "Sedang Diproses") totalProses++;
+          else if (lap.status === "Sudah Ditangani") totalSelesai++;
+
+          let selectedBelum = lap.status === "Belum Ditangani" ? "selected" : "";
+          let selectedProses = lap.status === "Sedang Diproses" ? "selected" : "";
+          let selectedSelesai = lap.status === "Sudah Ditangani" ? "selected" : "";
+          let selectedBatal = lap.status === "Tidak Bisa Ditangani" ? "selected" : "";
+          
+          let kelasWarnaStatus = "status-batal";
+          if (lap.status === "Belum Ditangani") kelasWarnaStatus = "status-belum";
+          if (lap.status === "Sedang Diproses") kelasWarnaStatus = "status-proses";
+          if (lap.status === "Sudah Ditangani") kelasWarnaStatus = "status-selesai";
+
+          let dropdownStatus = `
+            <div class="status-container">
+              <select class="status-select ${kelasWarnaStatus}" onchange="ubahStatus(this, ${lap.rowNumber})">
+                <option value="Belum Ditangani" ${selectedBelum}>🔴 Belum Ditangani</option>
+                <option value="Sedang Diproses" ${selectedProses}>🟡 Sedang Diproses</option>
+                <option value="Sudah Ditangani" ${selectedSelesai}>🟢 Sudah Ditangani</option>
+                <option value="Tidak Bisa Ditangani" ${selectedBatal}>⚫ Dibatalkan</option>
+              </select>
+            </div>
+          `;
+
+          let tombolHapus = `<button class="btn-aksi btn-hapus" onclick="hapusLaporan(this, ${lap.rowNumber})">Hapus</button>`;
+
+          let linkPeta = `<span class="teks-sekunder" style="text-align:center;">Tidak ada data</span>`;
+          if (lap.lat !== "" && lap.lng !== "") {
+             let latFinal = perbaikiKoordinat(lap.lat);
+             let lngFinal = perbaikiKoordinat(lap.lng);
+             linkPeta = `<a href="https://maps.google.com/?q=${latFinal},${lngFinal}" target="_blank" class="btn-aksi btn-peta">Lihat Peta</a><span class="teks-sekunder" style="text-align:center; font-family:monospace; font-size:10px;">${latFinal},<br>${lngFinal}</span>`;
+          }
+
+          let linkBukti = lap.buktiDrive !== "" ? `<a href="${lap.buktiDrive}" target="_blank" class="btn-aksi btn-bukti">Buka Foto</a>` : `<span class="teks-sekunder" style="text-align:center;">Tidak ada</span>`;
+          let badgeAnonim = lap.isAnonim ? `<span class="anonim-badge">Anonim</span>` : ``;
+
+          html += `
+            <tr>
+              <td><span class="teks-utama">${lap.waktuLapor}</span></td>
+              <td>
+                <span class="teks-utama">${lap.nama} ${badgeAnonim}</span>
+                <span class="teks-sekunder"><strong>NIK:</strong> ${lap.nik}</span>
+                <span class="teks-sekunder"><strong>HP:</strong> ${lap.hp}</span>
+                <span class="teks-sekunder"><strong>Email:</strong> ${lap.email}</span>
+              </td>
+              <td>
+                <span class="teks-utama">Dukuh ${lap.dukuh}</span>
+                <span class="teks-sekunder">RT ${lap.rt} / RW ${lap.rw}</span>
+                <span class="teks-sekunder">${lap.statusWarga}</span>
+              </td>
+              <td style="vertical-align: middle;">
+                <span class="kategori-badge">${lap.kategori}</span>
+              </td>
+              <td>
+                <span class="teks-sekunder"><strong>Tgl:</strong> ${lap.tglKejadian}</span>
+                <span class="teks-sekunder"><strong>Pukul:</strong> ${lap.waktuKejadian}</span>
+              </td>
+              <td>
+                <div style="margin-bottom: 8px;">
+                  <strong style="font-size:12px; color:#475569;">Detail Masalah:</strong><br>
+                  <span style="font-size:13px; line-height:1.4;">${lap.masalah}</span>
+                </div>
+                <div style="border-top: 1px dashed #e2e8f0; padding-top: 8px;">
+                  <strong style="font-size:12px; color:#475569;">Harapan Tindak Lanjut:</strong><br>
+                  <span style="font-size:13px; line-height:1.4; color:#0369a1;">${lap.harapan}</span>
+                </div>
+              </td>
+              <td style="vertical-align: middle;">${linkBukti}</td>
+              <td style="vertical-align: middle;">${linkPeta}</td>
+              <td style="vertical-align: middle;">${dropdownStatus}</td>
+              <td style="vertical-align: middle; text-align: center;">${tombolHapus}</td>
+            </tr>
+          `;
+        });
+        
+        // Memasukkan Teks HTML ke dalam Tabel
+        tbody.innerHTML = html;
+
+        // Memperbarui Nilai pada Kartu Ringkasan
+        document.getElementById('count-total').innerText = data.length;
+        document.getElementById('count-belum').innerText = totalBelum;
+        document.getElementById('count-proses').innerText = totalProses;
+        document.getElementById('count-selesai').innerText = totalSelesai;
+        
+      } catch (err) {
+        document.getElementById('loading').innerHTML = `
+          <div style="color:#b91c1c; margin-bottom: 10px;">❌ Gagal Terhubung ke Server</div>
+          <span style="font-size: 13px; font-weight: normal;">Pastikan URL API sudah benar dan koneksi internet stabil.</span>
+        `;
+      }
+    }
+
+    // Eksekusi Pengecekan Awal
+    cekSesiLogin();
+  </script>
+</body>
+</html>

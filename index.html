@@ -15,16 +15,16 @@
     <!-- TAMBAHKAN: Plugin Measure Tool CSS -->
     <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
     <!-- Custom CSS Anda -->
-    <link rel="stylesheet" href="style.css?v=15">
+    <link rel="stylesheet" href="style.css?v=16">
 </head>
 <!-- HEADER WEBGIS -->
     <header id="header-webgis">
     <div class="header-logos">
     <!-- Tambahkan id="logo-kampus" -->
-    <img src="UNDIPOfficial.png.webp" alt="Logo Kampus" id="logo-kampus" class="logo-item" onerror="this.src='https://via.placeholder.com/50x50?text=Logo1'">
-    
-    <!-- Tambahkan id="logo-daerah" -->
-    <img src="Lambang_Kabupaten_Batang.png" alt="Logo Desa" id="logo-daerah" class="logo-item" onerror="this.src='https://via.placeholder.com/50x50?text=Logo2'">
+    <img src="UNDIPOfficial.png.webp" alt="Logo Kampus" id="logo-kampus" class="logo-item">
+        <!-- Tambahkan id="logo-daerah" -->
+    <img src="LOGOKKN.png" alt="Logo KKN" id="logo-KKN" class="logo-item">
+    <img src="Lambang_Kabupaten_Batang.png" alt="Logo Desa" id="logo-daerah" class="logo-item">
     </div>
         <div class="header-title">
             <h1>WebGIS Desa Tulis</h1>
@@ -44,7 +44,9 @@
     </div>
 
 <div id="filter-container">
-        <button id="filter-toggle-btn">⚙️ Filter Kategori</button>
+        <button id="filter-toggle-btn">
+    <span class="btn-icon">⚙️</span><span class="btn-text">Filter Kategori</span>
+        </button>
         <div id="filter-panel" class="hidden">
             
             <!-- Tombol Tampil Semua & Sembunyi Semua -->
@@ -75,13 +77,17 @@
     </div>
     </div>
     <!-- Letakkan di dalam tag <body> -->
-<button id="btn-bahasa" onclick="toggleBahasa()" style="position: absolute; top: 115px; right: 15px; z-index: 1000; padding: 8px 12px; background: #34495e; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">
-    🌐 Ganti Bahasa
+<button id="btn-bahasa" onclick="toggleBahasa()" style="/* HAPUS SEMUA STYLE DI DALAM SINI */">
+    <span class="btn-icon">🌐</span><span class="btn-text">Ganti Bahasa</span>
 </button>
-<!-- Tombol Toggle Label -->
-<button id="btn-toggle-label" onclick="toggleLabel()" style="position: absolute; top: 165px; right: 15px; z-index: 1000; padding: 8px 12px; background: #8e44ad; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; width: 140px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); display: flex; justify-content: center; align-items: center; gap: 8px;">
-    🏷️ Tampil Label
+
+<button id="btn-toggle-label" onclick="toggleLabel()" style="/* HAPUS SEMUA STYLE DI DALAM SINI */">
+    <span class="btn-icon">🏷️</span><span class="btn-text">Tampil Label</span>
 </button>
+
+<a href="lacak.html" id="btn-lacak-laporan">
+    <span class="btn-icon">🔍</span><span class="btn-text">Cek Laporan</span>
+</a>
     <div id="route-info">Jarak Tempuh: <span id="distance-text">0 meter</span></div>
 
     <div id="earth-status-bar">
@@ -104,7 +110,7 @@
     <!-- TAMBAHKAN: Plugin Measure Tool JS -->
     <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
     <!-- PANGGIL FILE LOKAL -->
-    <script src="data.js?v=15"></script>
-    <script src="script.js?v=15"></script>
+    <script src="data.js?v=16"></script>
+    <script src="script.js?v=16"></script>
 </body>
 </html>

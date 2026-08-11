@@ -7,8 +7,8 @@ const terjemahan = {
     id: {
         cariLokasi: "Cari lokasi...",
         btnLegenda: "📜 Legenda",
-        laporCepat: "📢 Lapor Cepat",
-        laporBatal: "Batalkan Lapor ✖",
+        laporCepat: "<span class='btn-icon'>📢</span><span class='btn-text'>Lapor Cepat</span>",
+        laporBatal: "<span class='btn-icon'>✖</span><span class='btn-text'>Batalkan Lapor</span>",
         alertLaporAktif: "Mode Lapor Aktif!\nSilakan klik tepat di lokasi masalah pada peta.",
         alertLaporKonfirm: "Anda akan melaporkan lokasi pada:\nLintang: {lat}\nBujur: {lng}\n\nLanjutkan mengisi formulir laporan?",
         alertTungguGPS: "Mohon tunggu sebentar, sistem sedang mencari titik lokasi GPS Anda...",
@@ -36,8 +36,8 @@ const terjemahan = {
     en: {
         cariLokasi: "Search location...",
         btnLegenda: "📜 Legend",
-        laporCepat: "📢 Report Issue",
-        laporBatal: "Cancel Report ✖",
+        laporCepat: "<span class='btn-icon'>📢</span><span class='btn-text'>Report Issue</span>",
+        laporBatal: "<span class='btn-icon'>✖</span><span class='btn-text'>Cancel Report</span>",
         alertLaporAktif: "Reporting Mode Active!\nPlease click exactly on the issue location on the map.",
         alertLaporKonfirm: "You are about to report a location at:\nLatitude: {lat}\nLongitude: {lng}\n\nContinue to the reporting form?",
         alertTungguGPS: "Please wait, the system is finding your GPS location...",
@@ -643,7 +643,8 @@ window.renderLegendaHTML = function() {
     
     content += '</div>';
 
-    let btn = `<button type="button" id="legend-toggle-btn" onclick="window.toggleLegenda()">${t.btnLegenda}</button>`;
+    // Membuang teks dan menyisakan emoji agar tombol menjadi persegi sempurna
+let btn = `<button type="button" id="legend-toggle-btn" onclick="window.toggleLegenda()" title="${t.btnLegenda.replace('📜 ', '')}">📜</button>`;
     
     const div = document.querySelector('.legend-container');
     if(div) { div.innerHTML = btn + content; }
@@ -867,17 +868,24 @@ window.prosesKirimLaporan = function(kategori, lat, lng) {
         let noPolisi = "62895392011414"; 
         let pesan = encodeURIComponent(`*LAPORAN DARURAT KEAMANAN (PANIC BUTTON)*\n\nMohon bantuan segera, ada indikasi gangguan keamanan/kejahatan di titik ini:\n${templateGmaps}\n\nPengirim: Warga Desa Tulis`);
         urlTujuan = `https://wa.me/${noPolisi}?text=${pesan}`;
+        window.open(urlTujuan, '_blank');
         
     } else if (kategori === 'kesehatan') {
         let noBidan = "6289876543210"; 
         let pesan = encodeURIComponent(`*LAPORAN DARURAT MEDIS*\n\nMohon bantuan medis segera di titik lokasi ini:\n${templateGmaps}\n\nPengirim: Warga Desa Tulis`);
         urlTujuan = `https://wa.me/${noBidan}?text=${pesan}`;
+        window.open(urlTujuan, '_blank');
         
     } else if (kategori === 'infrastruktur') {
-        urlTujuan = `https://docs.google.com/forms/d/e/1FAIpQLScA-jsmUPdBB_sa-eftZU5gCZWxMR3q5FDGNQOsRLA1MT_kuw/viewform?usp=pp_url&entry.1856517992=${lat}&entry.1981551024=${lng}`;
+        // ==========================================
+        // KEMBALI KE METODE TAB BARU (MENGATASI BLOKIR UPLOAD FOTO GOOGLE)
+        // ==========================================
+        // Hapus parameter &embedded=true karena kita akan membukanya di tab baru secara utuh
+        let linkFormulirDesa = `https://docs.google.com/forms/d/e/1FAIpQLScA-jsmUPdBB_sa-eftZU5gCZWxMR3q5FDGNQOsRLA1MT_kuw/viewform?entry.1856517992=${lat}&entry.1981551024=${lng}`;
+        
+        // Buka form di tab baru agar warga bisa login Gmail & upload foto dengan lancar
+        window.open(linkFormulirDesa, '_blank');
     }
-
-    window.open(urlTujuan, '_blank');
 };
 
 // LOGIKA UTAMA: TOMBOL PENGUBAH BAHASA (UI/UX)
@@ -924,11 +932,28 @@ window.toggleLabel = function() {
     
     if (isLabelTampil) {
         mapEl.classList.remove('hide-labels');
-        btnLabel.innerHTML = bahasaSaatIni === 'id' ? '🏷️ Sembunyi Label' : '🏷️ Hide Labels';
+        // PERUBAHAN DI SINI
+        btnLabel.innerHTML = bahasaSaatIni === 'id' ? "<span class='btn-icon'>🏷️</span><span class='btn-text'>Sembunyi Label</span>" : "<span class='btn-icon'>🏷️</span><span class='btn-text'>Hide Labels</span>";
         btnLabel.style.background = '#e74c3c'; 
     } else {
         mapEl.classList.add('hide-labels');
-        btnLabel.innerHTML = bahasaSaatIni === 'id' ? '🏷️ Tampil Label' : '🏷️ Show Labels';
+        // PERUBAHAN DI SINI
+        btnLabel.innerHTML = bahasaSaatIni === 'id' ? "<span class='btn-icon'>🏷️</span><span class='btn-text'>Tampil Label</span>" : "<span class='btn-icon'>🏷️</span><span class='btn-text'>Show Labels</span>";
         btnLabel.style.background = '#8e44ad'; 
     }
 };
+
+// ==========================================
+// INTEGRASI WEBSITE DESA (AUTO-TRIGGER MODE LAPOR)
+// ==========================================
+// Membaca apakah pengunjung datang melalui link khusus dari web desa
+if (getUrlParameter('mode') === 'lapor') {
+    // Beri jeda sedikit agar peta selesai memuat (loading)
+    setTimeout(function() {
+        const btnLapor = document.querySelector('.lapor-warga-control');
+        // Jika mode lapor belum aktif, sistem akan mengkliknya secara otomatis
+        if (btnLapor && !isReportingMode) {
+            btnLapor.click();
+        }
+    }, 1000);
+}
