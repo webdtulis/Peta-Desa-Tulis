@@ -75,8 +75,8 @@ body, html {
     font-weight: bold; 
     margin-top: 5px; 
     box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
-    border: none; /* Tambahan untuk mengatasi default garis tepi button */
-    cursor: pointer; /* Tambahan agar kursor menjadi telunjuk */
+    border: none; 
+    cursor: pointer; 
     font-family: inherit;
 }
 .wa-btn:hover { 
@@ -87,8 +87,8 @@ body, html {
    Styling Label Tempat & Fitur Hide Google Maps
    ========================================== */
 .label-tempat {
-    background-color: rgba(0, 0, 0, 0.4) !important; /* Tambahkan background transparan tipis */
-    backdrop-filter: blur(2px);                       /* Efek buram tipis agar mudah dibaca */
+    background-color: rgba(0, 0, 0, 0.4) !important; 
+    backdrop-filter: blur(2px);                       
     padding: 2px 6px !important;
     border-radius: 4px !important;
     border: none !important;
@@ -99,7 +99,6 @@ body, html {
     transition: opacity 0.3s ease, visibility 0.3s ease; 
 }
 
-/* Hilangkan segitiga tooltip */
 .leaflet-tooltip-top::before,
 .leaflet-tooltip-bottom::before,
 .leaflet-tooltip-left::before,
@@ -107,11 +106,6 @@ body, html {
     display: none !important;
 }
 
-/* ==========================================
-   Logika Sembunyi Label Tempat berdasarkan Zoom
-   ========================================== */
-
-/* 1. Zoom Sedang (~600m): Sembunyikan Pendidikan, UMKM, Keamanan */
 #map.zoom-sedang .label-fasilitas-pendidikan,
 #map.zoom-sedang .label-Pelaku-Usaha,
 #map.zoom-sedang .label-keamanan-lingkungan {
@@ -119,7 +113,6 @@ body, html {
     visibility: hidden !important;
 }
 
-/* 2. Zoom Jauh (~1.22km): Sembunyikan semuanya KECUALI Pusat Pemerintahan */
 #map.zoom-jauh .label-fasilitas-pendidikan,
 #map.zoom-jauh .label-Pelaku-Usaha,
 #map.zoom-jauh .label-keamanan-lingkungan,
@@ -129,7 +122,6 @@ body, html {
     visibility: hidden !important;
 }
 
-/* Sembunyikan panel teks instruksi rute (turn-by-turn) bawaan plugin */
 .leaflet-routing-container {
     display: none !important;
 }
@@ -143,12 +135,11 @@ body, html {
     left: 60px; 
     z-index: 1000; 
     display: flex; 
-    flex-direction: column; /* Agar list rekomendasi turun ke bawah kotak */
+    flex-direction: column; 
     border-radius: 4px; 
-    width: 260px; /* Menyamakan lebar kotak pencarian dengan tombol */
+    width: 260px; 
 }
 
-/* Kotak input dan tombol (agar menyatu dan melengkung rapi) */
 .search-box-wrapper {
     display: flex;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
@@ -161,7 +152,7 @@ body, html {
 #search-input { 
     border: none; 
     padding: 10px; 
-    flex-grow: 1; /* Input memakan sisa lebar yang ada */
+    flex-grow: 1; 
     font-size: 13px; 
     outline: none; 
 }
@@ -176,7 +167,6 @@ body, html {
 }
 #search-btn:hover { background: #2980b9; }
 
-/* Tampilan Daftar Rekomendasi (Auto-complete) */
 #search-suggestions {
     list-style: none;
     margin: 2px 0 0 0;
@@ -184,7 +174,7 @@ body, html {
     background: white;
     border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    max-height: 200px; /* Tinggi maksimal sebelum scroll */
+    max-height: 200px; 
     overflow-y: auto;
     width: 100%;
 }
@@ -199,7 +189,7 @@ body, html {
     color: #2c3e50;
     cursor: pointer;
     border-bottom: 1px solid #ecf0f1;
-    text-transform: capitalize; /* Otomatis membuat awalan kata menjadi huruf besar */
+    text-transform: capitalize; 
 }
 
 #search-suggestions li:last-child {
@@ -250,13 +240,10 @@ body, html {
     border: 1px solid #3498db;
     min-width: 170px;
     display: none; 
-    
-    /* KUNCI UTAMA: Membatasi tinggi panel dan memunculkan scroll */
-    max-height: 185px; /* Angka ini disetel untuk menampilkan ~4 tombol. Bisa Anda naik/turunkan jika kurang pas */
+    max-height: 185px; 
     overflow-y: auto;  
 }
 
-/* KODE BARU: Mempercantik desain Scrollbar khusus untuk panel filter */
 #filter-panel::-webkit-scrollbar {
     width: 6px;
 }
@@ -296,7 +283,6 @@ body, html {
     margin-bottom: 0;
 }
 
-/* Warna tombol filter aktif */
 .filter-btn[data-category="Pusat Pemerintahan"].active { background-color: #585858; }
 .filter-btn[data-category="Fasilitas Ibadah"].active { background-color: #cccc34; }
 .filter-btn[data-category="Fasilitas Kesehatan"].active { background-color: #e74c3c; }
@@ -305,15 +291,11 @@ body, html {
 .filter-btn[data-category="Keamanan Lingkungan"].active { background-color: #34495e; }
 .filter-btn[data-category="Jalan Desa"].active { background-color: #d4c6c6; }
 .filter-btn[data-category="Jalan Pantura"].active { background-color: #2c12f3; }
-.filter-btn[data-category="Tulis Sari"].active { background-color: rgb(0, 83, 134); } /* Kuning/Emas */
-.filter-btn[data-category="Gondangan"].active { background-color: #825b4a; } /* Cokelat */
-.filter-btn[data-category="Pesawahan"].active { background-color: #72659d; } /* Ungu */
-.filter-btn[data-category="Tulis Barat"].active { background-color: #32a852; } /* Hijau */
+.filter-btn[data-category="Tulis Sari"].active { background-color: rgb(0, 83, 134); } 
+.filter-btn[data-category="Gondangan"].active { background-color: #825b4a; } 
+.filter-btn[data-category="Pesawahan"].active { background-color: #72659d; } 
+.filter-btn[data-category="Tulis Barat"].active { background-color: #32a852; } 
 
-/* Warna tombol filter aktif (bawaan) */
-.filter-btn[data-category="Pusat Pemerintahan"].active { background-color: #585858; }
-
-/* Gaya tombol saat filter dimatikan */
 .filter-btn:not(.active) {
     background-color: #7f8c8d !important;
     color: #bdc3c7;
@@ -345,10 +327,10 @@ body, html {
     opacity: 0.8; 
 }
 .btn-semua { 
-    background-color: #27ae60; /* Warna Hijau */
+    background-color: #27ae60; 
 } 
 .btn-kosong { 
-    background-color: #c0392b; /* Warna Merah */
+    background-color: #c0392b; 
 }
 
 /* ==========================================
@@ -397,34 +379,27 @@ body, html {
    Styling Legenda Dinamis (Sistem Pop-up Universal)
    ========================================== */
 .leaflet-bottom .leaflet-control.legend-container {
-    margin-bottom: 35px; 
+    margin-bottom: 5px; 
+    z-index: 9999 !important; 
 }
 
 .legend-container {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Paksa tombol sejajar ke kanan */
+    align-items: flex-end; 
 }
    
-/* KONTEN LEGENDA (Disembunyikan secara default) */
-.leaflet-bottom .leaflet-control.legend-container {
-    margin-bottom: 35px; 
-    z-index: 9999 !important; /* Memaksa wadah legenda ke lapisan tertinggi */
-}
-
-/* KONTEN LEGENDA (Saat terbuka) */
 .legend-content {
-    background: #1e293b !important; /* Warna SOLID pekat gelap agar tombol belakang tidak membayang */
+    background: #1e293b !important; 
     padding: 10px 15px;
     color: white;
     border-radius: 8px;
     border: 1px solid #3498db;
     font-size: 12px;
     line-height: 1.5;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6); /* Bayangan lebih dramatis memisahkan dari latar */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
     
-    /* Logic Animasi Pop-up & Anti-Tabrakan */
     position: absolute; 
     bottom: 0; 
     right: 0; 
@@ -437,11 +412,10 @@ body, html {
     opacity: 0; 
     visibility: hidden; 
     pointer-events: none; 
-    z-index: 9999 !important; /* TAMPIL PALING DEPAN */
+    z-index: 9999 !important; 
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.2s ease; 
 }
 
-/* Mempercantik Scrollbar di dalam Kotak Legenda */
 .legend-content::-webkit-scrollbar { width: 6px; }
 .legend-content::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); border-radius: 8px; margin: 4px 0;}
 .legend-content::-webkit-scrollbar-thumb { background: #3498db; border-radius: 8px; }
@@ -454,16 +428,16 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky; /* Agar judul Legenda tetap di atas saat di-scroll */
+    position: sticky; 
     top: 0;
-    background: #1e293b !important; /* Sama dengan warna solid di atas */
+    background: #1e293b !important; 
     z-index: 2;
 }
 
 .legend-content i {
     width: 12px; height: 12px; float: left; margin-right: 8px; margin-top: 3px; border-radius: 50%; border: 1px solid #fff;
 }
-/* KONDISI SAAT TOMBOL DIKLIK (MUNCUL) */
+
 .legend-container.show .legend-content { 
     transform: translateY(0) scale(1); 
     opacity: 1; 
@@ -471,7 +445,6 @@ body, html {
     pointer-events: auto; 
 }
 
-/* TOMBOL LEGENDA (PERSEGI SAMA SISI KUNCI MATI) */
 #legend-toggle-btn {
     display: flex !important;
     justify-content: center !important;
@@ -480,7 +453,6 @@ body, html {
     color: white !important;
     border: 2px solid #3498db !important;
     
-    /* KUNCI UTAMA: Memaksa bentuk kotak sempurna anti lonjong */
     width: 48px !important;  
     height: 48px !important; 
     min-width: 48px !important;
@@ -492,7 +464,7 @@ body, html {
     
     border-radius: 8px !important;
     font-size: 24px !important; 
-    line-height: 1 !important; /* Hilangkan spasi teks berlebih */
+    line-height: 1 !important; 
     cursor: pointer !important;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4) !important;
     transition: transform 0.2s ease, background 0.2s ease !important;
@@ -503,14 +475,12 @@ body, html {
     background: rgba(52, 73, 94, 1) !important;
 }
 
-/* Sembunyikan tombol persegi saat kotak legenda terbuka */
 .legend-container.show #legend-toggle-btn { 
     opacity: 0; 
     visibility: hidden; 
     pointer-events: none; 
 }
 
-/* Tombol X Penutup di dalam legenda */
 .close-legend-btn {
     display: block !important; 
     background: none;
@@ -532,7 +502,6 @@ body, html {
     padding: 4px 10px !important;
     border-top-left-radius: 8px;
     box-shadow: -2px -2px 5px rgba(0,0,0,0.2);
-    /* Angkat ke atas status bar di layar laptop/PC */
     margin-bottom: 28px !important; 
 }
 
@@ -545,12 +514,10 @@ body, html {
    Media Query untuk Responsivitas Mobile (HP)
    ========================================== */
 @media (max-width: 768px) {
-    
-    /* 1. PERBAIKAN FITUR PENCARIAN MOBILE */
     #search-container { 
         top: 15px !important; 
-        left: 55px !important; /* Geser ke kanan sedikit agar terbebas dari tombol Zoom */
-        width: 175px !important; /* Kunci batas maksimal lebarnya agar tidak menabrak tombol kanan */
+        left: 55px !important; 
+        width: 175px !important; 
     }
     .search-box-wrapper {
         display: flex !important;
@@ -560,93 +527,45 @@ body, html {
         padding: 8px !important; 
         font-size: 11px !important; 
         width: 100% !important; 
-        min-width: 0 !important; /* Kunci penting: cegah kotak input melebar tak terkendali */
+        min-width: 0 !important; 
     }
     #search-btn { 
         padding: 8px 12px !important; 
         font-size: 12px !important; 
-        flex-shrink: 0 !important; /* Kunci penting: cegah tombol kaca pembesar gepeng atau hilang */
+        flex-shrink: 0 !important; 
     }
     #search-suggestions {
-        width: 100% !important; /* Samakan lebar rekomendasi dengan kotak pencarian */
+        width: 100% !important; 
     }
 
-
-    /* 2. Pengaturan Khusus di Layar HP (Mobile) */
-@media (max-width: 768px) {
     .leaflet-control-attribution {
         position: fixed !important; 
-        z-index: 10000 !important; /* Pastikan selalu di lapisan teratas */
-        
-        /* =======================================================
-           ATUR POSISI DI SINI (Ubah angka px atau biarkan auto) 
-           Contoh di bawah ini untuk posisi KIRI BAWAH
-           ======================================================= */
-        bottom: 25px !important; /* Jarak dari bawah */
-        left: 10px !important;   /* Jarak dari kiri */
-        top: auto !important;    /* Matikan tarikan dari atas */
-        right: auto !important;  /* Matikan tarikan dari kanan */
-        
-        /* Pengaturan Tampilan Teks & Background */
+        z-index: 10000 !important; 
+        bottom: 25px !important; 
+        left: 10px !important;   
+        top: auto !important;    
+        right: auto !important;  
         writing-mode: horizontal-tb !important; 
         transform: none !important;
         text-align: left !important;
         padding: 5px 10px !important;
-        border-radius: 6px !important; /* Melengkungkan semua sudut merata */
+        border-radius: 6px !important; 
         font-size: 8.5px !important;
         white-space: nowrap !important;
         max-width: 70vw !important; 
     }
     
-    /* PERBAIKAN LEGENDA: Mengangkat seluruh wadah tombol di kanan bawah */
     .leaflet-bottom.leaflet-right {
-        bottom: 50px !important; 
-    }
-}
-
-    /* 3. MENGANGKAT LEGENDA */
-    /* Karena watermark sekarang di kanan bawah, kita harus angkat tombol Legenda sedikit agar tidak bertumpukan */
-    .leaflet-bottom.leaflet-right {
-        bottom: 45px !important; 
+        bottom: 30px !important; 
     }
 
-    /* 4. Posisi Legenda Khusus Mobile (Agar tidak menabrak watermark) */
-    .leaflet-bottom .leaflet-control.legend-container { margin-bottom: 85px; }
+    .leaflet-bottom .leaflet-control.legend-container { margin-bottom: 10px; }
 
-    /* 5. Posisi Info Jarak Tempuh di tengah bawah */
     #route-info { bottom: 30px; font-size: 11px; padding: 6px 15px; width: max-content; border-width: 1px; }
     #route-info b { font-size: 12px; }
 
-    /* 6. Status bar diringkas teksnya */
     #earth-status-bar { font-size: 9px; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 3px 5px; }
 }
-
-    /* 7. Penyesuaian Watermark Tim KKN di HP */
-    .leaflet-control-attribution {
-        position: absolute !important; 
-        left: auto !important;      
-        right: 0 !important;        /* Posisikan nempel ke kanan */
-        bottom: 15px !important;    /* Angkat ke atas garis merah status bar */
-        
-        writing-mode: horizontal-tb !important; /* Kembalikan arah teks ke horizontal */
-        transform: none !important;             
-        text-align: right !important;
-        letter-spacing: normal !important;
-        
-        padding: 3px 6px !important;
-        
-        /* Lengkungkan sudut atas kiri saja agar menyatu dengan layar kanan */
-        border-top-left-radius: 6px !important;
-        border-bottom-left-radius: 0 !important;
-        border-top-right-radius: 0 !important; 
-        border-bottom-right-radius: 0 !important;
-        
-        font-size: 8.5px !important;
-        max-width: 70vw !important;  
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-    }
 
 /* ==========================================
    FITUR LAPOR WARGA (CROWDSOURCING)
@@ -671,7 +590,6 @@ body, html {
     background-color: #c0392b;
 }
 
-/* Tampilan saat tombol Lapor aktif ditekan */
 .lapor-warga-control.active {
     background-color: #f1c40f;
     color: #2c3e50;
@@ -685,19 +603,16 @@ body, html {
     100% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0); }
 }
 
-/* Mengubah kursor jadi bidikan (crosshair) saat warga mau klik titik di peta */
 .leaflet-container.reporting-mode {
     cursor: crosshair !important;
 }
 
-/* Perbaikan posisi panel kontrol measure bawaan */
 .leaflet-control-measure {
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3) !important;
     border: none !important;
 }
 
-/* Menggeser wadah tombol Lapor agar tidak tertumpuk Filter Kategori */
 .leaflet-top.leaflet-right {
     margin-top: 165px; 
     margin-right: 5px;
@@ -706,9 +621,6 @@ body, html {
 /* ==========================================
    STYLING TOMBOL & GALERI FOTO (SLIDER)
    ========================================== */
-
-/* Tombol Klik Foto */
-/* Update Tombol Klik Foto (Menjadi Ikon Kamera Bulat) */
 .btn-lihat-foto {
     display: flex;
     justify-content: center;
@@ -718,21 +630,19 @@ body, html {
     border: none;
     width: 30px;
     height: 30px;
-    border-radius: 50%; /* Membuat tombol menjadi bulat sempurna */
+    border-radius: 50%; 
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
-    flex-shrink: 0; /* Mencegah tombol gepeng jika judul panjang */
-    margin-left: 8px; /* Memberi jarak dengan teks judul */
+    flex-shrink: 0; 
+    margin-left: 8px; 
 }
 
-/* Efek saat kursor berada di atas tombol kamera */
 .btn-lihat-foto:hover {
     background-color: #d68910;
-    transform: scale(1.15); /* Tombol membesar sedikit untuk efek interaktif */
+    transform: scale(1.15); 
 }
 
-/* Latar Belakang Modal Melayang */
 .galeri-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -745,7 +655,6 @@ body, html {
     animation: fadeIn 0.3s ease;
 }
 
-/* Kotak Kontainer Utama Galeri */
 .galeri-modal {
     background: #fff;
     padding: 15px;
@@ -765,7 +674,6 @@ body, html {
     padding-bottom: 8px;
 }
 
-/* Tombol Tutup X */
 .close-galeri {
     position: absolute;
     top: -12px; right: -12px;
@@ -784,17 +692,12 @@ body, html {
 /* ==========================================
    WADAH FOTO & ANIMASI LOADING
    ========================================== */
-
-/* Kontainer membungkus masing-masing foto */
 .foto-container {
     position: relative;
     flex: 0 0 100%; 
     scroll-snap-align: center;
-    
-    /* MENGATUR RASIO KHUSUS 9:16 (Format Story/Layar HP Vertikal) */
     aspect-ratio: 16 / 9; 
-    max-height: 70vh; /* Sedikit dinaikkan agar pas dengan proporsi 9:16 di layar HP */
-    
+    max-height: 70vh; 
     background-color: #f8f9fa; 
     border-radius: 8px;
     display: flex;
@@ -804,7 +707,6 @@ body, html {
     border: 1px solid #ddd;
 }
 
-/* (Animasi Spinner biarkan tetap sama) */
 .loading-spinner {
     width: 40px;
     height: 40px;
@@ -821,14 +723,10 @@ body, html {
     100% { transform: rotate(360deg); }
 }
 
-/* Desain Gambar */
 .foto-container img {
     width: 100%;
     height: 100%;
-    
-    /* KUNCI: Gunakan 'cover' agar foto otomatis mengisi penuh bingkai 3:4 */
     object-fit: cover; 
-    
     position: absolute;
     top: 0; left: 0;
     z-index: 2; 
@@ -836,7 +734,6 @@ body, html {
     transition: opacity 0.6s ease-in-out; 
 }
 
-/* Gambar muncul setelah memuat sepenuhnya */
 .foto-container img.loaded {
     opacity: 1;
 }
@@ -867,7 +764,7 @@ body, html {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5); /* Setengah transparan */
+    background: rgba(0, 0, 0, 0.5); 
     color: white;
     border: none;
     width: 35px;
@@ -884,106 +781,31 @@ body, html {
 }
 
 .nav-btn:hover {
-    background: rgba(0, 0, 0, 0.9); /* Gelap saat di-hover */
+    background: rgba(0, 0, 0, 0.9); 
 }
 
-/* Jarak panah dari tepi gambar */
 .prev-btn { left: 5px; }
 .next-btn { right: 5px; }
 
-/* ==========================================
-   WADAH UTAMA SLIDER (AGAR FOTO MENYAMPING)
-   ========================================== */
 .galeri-slider {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     width: 100%;
-    
-    /* Sembunyikan scrollbar agar terlihat seperti aplikasi native */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
 }
 
 .galeri-slider::-webkit-scrollbar { 
-    display: none; /* Chrome, Safari, Opera */
-}
-
-
-/* ==========================================
-   STYLING WATERMARK KKN
-   ========================================== */
-/* 1. Pengaturan Default di Layar Laptop/PC (Tampilan Website Normal) */
-.leaflet-control-attribution {
-    position: absolute !important;
-    bottom: 26px !important; /* Mengambang tepat di atas Status Bar */
-    right: 0 !important;     /* Tetap di Kanan */
-    left: auto !important;
-    z-index: 9999 !important;
-    background-color: rgba(255, 255, 255, 0.85) !important;
-    padding: 3px 8px !important;
-    border-top-left-radius: 6px !important;
-    border-bottom-left-radius: 0 !important;
-    border-top-right-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-    font-weight: 600 !important;
-    margin: 0 !important;
-    
-    /* Pastikan Teks Horizontal Normal di PC */
-    writing-mode: horizontal-tb !important;
-    transform: none !important;
-    text-align: left !important;
-    font-size: 11px !important;
-}
-
-.leaflet-control-attribution a {
-    color: #3498db !important;
-    text-decoration: none;
-}
-
-/* Beri jarak Legenda di Desktop agar tidak tertabrak Watermark Horizontal */
-.leaflet-bottom .leaflet-control.legend-container {
-    margin-bottom: 50px !important;
-}
-
-
-/* 2. Pengaturan Khusus di Layar HP (Mobile) */
-@media (max-width: 768px) {
-    .leaflet-control-attribution {
-        position: fixed !important; 
-        left: auto !important;       /* Lepaskan dari kiri */
-        right: 10px !important;      /* Tempelkan ke kanan dengan jarak 10px */
-        bottom: 25px !important;     /* Simpan di bawah legenda, di atas bar hitam koordinat */
-        
-        /* Ubah menjadi horizontal */
-        writing-mode: horizontal-tb !important; 
-        transform: none !important;
-        text-align: right !important;
-        
-        padding: 5px 10px !important;
-        
-        /* Sudut background dibulatkan merata */
-        border-radius: 8px !important; 
-        
-        font-size: 8.5px !important;
-        white-space: nowrap !important;
-        max-width: 70vw !important; /* Agar teks tidak melebar melewati batas layar */
-    }
-    
-    /* PERBAIKAN LEGENDA: Mengangkat seluruh wadah tombol di kanan bawah */
-    .leaflet-bottom.leaflet-right {
-        bottom: 50px !important; /* Memberikan ruang di bawah legenda untuk teks watermark KKN */
-    }
+    display: none; 
 }
 
 /* =========================================================
    PERBAIKAN PRESISI TOMBOL KANAN ATAS (SISTEM KOTAK MELEBAR)
    ========================================================= */
-
-/* 1. Tampilan Awal (Hanya Kotak Logo) */
 #filter-toggle-btn, .lapor-warga-control, #btn-bahasa, #btn-toggle-label, #btn-lacak-laporan {
-    width: 44px !important; /* Mengecil menjadi kotak sama sisi */
+    width: 44px !important; 
     height: 44px !important;
     display: flex !important;
     justify-content: flex-start !important;
@@ -991,7 +813,7 @@ body, html {
     font-size: 13px !important;
     font-weight: bold !important;
     border-radius: 8px !important;
-    padding: 0 !important; /* Padding dihapus agar ikon bisa di tengah */
+    padding: 0 !important; 
     box-sizing: border-box !important;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
     cursor: pointer !important;
@@ -1003,7 +825,6 @@ body, html {
     transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease !important;
 }
 
-/* 2. Mengunci Ikon agar presisi di tengah kotak 44x44 */
 .btn-icon {
     display: flex !important;
     justify-content: center !important;
@@ -1011,27 +832,24 @@ body, html {
     width: 44px !important; 
     height: 44px !important;
     font-size: 17px !important;
-    flex-shrink: 0 !important; /* Cegah ikon gepeng */
+    flex-shrink: 0 !important; 
 }
 
-/* 3. Menyembunyikan teks saat kuncup */
 .btn-text {
     opacity: 0;
     padding-right: 15px !important;
     transition: opacity 0.2s ease !important;
 }
 
-/* 4. Efek Melebar & Teks Muncul saat Disentuh/Diklik */
 #filter-toggle-btn:hover, .lapor-warga-control:hover, #btn-bahasa:hover, #btn-toggle-label:hover, #btn-lacak-laporan:hover, .lapor-warga-control.active {
-    width: 155px !important; /* Melebar proporsional */
+    width: 155px !important; 
     box-shadow: 0 6px 12px rgba(0,0,0,0.5) !important;
 }
 #filter-toggle-btn:hover .btn-text, .lapor-warga-control:hover .btn-text, #btn-bahasa:hover .btn-text, #btn-toggle-label:hover .btn-text, #btn-lacak-laporan:hover .btn-text, .lapor-warga-control.active .btn-text {
-    opacity: 1; /* Memunculkan teks perlahan */
+    opacity: 1; 
     transition-delay: 0.1s;
 }
 
-/* 5. Posisi Masing-masing Tombol */
 #filter-container { position: fixed !important; top: 70px !important; right: 15px !important; z-index: 2000 !important; display: flex !important; flex-direction: column !important; align-items: flex-end !important; }
 #filter-toggle-btn { position: relative !important; top: 0 !important; right: 0 !important; left: auto !important; }
 #filter-panel { margin-top: 8px !important; z-index: 2000 !important; }
@@ -1041,8 +859,9 @@ body, html {
 #btn-toggle-label { position: fixed !important; top: 235px !important; right: 15px !important; left: auto !important; z-index: 998 !important; }
 #btn-lacak-laporan { position: fixed !important; top: 290px !important; right: 15px !important; left: auto !important; z-index: 997 !important; background: #e67e22 !important; color: white !important; border: none !important; }
 
-   STYLING CUSTOM ICON (EMOJI MARKER BENTUK PIN)
-   ========================================== */
+/*==========================================   
+STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
+========================================== */
 .custom-div-icon {
     background: transparent;
     border: none;
@@ -1051,42 +870,32 @@ body, html {
 .custom-marker-wrapper {
     width: 15px;
     height: 15px;
-    /* Kita tangkap warna dari JavaScript menggunakan variabel CSS */
     background-color: var(--warna-marker); 
-    
-    /* RAHASIA BENTUK PIN: Sudut kanan bawah dibikin runcing (0) */
     border-radius: 50% 50% 50% 0; 
     border: 2px solid #ffffff;
-    box-shadow: -2px 2px 4px rgba(0,0,0,0.5); /* Arah bayangan disesuaikan */
+    box-shadow: -2px 2px 4px rgba(0,0,0,0.5); 
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    /* Putar 45 derajat berlawanan jarum jam agar bagian runcing menghadap ke bawah */
     transform: rotate(-45deg); 
     transform-origin: center center;
     transition: transform 0.2s ease;
 }
 
 .custom-marker-wrapper:hover {
-    /* Saat disentuh: pertahankan rotasi, lalu perbesar ukurannya */
     transform: rotate(-45deg) scale(1.15); 
     cursor: pointer;
 }
 
 .marker-emoji {
-    /* Putar balik emojinya searah jarum jam agar tegak (tidak ikut miring) */
     transform: rotate(45deg); 
     font-size: 10px;
 }
 
-/* ==========================================
-   FITUR TOGGLE SEMBUNYIKAN SEMUA LABEL
-   ========================================== */
 #map.hide-labels .label-tempat {
     opacity: 0 !important;
     visibility: hidden !important;
-    pointer-events: none !important; /* Agar teks yang tak terlihat tidak menghalangi kursor klik */
+    pointer-events: none !important; 
 }
 
 /* ==========================================
@@ -1096,52 +905,54 @@ body, html {
     position: absolute;
     top: 0; left: 0; 
     width: 100%; 
-    height: 60px; /* Tinggi header */
+    height: 60px; 
     background: rgba(44, 62, 80, 0.95);
     backdrop-filter: blur(5px);
-    z-index: 3000; /* Lapisan tertinggi agar tidak tertutup peta */
+    z-index: 3000; 
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start !important; 
+    align-items: center !important; 
+    gap: 15px !important; 
     padding: 0 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
     box-sizing: border-box;
 }
 
-/* ==========================================
-   PERBAIKAN FINAL LOGO (ANTI GEPENG & SEJAJAR)
-   ========================================== */
+#header-webgis > div:not(.header-logos) {
+    order: 1 !important; 
+    text-align: left !important; 
+}
+
 .header-logos {
+    order: 2 !important; 
     display: flex !important;
     gap: 10px !important; 
     align-items: center !important;
-    flex-shrink: 0 !important; /* Mencegah wadah logo tergencet oleh teks judul */
+    flex-shrink: 0 !important; 
 }
 
-/* Memaksa semua logo (berdasarkan ID dan Class) untuk seragam dan anti-gepeng */
-.logo-item, 
-#logo-kampus, 
-#logo-KKN, 
-#logo-daerah {
-    height: 42px !important;
+/* Pengaturan dasar agar logo tidak gepeng */
+.logo-item {
     width: auto !important;
     object-fit: contain !important;
-    flex-shrink: 0 !important; /* Mencegah gambar meliuk/gepeng ke samping */
-    max-width: none !important; /* Melepaskan batasan lebar maksimal */
+    flex-shrink: 0 !important;
+    max-width: none !important;
 }
 
-/* Penyesuaian saat dibuka di layar HP */
+/* Ukuran spesifik masing-masing logo (Kembali ke settingan Anda) */
+#logo-kampus { height: 42px !important; margin-right: -5px !important; }
+#logo-KKN { height: 35px !important; }
+#logo-daerah { height: 33px !important; }
+
+/* Penyesuaian presisi di layar HP (Mobile) */
 @media (max-width: 768px) {
-    .header-logos { 
-        gap: 8px !important; 
-    }
-    .logo-item, #logo-kampus, #logo-KKN, #logo-daerah { 
-        height: 35px !important; 
-    }
+    .header-logos { gap: 8px !important; }
+    #logo-kampus { height: 35px !important; margin-right: -3px !important; }
+    #logo-KKN { height: 28px !important; }
+    #logo-daerah { height: 26px !important; }
 }
 
 .header-title {
-    text-align: right;
     color: white;
 }
 
@@ -1159,94 +970,15 @@ body, html {
     color: #bdc3c7;
 }
 
-/* Penyesuaian Header Saat Dibuka di Layar HP */
 @media (max-width: 768px) {
     #header-webgis { padding: 0 10px; height: 55px; }
-    .header-logos { gap: 8px; }
-    .logo-item { height: 35px; }
     .header-title h1 { font-size: 13px; }
     .header-title p { font-size: 9px; }
 }
-/* ==========================================
-   PERBAIKAN POSISI TOMBOL KIRI ATAS (ZOOM DLL)
-   ========================================== */
+
 .leaflet-top.leaflet-left {
     margin-top: 63px !important; 
 }
-/* ==========================================
-   PENGATURAN UKURAN LOGO INDIVIDUAL
-   ========================================== */
-
-/* Ukuran khusus Logo Undip */
-#logo-kampus {
-    height: 42px !important; /* Silakan ubah angka ini sesuka hati */
-}
-
-/* Ukuran khusus Logo Kabupaten Batang */
-#logo-KKN {
-    height: 35px !important; /* Silakan ubah angka ini sesuka hati */
-}
-
-/* Ukuran khusus Logo Kabupaten Batang */
-#logo-daerah {
-    height: 33px !important; /* Silakan ubah angka ini sesuka hati */
-}
-
-/* Penyesuaian ukuran individual saat dibuka di HP */
-@media (max-width: 768px) {
-    #logo-kampus { 
-        height: 45px !important; 
-    }
-    #logo-KKN { 
-    height: 38px !important; 
-    }
-    #logo-daerah { 
-        height: 38px !important; 
-    }
-}
-/* ==========================================
-   TUKAR POSISI TEKS (KIRI) & LOGO (KANAN)
-   ========================================== */
-
-/* 1. Atur wadah utama header agar merapat ke kiri */
-#header-webgis {
-    display: flex !important;
-    justify-content: flex-start !important; /* Menarik semua elemen ke kiri */
-    align-items: center !important; /* Menjaga teks dan logo tetap sejajar di tengah secara vertikal */
-    gap: 15px !important; /* Mengatur jarak spasi antara teks dan logo */
-}
-
-/* 2. Pindahkan wadah teks menjadi urutan pertama (di kiri) */
-#header-webgis > div:not(.header-logos) {
-    order: 1 !important; 
-    text-align: left !important; /* Mengubah rataan teks dari kanan menjadi rata kiri */
-}
-
-/* 3. Pindahkan wadah logo menjadi urutan kedua (tepat di kanan teks) */
-.header-logos {
-    order: 2 !important; 
-}
-
-/* ==========================================
-   OPTIMASI PERFORMA & KOMPATIBILITAS (HARDWARE ACCELERATION)
-   ========================================== */
-/* KUNCI PERBAIKAN: .custom-marker-wrapper dan .leaflet-marker-icon dihapus 
-   dari daftar ini agar rotasi berdirinya pin (-45deg) tidak tertimpa/hilang */
-
-.leaflet-popup, 
-.leaflet-tooltip,
-.galeri-slider {
-    will-change: transform, opacity;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-#map {
-    touch-action: pan-x pan-y;
-}
-
 
 @media (max-height: 400px) {
     #filter-toggle-btn, .lapor-warga-control, #btn-bahasa, #btn-toggle-label, #btn-lacak-laporan {
@@ -1262,9 +994,23 @@ body, html {
     .lapor-warga-control { top: 85px !important; }
 }
 
+.leaflet-popup, 
+.leaflet-tooltip,
+.galeri-slider {
+    will-change: transform, opacity;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+#map {
+    touch-action: pan-x pan-y;
+}
+
 /* ==========================================
-   KOREKSI SPASI LOGO UNDIP (MENGIMBANGI KANVAS TRANSPARAN)
+   KOREKSI SPASI LOGO UNDIP
    ========================================== */
 #logo-kampus {
-    margin-right: -5px !important; /* Silakan ubah angka minusnya (-8px, -12px, dst) sampai jaraknya seimbang secara visual */
+    margin-right: -5px !important; 
 }

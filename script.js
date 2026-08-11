@@ -308,7 +308,6 @@ function getCustomIcon(kategori) {
     });
 }
 
-
 let searchData = [];
 
 // 1. BUAT POPUP LENGKAP DENGAN LAZY LOADING
@@ -385,16 +384,11 @@ locations.forEach((loc, index) => {
         const zoomLevel = map.getZoom();
         const markerLatLng = e.target.getLatLng();
         
-        // 1. Ubah kordinat bumi (Lat/Lng) menjadi kordinat layar (Pixel)
         let pointPixel = map.project(markerLatLng, zoomLevel);
-        
-        // 2. Geser titik pusat layar ke atas sejauh 180 pixel 
         pointPixel.y -= 180; 
         
-        // 3. Ubah kembali kordinat layar (Pixel) menjadi kordinat bumi
         const targetLatLng = map.unproject(pointPixel, zoomLevel);
         
-        // 4. PERBAIKAN: Gunakan panTo (bukan flyTo) agar geseran layar pendek sangat mulus
         map.panTo(targetLatLng, {
             animate: true,
             duration: 0.5
@@ -458,7 +452,6 @@ searchBtn.addEventListener('click', function() {
     jalankanPencarian(query);
 });
 
-// TAMBAHAN: Timer Debounce
 let debounceTimer;
 searchInput.addEventListener('input', function() {
     clearTimeout(debounceTimer); 
@@ -573,7 +566,6 @@ function perbaruiKoordinatBar(latlng) {
     document.getElementById('coord-lng').textContent = toDMS(latlng.lng, false);
 }
 
-// TAMBAHAN: Throttle mousemove untuk cegah peta patah-patah
 let isThrottled = false;
 map.on('mousemove', function(e) { 
     if (!isThrottled) {
@@ -643,7 +635,6 @@ window.renderLegendaHTML = function() {
     
     content += '</div>';
 
-    // Membuang teks dan menyisakan emoji agar tombol menjadi persegi sempurna
 let btn = `<button type="button" id="legend-toggle-btn" onclick="window.toggleLegenda()" title="${t.btnLegenda.replace('📜 ', '')}">📜</button>`;
     
     const div = document.querySelector('.legend-container');
@@ -756,7 +747,6 @@ window.bukaGaleriFoto = function(index, event) {
                     <div class="galeri-slider" id="galeri-slider">
     `;
     
-    // TAMBAHAN: loading="lazy" decoding="async"
     kumpulanFoto.forEach((foto, i) => {
         if (foto && foto !== "") {
             modalHTML += `<div class="foto-container"><div class="loading-spinner"></div><img src="${foto}" alt="Foto ${i+1}" loading="lazy" decoding="async" onload="this.classList.add('loaded')" onerror="this.src='https://via.placeholder.com/400x250?text=Foto+Tidak+Tersedia'; this.classList.add('loaded');"></div>`;
@@ -877,18 +867,11 @@ window.prosesKirimLaporan = function(kategori, lat, lng) {
         window.open(urlTujuan, '_blank');
         
     } else if (kategori === 'infrastruktur') {
-        // ==========================================
-        // KEMBALI KE METODE TAB BARU (MENGATASI BLOKIR UPLOAD FOTO GOOGLE)
-        // ==========================================
-        // Hapus parameter &embedded=true karena kita akan membukanya di tab baru secara utuh
         let linkFormulirDesa = `https://docs.google.com/forms/d/e/1FAIpQLScA-jsmUPdBB_sa-eftZU5gCZWxMR3q5FDGNQOsRLA1MT_kuw/viewform?entry.1856517992=${lat}&entry.1981551024=${lng}`;
-        
-        // Buka form di tab baru agar warga bisa login Gmail & upload foto dengan lancar
         window.open(linkFormulirDesa, '_blank');
     }
 };
 
-// LOGIKA UTAMA: TOMBOL PENGUBAH BAHASA (UI/UX)
 window.toggleBahasa = function() {
     bahasaSaatIni = bahasaSaatIni === 'id' ? 'en' : 'id';
     const t = terjemahan[bahasaSaatIni];
@@ -906,13 +889,14 @@ window.toggleBahasa = function() {
        userMarker.setTooltipContent(t.labelLokasiAnda);
     }
     
-    document.getElementById('btn-bahasa').innerText = bahasaSaatIni === 'id' ? "🌐 Ganti Bahasa" : "🌐 Change Language";
+    document.getElementById('btn-bahasa').innerHTML = bahasaSaatIni === 'id' ? "<span class='btn-icon'>🌐</span><span class='btn-text'>Ganti Bahasa</span>" : "<span class='btn-icon'>🌐</span><span class='btn-text'>Change Language</span>";
+    
     const btnLabel = document.getElementById('btn-toggle-label');
     if (btnLabel) {
         if (isLabelTampil) {
-            btnLabel.innerHTML = bahasaSaatIni === 'id' ? '🏷️ Sembunyi Label' : '🏷️ Hide Labels';
+            btnLabel.innerHTML = bahasaSaatIni === 'id' ? "<span class='btn-icon'>🏷️</span><span class='btn-text'>Sembunyi Label</span>" : "<span class='btn-icon'>🏷️</span><span class='btn-text'>Hide Labels</span>";
         } else {
-            btnLabel.innerHTML = bahasaSaatIni === 'id' ? '🏷️ Tampil Label' : '🏷️ Show Labels';
+            btnLabel.innerHTML = bahasaSaatIni === 'id' ? "<span class='btn-icon'>🏷️</span><span class='btn-text'>Tampil Label</span>" : "<span class='btn-icon'>🏷️</span><span class='btn-text'>Show Labels</span>";
         }
     }
 };
@@ -932,12 +916,10 @@ window.toggleLabel = function() {
     
     if (isLabelTampil) {
         mapEl.classList.remove('hide-labels');
-        // PERUBAHAN DI SINI
         btnLabel.innerHTML = bahasaSaatIni === 'id' ? "<span class='btn-icon'>🏷️</span><span class='btn-text'>Sembunyi Label</span>" : "<span class='btn-icon'>🏷️</span><span class='btn-text'>Hide Labels</span>";
         btnLabel.style.background = '#e74c3c'; 
     } else {
         mapEl.classList.add('hide-labels');
-        // PERUBAHAN DI SINI
         btnLabel.innerHTML = bahasaSaatIni === 'id' ? "<span class='btn-icon'>🏷️</span><span class='btn-text'>Tampil Label</span>" : "<span class='btn-icon'>🏷️</span><span class='btn-text'>Show Labels</span>";
         btnLabel.style.background = '#8e44ad'; 
     }
@@ -946,12 +928,9 @@ window.toggleLabel = function() {
 // ==========================================
 // INTEGRASI WEBSITE DESA (AUTO-TRIGGER MODE LAPOR)
 // ==========================================
-// Membaca apakah pengunjung datang melalui link khusus dari web desa
 if (getUrlParameter('mode') === 'lapor') {
-    // Beri jeda sedikit agar peta selesai memuat (loading)
     setTimeout(function() {
         const btnLapor = document.querySelector('.lapor-warga-control');
-        // Jika mode lapor belum aktif, sistem akan mengkliknya secara otomatis
         if (btnLapor && !isReportingMode) {
             btnLapor.click();
         }
