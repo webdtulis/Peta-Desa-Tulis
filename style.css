@@ -755,3 +755,33 @@ STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
 
 /* MEMASTIKAN WADAH POPUP BERSIFAT FLUID */
 .galeri-modal { max-width: 90vw !important; }
+
+/* ==========================================
+   PERBAIKAN DARURAT: LEGENDA ANTI-TENGGELAM DI DALAM IFRAME
+   ========================================== */
+.panel-legenda-melayang {
+    position: absolute !important; 
+    bottom: 35px !important; /* Dipaku persis di atas status bar hitam */
+    top: auto !important; /* Membunuh aturan top: 400px yang menyebabkan tenggelam */
+    right: 15px !important;
+    left: auto !important;
+    max-height: calc(100% - 100px) !important; /* Menggunakan % agar patuh pada ukuran iframe web desa */
+    display: flex !important;
+    flex-direction: column !important;
+    z-index: 4000 !important; /* Pastikan selalu berada di tumpukan teratas */
+}
+
+.legenda-scroll-area {
+    max-height: none !important; /* Membunuh batasan max-height lama yang konflik */
+    overflow-y: auto !important;
+    flex-grow: 1 !important;
+}
+
+/* Penyesuaian agar tetap rapi saat diakses via HP */
+@media (max-width: 768px) {
+    .panel-legenda-melayang {
+        width: 170px !important;
+        padding: 10px !important;
+        bottom: 35px !important;
+    }
+}
