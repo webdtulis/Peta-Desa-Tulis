@@ -246,7 +246,7 @@ body, html {
 #route-info b { color: #f39c12; font-size: 16px; margin-left: 5px; }
 
 #earth-status-bar { 
-    position: fixed !important; /* KUNCI 3: Ubah dari absolute menjadi fixed agar menempel permanen di layar */
+    position: fixed !important; 
     bottom: 0; 
     left: 0; 
     width: 100%; 
@@ -456,6 +456,90 @@ STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
     -webkit-backface-visibility: hidden; backface-visibility: hidden;
 }
 
+/* ==========================================
+   STYLING LEGENDA MELAYANG (WIDGET PANEL KANAN)
+   ========================================== */
+.panel-legenda-melayang {
+    position: fixed;
+    top: 400px; 
+    right: 15px; 
+    background: rgba(30, 40, 50, 0.95);
+    color: white;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: -4px 6px 20px rgba(0,0,0,0.5);
+    border: 2px solid #3498db;
+    z-index: 2000;
+    width: 190px; 
+    backdrop-filter: blur(5px);
+    animation: slideInRight 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* KUNCI ANTI-TENGGELAM: Flexbox & Max-Height */
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100dvh - 440px); /* Menyisakan 40px ruang aman di bawah untuk status bar */
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.close-legenda-btn {
+    position: absolute; 
+    top: 13px; 
+    right: 12px; 
+    background: none; 
+    color: #e74c3c;
+    border: none; 
+    font-size: 16px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: 0.2s;
+    padding: 0;
+    margin: 0;
+    line-height: 1; 
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.close-legenda-btn:hover { color: #c0392b; transform: scale(1.2); }
+
+.legenda-title {
+    margin: 0 0 10px 0; 
+    font-size: 14px; 
+    border-bottom: 2px solid #3498db; 
+    padding-bottom: 8px; 
+    padding-right: 25px; 
+    color: #ecf0f1;
+    min-height: 24px; 
+    display: flex;
+    align-items: center;
+}
+
+.legenda-scroll-area {
+    overflow-y: auto; 
+    padding-right: 8px;
+    flex-grow: 1; /* Area scroll akan otomatis menyusut jika layar laptop pendek */
+    min-height: 100px;
+}
+
+.legenda-scroll-area::-webkit-scrollbar { width: 5px; }
+.legenda-scroll-area::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 5px; }
+.legenda-scroll-area::-webkit-scrollbar-thumb { background: #3498db; border-radius: 5px; }
+
+.legenda-item { display: flex; align-items: center; margin-bottom: 8px; font-size: 11px; font-weight: 500; }
+.legenda-icon { width: 20px; height: 20px; border-radius: 50%; border: 1px solid #fff; display: flex; justify-content: center; align-items: center; margin-right: 10px; font-size: 10px; flex-shrink: 0; }
+.legenda-icon-lokasi { background-color: #3498db; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; margin-right: 12px; margin-left: 3px; flex-shrink: 0; }
+.legenda-divider { border: 0; border-top: 1px dashed #7f8c8d; margin: 10px 0; }
+.garis-pantura { background: #2c12f3; width: 20px; height: 4px; margin-right: 10px; }
+.garis-desa { background: #d4c6c6; width: 20px; height: 2px; margin-right: 10px; }
+.garis-batas { border-top: 3px dashed #3cc932; width: 20px; margin-right: 10px; }
+.kotak-dusun { width: 12px; height: 12px; opacity: 0.7; border: 1px solid; margin-right: 10px; margin-left: 4px; }
+
+
 /* =========================================================
    ULTIMATE RESPONSIVE & FLUID DESIGN (Adaptasi Semua Device)
    ========================================================= */
@@ -507,15 +591,18 @@ STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
     #btn-lacak-laporan { top: 350px !important; }   
   
     .panel-legenda-melayang {
-        top: 405px !important; /* Pas di bawah tombol Cek Laporan HP (350 + 44 + 11) */
+        top: 405px !important; 
         right: 15px !important;
         left: auto !important;
         bottom: auto !important;
         width: 170px !important;
         padding: 10px !important;
+        max-height: calc(100dvh - 460px) !important; /* Disesuaikan untuk tinggi HP */
     }
-    .legenda-scroll-area {
-        max-height: calc(100dvh - 465px) !important;
+    
+    .close-legenda-btn {
+        top: 11px !important; 
+        right: 10px !important;
     }
 }
 
@@ -547,13 +634,11 @@ STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
         width: 135px !important;
     }
     .panel-legenda-melayang {
-        top: 307px !important; /* Pas di bawah tombol Cek Laporan Landscape (265 + 34 + 8) */
+        top: 307px !important; 
         right: 15px !important;
         left: auto !important;
         bottom: auto !important;
-    }
-    .legenda-scroll-area {
-        max-height: calc(100dvh - 350px) !important;
+        max-height: calc(100dvh - 340px) !important; /* Disesuaikan untuk tinggi Layar Miring */
     }
 }
 
@@ -573,58 +658,3 @@ STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
 
 /* MEMASTIKAN WADAH POPUP BERSIFAT FLUID */
 .galeri-modal { max-width: 90vw !important; }
-
-/* ==========================================
-   STYLING LEGENDA MELAYANG (WIDGET PANEL KANAN)
-   ========================================== */
-.panel-legenda-melayang {
-    position: fixed;
-    top: 400px; /* KUNCI: Posisi pas di bawah tombol Cek Laporan Desktop (345 + 44 + 11) */
-    right: 15px; 
-    left: auto; /* Membatalkan posisi kiri sebelumnya */
-    bottom: auto; /* Membatalkan posisi bawah sebelumnya */
-    background: rgba(30, 40, 50, 0.95);
-    color: white;
-    padding: 12px;
-    border-radius: 12px;
-    box-shadow: -4px 6px 20px rgba(0,0,0,0.5);
-    border: 2px solid #3498db;
-    z-index: 2000;
-    width: 190px; /* Dirampingkan sedikit agar pas di kanan */
-    backdrop-filter: blur(5px);
-    animation: slideInRight 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-@keyframes slideInRight {
-    from { transform: translateX(30px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-.close-legenda-btn {
-    position: absolute; top: 10px; right: 10px; background: none; color: #e74c3c;
-    border: none; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.2s;
-}
-.close-legenda-btn:hover { color: #c0392b; transform: scale(1.2); }
-
-.legenda-title {
-    margin: 0 0 10px 0; font-size: 14px; border-bottom: 2px solid #3498db; padding-bottom: 6px; color: #ecf0f1;
-}
-
-.legenda-scroll-area {
-    /* Pintar: Tingginya menyesuaikan sisa layar di bawah tombol */
-    max-height: calc(100dvh - 460px); 
-    min-height: 150px;
-    overflow-y: auto; padding-right: 8px;
-}
-.legenda-scroll-area::-webkit-scrollbar { width: 5px; }
-.legenda-scroll-area::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 5px; }
-.legenda-scroll-area::-webkit-scrollbar-thumb { background: #3498db; border-radius: 5px; }
-
-.legenda-item { display: flex; align-items: center; margin-bottom: 8px; font-size: 11px; font-weight: 500; }
-.legenda-icon { width: 20px; height: 20px; border-radius: 50%; border: 1px solid #fff; display: flex; justify-content: center; align-items: center; margin-right: 10px; font-size: 10px; flex-shrink: 0; }
-.legenda-icon-lokasi { background-color: #3498db; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; margin-right: 12px; margin-left: 3px; flex-shrink: 0; }
-.legenda-divider { border: 0; border-top: 1px dashed #7f8c8d; margin: 10px 0; }
-.garis-pantura { background: #2c12f3; width: 20px; height: 4px; margin-right: 10px; }
-.garis-desa { background: #d4c6c6; width: 20px; height: 2px; margin-right: 10px; }
-.garis-batas { border-top: 3px dashed #3cc932; width: 20px; margin-right: 10px; }
-.kotak-dusun { width: 12px; height: 12px; opacity: 0.7; border: 1px solid; margin-right: 10px; margin-left: 4px; }
