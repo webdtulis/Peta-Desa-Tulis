@@ -6,7 +6,7 @@ let bahasaSaatIni = 'id';
 const terjemahan = {
     id: {
         cariLokasi: "Cari lokasi...",
-        btnLegenda: "📜 Legenda",
+        btnLegenda: "📜 Legenda Peta",
         laporCepat: "<span class='btn-icon'>📢</span><span class='btn-text'>Lapor Cepat</span>",
         laporBatal: "<span class='btn-icon'>✖</span><span class='btn-text'>Batalkan Lapor</span>",
         alertLaporAktif: "Mode Lapor Aktif!\nSilakan klik tepat di lokasi masalah pada peta.",
@@ -35,7 +35,7 @@ const terjemahan = {
     },
     en: {
         cariLokasi: "Search location...",
-        btnLegenda: "📜 Legend",
+        btnLegenda: "📜 Map Legend",
         laporCepat: "<span class='btn-icon'>📢</span><span class='btn-text'>Report Issue</span>",
         laporBatal: "<span class='btn-icon'>✖</span><span class='btn-text'>Cancel Report</span>",
         alertLaporAktif: "Reporting Mode Active!\nPlease click exactly on the issue location on the map.",
@@ -581,99 +581,73 @@ map.on('move', function() { perbaruiKoordinatBar(map.getCenter()); });
 map.on('zoomend', updateEyeAltitude);
 updateEyeAltitude();
 
+//// ==========================================
+// 6. LEGENDA (PANEL MELAYANG ANTI-BLOKIR)
 // ==========================================
-// 6. LEGENDA, KOMPAS, & FUNGSI TOGGLE
-// ==========================================
-window.toggleLegenda = function() {
-    const legendContainer = document.querySelector('.legend-container');
-    if (legendContainer) { legendContainer.classList.toggle('show'); }
-};
+window.bukaLegenda = function() {
+    // Fitur Toggle: Jika diklik saat terbuka, maka akan menutup
+    const panelAda = document.getElementById('legenda-panel');
+    if (panelAda) {
+        panelAda.remove();
+        return;
+    }
 
-window.renderLegendaHTML = function() {
     const t = terjemahan[bahasaSaatIni];
-    const categories = [
-        { cat: "Pusat Pemerintahan", emoji: "🏛️" },
-        { cat: "Fasilitas Ibadah", emoji: "🕌" },
-        { cat: "Fasilitas Kesehatan", emoji: "🏥" },
-        { cat: "Fasilitas Pendidikan", emoji: "🎓" },
-        { cat: "Pelaku Usaha", emoji: "🏪" },
-        { cat: "Keamanan Lingkungan", emoji: "🛡️" }
+    const cats = [
+        { cat: "Pusat Pemerintahan", emoji: "🏛️", color: "#585858" },
+        { cat: "Fasilitas Ibadah", emoji: "🕌", color: "#cccc34" },
+        { cat: "Fasilitas Kesehatan", emoji: "🏥", color: "#e74c3c" },
+        { cat: "Fasilitas Pendidikan", emoji: "🎓", color: "#2ecc71" },
+        { cat: "Pelaku Usaha", emoji: "🏪", color: "#631861" },
+        { cat: "Keamanan Lingkungan", emoji: "🛡️", color: "#34495e" }
     ];
-    
-    let content = '<div class="legend-content">';
-    content += `<h4>${t.btnLegenda.replace('📜 ', '')} <button type="button" class="close-legend-btn" onclick="window.toggleLegenda()">✖</button></h4>`;
-    
-    categories.forEach(item => { 
+
+    let content = `
+        <div id="legenda-panel" class="panel-legenda-melayang" onclick="event.stopPropagation()">
+            <button class="close-legenda-btn" onclick="window.tutupLegenda()">✖</button>
+            <h3 class="legenda-title">${t.btnLegenda.replace('📜 ', '')}</h3>
+            <div class="legenda-scroll-area">
+    `;
+
+    cats.forEach(item => {
         let katName = t["kat" + item.cat.replace(/\s+/g, '')] || item.cat;
-        let color = getMarkerColor(item.cat);
-        
         content += `
-            <div style="display: flex; align-items: center; margin-bottom: 6px;">
-                <div style="background-color: ${color}; width: 18px; height: 18px; border-radius: 50%; border: 1px solid #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: center; margin-right: 8px; font-size: 9px;">
+            <div class="legenda-item">
+                <div class="legenda-icon" style="background-color: ${item.color};">
                     ${item.emoji}
                 </div>
-                <span style="font-size: 12px; line-height: 1.2;">${katName}</span>
-            </div>`; 
+                <span>${katName}</span>
+            </div>`;
     });
-    
+
     content += `
-        <div style="display: flex; align-items: center; margin-bottom: 6px;">
-            <div style="background-color: #3498db; width: 14px; height: 14px; border-radius: 50%; border: 1px solid #fff; margin-right: 10px; margin-left: 2px;"></div>
-            <span style="font-size: 12px;">${t.labelLokasiAnda}</span>
-        </div>`;
-    
-    content += '<hr style="border: 0; border-top: 1px solid #7f8c8d; margin: 8px 0;">';
-    content += `<i style="background:#2c12f3; height: 4px; margin-top: 7px; border-radius: 0;"></i> ${t.labelJalanPantura}<br>`;
-    content += `<i style="background:#d4c6c6; height: 2px; margin-top: 8px; border-radius: 0;"></i> ${t.labelJalanDesa}<br>`;
-    content += `<i style="background: transparent; border-top: 3px dashed #3cc932; height: 0; margin-top: 8px; border-radius: 0;"></i> ${t.labelBatasAdmin}<br>`;
-    
-    content += '<hr style="border: 0; border-top: 1px solid #7f8c8d; margin: 8px 0;">';
-    content += `<i style="background: #b59b38; opacity: 0.6; border-radius: 2px; border: 1px solid #b59b38;"></i> Dusun Tulis Sari<br>`;
-    content += `<i style="background: #825b4a; opacity: 0.6; border-radius: 2px; border: 1px solid #825b4a;"></i> Dusun Gondangan<br>`;
-    content += `<i style="background: #72659d; opacity: 0.6; border-radius: 2px; border: 1px solid #72659d;"></i> Dusun Pesawahan<br>`;
-    content += `<i style="background: #32a852; opacity: 0.6; border-radius: 2px; border: 1px solid #32a852;"></i> Dusun Tulis Barat<br>`;
-    
-    content += '</div>';
-
-let btn = `<button type="button" id="legend-toggle-btn" onclick="window.toggleLegenda()" title="${t.btnLegenda.replace('📜 ', '')}">📜</button>`;
-    
-    const div = document.querySelector('.legend-container');
-    if(div) { div.innerHTML = btn + content; }
+            <div class="legenda-item">
+                <div class="legenda-icon-lokasi"></div>
+                <span>${t.labelLokasiAnda}</span>
+            </div>
+            
+            <hr class="legenda-divider">
+            
+            <div class="legenda-item"><i class="garis-pantura"></i> <span>${t.labelJalanPantura}</span></div>
+            <div class="legenda-item"><i class="garis-desa"></i> <span>${t.labelJalanDesa}</span></div>
+            <div class="legenda-item"><i class="garis-batas"></i> <span>${t.labelBatasAdmin}</span></div>
+            
+            <hr class="legenda-divider">
+            
+            <div class="legenda-item"><i class="kotak-dusun" style="background:#b59b38; border-color:#b59b38;"></i> <span>Dusun Tulis Sari</span></div>
+            <div class="legenda-item"><i class="kotak-dusun" style="background:#825b4a; border-color:#825b4a;"></i> <span>Dusun Gondangan</span></div>
+            <div class="legenda-item"><i class="kotak-dusun" style="background:#72659d; border-color:#72659d;"></i> <span>Dusun Pesawahan</span></div>
+            <div class="legenda-item"><i class="kotak-dusun" style="background:#32a852; border-color:#32a852;"></i> <span>Dusun Tulis Barat</span></div>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', content);
 };
 
-const legend = L.control({ position: 'bottomright' });
-legend.onAdd = function (map) {
-    const div = L.DomUtil.create('div', 'info legend-container');
-    setTimeout(window.renderLegendaHTML, 100); 
-    L.DomEvent.disableClickPropagation(div);
-    return div;
+window.tutupLegenda = function() {
+    const panel = document.getElementById('legenda-panel');
+    if(panel) panel.remove();
 };
-legend.addTo(map);
-
-const compassControl = L.control({ position: 'topleft' });
-compassControl.onAdd = function (map) {
-    const div = L.DomUtil.create('div', 'compass-control');
-    div.innerHTML = `
-    <div style="background: rgba(30, 40, 50, 0.85); backdrop-filter: blur(4px); padding: 6px; border-radius: 50%; border: 2px solid #3498db; margin-top: 10px; margin-left: 2px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; cursor: default; transition: transform 0.3s ease;" 
-         onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
-        <svg width="30" height="30" viewBox="0 0 100 100" style="filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.6));">
-            <circle cx="50" cy="50" r="44" fill="none" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="3 4" />
-            <circle cx="50" cy="50" r="36" fill="none" stroke="#3498db" stroke-width="1" opacity="0.6"/>
-            <polygon points="50,88 43,50 50,55" fill="#ecf0f1" />
-            <polygon points="50,88 57,50 50,55" fill="#95a5a6" />
-            <polygon points="88,50 50,43 55,50" fill="#ecf0f1" />
-            <polygon points="88,50 50,57 55,50" fill="#95a5a6" />
-            <polygon points="12,50 50,43 45,50" fill="#95a5a6" />
-            <polygon points="12,50 50,57 45,50" fill="#ecf0f1" />
-            <polygon points="50,8 38,50 50,44" fill="#e74c3c" />
-            <polygon points="50,8 62,50 50,44" fill="#c0392b" />
-            <circle cx="50" cy="50" r="4.5" fill="#f1c40f" />
-            <text x="50" y="32" font-family="'Segoe UI', Tahoma, sans-serif" font-size="18" font-weight="900" fill="#ffffff" text-anchor="middle">U</text>
-        </svg>
-    </div>`;
-    return div;
-};
-compassControl.addTo(map);
 
 // ==========================================
 // 7. FITUR ALAT UKUR PRESISI (LEAFLET-GEOMAN)
@@ -872,6 +846,7 @@ window.prosesKirimLaporan = function(kategori, lat, lng) {
     }
 };
 
+// LOGIKA UTAMA: TOMBOL PENGUBAH BAHASA (UI/UX)
 window.toggleBahasa = function() {
     bahasaSaatIni = bahasaSaatIni === 'id' ? 'en' : 'id';
     const t = terjemahan[bahasaSaatIni];
@@ -881,16 +856,24 @@ window.toggleBahasa = function() {
     
     const laporBtn = document.querySelector('.lapor-warga-control');
     if(laporBtn) { laporBtn.innerHTML = isReportingMode ? t.laporBatal : t.laporCepat; }
-    
-    window.renderLegendaHTML();
+
     map.closePopup();
 
     if (userMarker) {
        userMarker.setTooltipContent(t.labelLokasiAnda);
     }
     
+    // ---------------------------------------------------------
+    // PASTIKAN KODE TOMBOL BAHASA, LEGENDA, DAN LABEL ADA DI SINI
+    // ---------------------------------------------------------
+    
+    // 1. Terjemahan Tombol Ganti Bahasa
     document.getElementById('btn-bahasa').innerHTML = bahasaSaatIni === 'id' ? "<span class='btn-icon'>🌐</span><span class='btn-text'>Ganti Bahasa</span>" : "<span class='btn-icon'>🌐</span><span class='btn-text'>Change Language</span>";
     
+    // 2. Terjemahan Tombol Legenda (MASUKKAN KODENYA DI SINI)
+    document.getElementById('btn-legenda').innerHTML = bahasaSaatIni === 'id' ? "<span class='btn-icon'>📜</span><span class='btn-text'>Legenda Peta</span>" : "<span class='btn-icon'>📜</span><span class='btn-text'>Map Legend</span>";
+    
+    // 3. Terjemahan Tombol Label
     const btnLabel = document.getElementById('btn-toggle-label');
     if (btnLabel) {
         if (isLabelTampil) {
@@ -941,12 +924,12 @@ if (getUrlParameter('mode') === 'lapor') {
 // LOGIKA CERDAS TOMBOL MENU (SISTEM 2 KLIK)
 // ==========================================
 document.addEventListener('click', function(e) {
-    // 1. Cek apakah klik terjadi di dalam area Panel Filter
-    const isFilterPanel = e.target.closest('#filter-panel');
-    if (isFilterPanel) return; // Jika klik di dalam menu filter, biarkan saja
+    // 1. Cek apakah klik terjadi di dalam area Panel Filter atau di dalam Pop-up Legenda
+    const isPanel = e.target.closest('#filter-panel, .galeri-modal');
+    if (isPanel) return; // Jika klik di dalam menu/pop-up, biarkan saja
 
-    // 2. Kenali apakah yang diklik adalah salah satu dari 5 tombol utama kita
-    const targetBtn = e.target.closest('#filter-toggle-btn, .lapor-warga-control, #btn-bahasa, #btn-toggle-label, #btn-lacak-laporan');
+    // 2. Kenali apakah yang diklik adalah salah satu dari 6 tombol utama kita (Tambahan #btn-legenda)
+    const targetBtn = e.target.closest('#filter-toggle-btn, #btn-legenda, .lapor-warga-control, #btn-bahasa, #btn-toggle-label, #btn-lacak-laporan');
 
     // 3. JIKA KLIK DI LUAR TOMBOL (MENYENTUH PETA/AREA LAIN)
     if (!targetBtn) {
@@ -964,10 +947,9 @@ document.addEventListener('click', function(e) {
     }
 
     // 4. JIKA TOMBOL DIKLIK, TAPI POSISINYA MASIH KUNCUP (HANYA LOGO)
-    // Syarat: tombol belum terbuka, dan bukan tombol Lapor yang sedang mode berkedip/aktif
     if (!targetBtn.classList.contains('terbuka') && !targetBtn.classList.contains('active')) {
         
-        // KUNCI UTAMA: Cegat dan hentikan aksi bawaan tombol! (Tidak akan pindah halaman / tidak akan ganti bahasa dulu)
+        // KUNCI UTAMA: Cegat aksi bawaan tombol! (Biar tidak langsung munculin legenda / ganti bahasa)
         e.preventDefault(); 
         e.stopPropagation(); 
         e.stopImmediatePropagation(); 
@@ -982,5 +964,5 @@ document.addEventListener('click', function(e) {
     }
     
     // 5. Jika tombol diklik untuk KEDUA KALINYA (kondisi sudah memanjang),
-    // logika akan melewati tahap di atas, dan fungsi asli tombol akan dieksekusi oleh sistem!
-}, true); // Menggunakan fase 'Capture' untuk mencegat aksi klik pertama
+    // fungsi asli tombol (seperti window.bukaLegenda) akan dieksekusi oleh sistem!
+}, true);
