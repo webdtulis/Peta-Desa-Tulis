@@ -921,6 +921,60 @@ if (getUrlParameter('mode') === 'lapor') {
 }
 
 // ==========================================
+// 7. MODAL TENTANG WEBGIS (DESAIN MODERN KLASIK)
+// ==========================================
+window.bukaTentang = function() {
+    const content = `
+        <div id="tentang-overlay" class="galeri-overlay" onclick="window.tutupTentang()">
+            <!-- Kotak Modal Kustom (Tanpa class galeri-modal agar independen) -->
+            <div style="background: #ffffff; padding: 30px 25px; border-radius: 16px; width: 90%; max-width: 520px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.15); font-family: 'Segoe UI', Tahoma, sans-serif; cursor: default;" onclick="event.stopPropagation()">
+                
+                <!-- Tombol Close Minimalis Modern -->
+                <button onclick="window.tutupTentang()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 20px; color: #94a3b8; cursor: pointer; transition: color 0.2s; padding: 5px; line-height: 1;" onmouseover="this.style.color='#e74c3c'" onmouseout="this.style.color='#94a3b8'">✖</button>
+                
+                <!-- Judul Bergaya Klasik Elegan -->
+                <div style="text-align: center; margin-bottom: 25px;">
+                    <h3 style="margin: 0; font-size: 22px; font-weight: 700; color: #1e293b; letter-spacing: 0.5px;">Tentang WebGIS</h3>
+                    <div style="height: 3px; width: 40px; background: #3498db; margin: 10px auto 0; border-radius: 2px;"></div>
+                </div>
+                
+                <!-- Area Teks Utama -->
+                <div style="font-size: 13.5px; line-height: 1.75; color: #475569; text-align: justify; max-height: 60vh; overflow-y: auto; padding-right: 8px;">
+                    
+                    <p style="margin-top: 0;"><strong>WebGIS Desa Tulis</strong> adalah platform sistem informasi geografis interaktif yang dikembangkan untuk memetakan potensi, tata guna lahan, fasilitas umum, dan infrastruktur di wilayah Desa Tulis, Kabupaten Batang.</p>
+                    
+                    <p>Website ini diinisiasi dan dibangun sepenuhnya oleh <strong>Tim KKN Universitas Diponegoro Tahun 2026</strong> sebagai bentuk pengabdian masyarakat dan digitalisasi informasi desa guna membantu perangkat desa serta warga setempat.</p>
+                    
+                    <!-- Kotak Fitur dengan Border Lembut -->
+                    <div style="margin-top: 25px; padding: 15px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                        <strong style="color: #0f172a; font-size: 14px; display: block; margin-bottom: 10px; border-bottom: 1px solid #cbd5e1; padding-bottom: 6px;">
+                            ✨ Fitur Utama:
+                        </strong>
+                        <ul style="margin: 0; padding-left: 20px; color: #334155;">
+                            <li style="margin-bottom: 6px;">Pemetaan Fasilitas (Pendidikan, Kesehatan, Ibadah, dll)</li>
+                            <li style="margin-bottom: 6px;">Peta Interaktif Jaringan Jalan dan Batas Dusun</li>
+                            <li style="margin-bottom: 6px;">Fitur Lapor Warga (Crowdsourcing)</li>
+                            <li>Sistem Navigasi dan Deteksi Lokasi</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Footer Watermark -->
+                    <div style="text-align: center; margin-top: 30px; font-weight: 500; color: #94a3b8; font-size: 12px; letter-spacing: 0.5px;">
+                        Dibuat dengan <span style="color: #e74c3c;">❤️</span> oleh KKN Undip 2026
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', content);
+};
+
+window.tutupTentang = function() {
+    const ov = document.getElementById('tentang-overlay');
+    if(ov) ov.remove();
+};
+
+// ==========================================
 // LOGIKA CERDAS TOMBOL MENU (SISTEM 2 KLIK)
 // ==========================================
 document.addEventListener('click', function(e) {

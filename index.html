@@ -18,17 +18,29 @@
 </head>
 <body>
     <!-- HEADER WEBGIS -->
-    <header id="header-webgis">
-        <div class="header-logos">
-            <img src="UNDIPOfficial.png.webp" alt="Logo Kampus" id="logo-kampus" class="logo-item">
-            <img src="LOGOKKN.png" alt="Logo KKN" id="logo-KKN" class="logo-item">
-            <img src="Lambang_Kabupaten_Batang.png" alt="Logo Desa" id="logo-daerah" class="logo-item">
-        </div>
-        <div class="header-title">
-            <h1>WebGIS Desa Tulis</h1>
-            <p>Pemetaan Potensi & Fasilitas Desa</p>
-        </div>
-    </header>
+    <div id="header-webgis">
+    <div class="header-title">
+        <h1>WEBGIS DESA TULIS</h1>
+        <p>Pemetaan Potensi & Fasilitas Desa</p>
+    </div>
+    
+    <div class="header-logos">
+        <img src="UNDIPOfficial.png.webp" id="logo-kampus" class="logo-item" alt="Logo Undip">
+        <img src="LOGOKKN.png" id="logo-KKN" class="logo-item" alt="Logo KKN">
+        <img src="Lambang_Kabupaten_Batang.png" id="logo-daerah" class="logo-item" alt="Logo Batang">
+    </div>
+
+    <!-- FITUR BARU: TOMBOL KANAN HEADER -->
+    <div class="header-actions">
+        <button id="btn-tentang" onclick="bukaTentang()">
+            <span class="aksi-ikon"></span> <span class="aksi-teks">Tentang Web</span>
+        </button>
+        <!-- Pastikan nama file "panduan.pdf" sesuai dengan nama file aslimu di folder -->
+        <a href="Buku Panduan Website Desa.pdf" target="_blank" id="btn-panduan">
+            <span class="aksi-ikon"></span> <span class="aksi-teks">Buku Panduan</span>
+        </a>
+    </div>
+</div>
 
     <div id="search-container">
         <!-- Wadah input dan tombol -->
@@ -84,6 +96,8 @@
         <span class="btn-icon">🔍</span><span class="btn-text">Cek Laporan</span>
     </a>
 
+    
+    
     <div id="route-info">Jarak Tempuh: <span id="distance-text">0 meter</span></div>
 
     <div id="earth-status-bar">
