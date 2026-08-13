@@ -72,10 +72,9 @@ const map = L.map('map', {
     doubleClickZoom: false,
     zoomSnap: 0.1,        
     zoomDelta: 0.5,       
-    wheelPxPerZoomLevel: 100 
-}).setView([-6.945, 109.785], 15); 
-
-map.attributionControl.setPrefix('Dibuat sepenuh hati oleh KKN Undip Desa Tulis 2026 ❤️| <a href="https://leafletjs.com">Leaflet</a>');
+    wheelPxPerZoomLevel: 100,
+    attributionControl: false // 
+}).setView([-6.945, 109.785], 15);
 
 const googleSat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', { 
     maxZoom: 20, attribution: 'Google Satellite', keepBuffer: 4, updateWhenZooming: false
@@ -458,21 +457,82 @@ map.on('move', function() { perbaruiKoordinatBar(map.getCenter()); });
 map.on('zoomend', updateEyeAltitude);
 updateEyeAltitude();
 
-window.bukaLegenda = function() {
+window.bukaLegenda = function(e) {
+    if(e) e.stopPropagation();
     const panelAda = document.getElementById('legenda-panel');
-    if (panelAda) { panelAda.remove(); return; }
+    
+    // Jika panel sudah terbuka, jalankan fungsi tutup (tarik ke atas)
+    if (panelAda) { 
+        window.tutupLegenda(); 
+        return; 
+    }
+    
     const t = terjemahan[bahasaSaatIni];
     const cats = [
         { cat: "Pusat Pemerintahan", emoji: "🏛️", color: "#585858" }, { cat: "Fasilitas Ibadah", emoji: "🕌", color: "#cccc34" },
         { cat: "Fasilitas Kesehatan", emoji: "🏥", color: "#e74c3c" }, { cat: "Fasilitas Pendidikan", emoji: "🎓", color: "#2ecc71" },
         { cat: "Pelaku Usaha", emoji: "🏪", color: "#631861" }, { cat: "Keamanan Lingkungan", emoji: "🛡️", color: "#34495e" }
     ];
-    let content = `<div id="legenda-panel" class="panel-legenda-melayang" onclick="event.stopPropagation()"><button class="close-legenda-btn" onclick="window.tutupLegenda()">✖</button><h3 class="legenda-title">${t.btnLegenda.replace('📜 ', '')}</h3><div class="legenda-scroll-area">`;
+    
+    // Perhatikan penambahan id="legenda-panel" dan class="panel-legenda-dropdown"
+    let content = `<div id="legenda-panel" class="panel-legenda-dropdown" onclick="event.stopPropagation()"><button class="close-legenda-btn" onclick="window.tutupLegenda(event)">✖</button><h3 class="legenda-title">${t.btnLegenda.replace('📜 ', '')}</h3><div class="legenda-scroll-area">`;
     cats.forEach(item => { let katName = t["kat" + item.cat.replace(/\s+/g, '')] || item.cat; content += `<div class="legenda-item"><div class="legenda-icon" style="background-color: ${item.color};">${item.emoji}</div><span>${katName}</span></div>`; });
     content += `<div class="legenda-item"><div class="legenda-icon-lokasi"></div><span>${t.labelLokasiAnda}</span></div><hr class="legenda-divider"><div class="legenda-item"><i class="garis-pantura"></i> <span>${t.labelJalanPantura}</span></div><div class="legenda-item"><i class="garis-desa"></i> <span>${t.labelJalanDesa}</span></div><div class="legenda-item"><i class="garis-batas"></i> <span>${t.labelBatasAdmin}</span></div><hr class="legenda-divider"><div class="legenda-item"><i class="kotak-dusun" style="background:#b59b38; border-color:#b59b38;"></i> <span>Dusun Tulis Sari</span></div><div class="legenda-item"><i class="kotak-dusun" style="background:#825b4a; border-color:#825b4a;"></i> <span>Dusun Gondangan</span></div><div class="legenda-item"><i class="kotak-dusun" style="background:#72659d; border-color:#72659d;"></i> <span>Dusun Pesawahan</span></div><div class="legenda-item"><i class="kotak-dusun" style="background:#32a852; border-color:#32a852;"></i> <span>Dusun Tulis Barat</span></div></div></div>`;
-    document.body.insertAdjacentHTML('beforeend', content);
+    
+    // Suntikkan HTML persis ke dalam div wrapper, bukan di body
+    const wrapper = document.getElementById('legenda-wrapper');
+    if (wrapper) {
+        wrapper.insertAdjacentHTML('beforeend', content);
+        // Trik Jeda Kecil: Memberi waktu browser mendeteksi elemen baru sebelum memicu animasi "tampil" CSS
+        setTimeout(() => {
+            const newPanel = document.getElementById('legenda-panel');
+            if (newPanel) newPanel.classList.add('tampil');
+        }, 10);
+    }
 };
-window.tutupLegenda = function() { const panel = document.getElementById('legenda-panel'); if(panel) panel.remove(); };
+
+window.tutupLegenda = function(e) {
+    if(e) e.stopPropagation();
+    const panel = document.getElementById('legenda-panel');
+    if(panel) {
+        // Cabut kelas animasi agar panel tersedot kembali ke atas
+        panel.classList.remove('tampil'); 
+        // Tunggu transisi CSS selesai (300ms) baru hapus dari HTML
+        setTimeout(() => { if (panel && panel.parentNode) panel.remove(); }, 300);
+    }
+};
+
+// ==========================================
+// 10. LOGIKA HAMBURGER MENU KANAN
+// ==========================================
+window.toggleMenuKanan = function(e) {
+    if(e) e.stopPropagation();
+    const wadah = document.getElementById('wadah-menu-kanan');
+    wadah.classList.toggle('tampil');
+};
+
+document.addEventListener('click', function(e) {
+    const wadah = document.getElementById('wadah-menu-kanan');
+    const btnHam = document.getElementById('btn-hamburger');
+    const filterPanel = document.getElementById('filter-panel');
+    const legendaPanel = document.getElementById('legenda-panel');
+    const btnLegenda = document.getElementById('btn-legenda');
+
+    // Mencegah menu tertutup jika sedang asik mengklik area dalam panel filter/legenda
+    if (filterPanel && filterPanel.contains(e.target)) return; 
+    if (legendaPanel && legendaPanel.contains(e.target)) return;
+
+    // Menutup Dropdown Legenda jika klik bebas di peta (di luar tombol/panel legenda)
+    if (legendaPanel && btnLegenda && !btnLegenda.contains(e.target)) {
+        window.tutupLegenda();
+    }
+
+    // Menutup Keseluruhan Hamburger Menu
+    if (wadah && wadah.classList.contains('tampil') && !wadah.contains(e.target) && !btnHam.contains(e.target)) {
+        wadah.classList.remove('tampil');
+        if (filterPanel && filterPanel.classList.contains('show')) filterPanel.classList.remove('show');
+    }
+});
 
 // ==========================================
 // 7. FITUR ALAT UKUR PRESISI (LEAFLET-GEOMAN)

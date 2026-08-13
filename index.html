@@ -90,9 +90,12 @@
             </div>
         </div>
 
-        <button id="btn-legenda" onclick="window.bukaLegenda()">
-            <span class="btn-icon">📜</span><span class="btn-text">Legenda Peta</span>
-        </button>
+        <div id="legenda-wrapper">
+            <button id="btn-legenda" onclick="window.bukaLegenda(event)">
+                <span class="btn-icon">📜</span><span class="btn-text">Legenda Peta</span>
+            </button>
+            <!-- Panel legenda akan muncul secara dinamis di sini -->
+        </div>
 
         <button id="btn-bahasa" onclick="window.toggleBahasa()">
             <span class="btn-icon">🌐</span><span class="btn-text">Ganti Bahasa</span>

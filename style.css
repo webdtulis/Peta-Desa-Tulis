@@ -233,13 +233,44 @@ STYLING CUSTOM ICON EMOJI MARKER
 /* ====================================================================
    SOLUSI IFRAME: LEGENDA TUMBUH KE ATAS & MENGGESER KE KIRI TOMBOL
    ==================================================================== */
-.panel-legenda-melayang {
-    position: fixed !important; top: auto !important; bottom: 35px !important; right: 70px !important; left: auto !important;
-    width: 190px !important; max-height: calc(100dvh - 100px) !important; display: flex !important; flex-direction: column !important; z-index: 2000 !important;
-    background: rgba(30, 40, 50, 0.95); color: white; padding: 12px; border-radius: 12px; box-shadow: -4px 6px 20px rgba(0,0,0,0.5);
-    border: 2px solid #3498db; backdrop-filter: blur(5px); animation: slideInRight 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+#legenda-wrapper {
+    position: relative !important;
+    display: flex;
+    justify-content: flex-end; /* Memastikan rata kanan sejajar dengan tombol */
 }
-@keyframes slideInRight { from { transform: translateX(30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+.panel-legenda-dropdown {
+    position: absolute !important; 
+    top: 50px !important; /* Terbuka persis di bawah tombol (44px + gap) */
+    right: 0 !important; 
+    left: auto !important;
+    width: 190px !important; 
+    max-height: calc(100dvh - 160px) !important; 
+    display: flex !important; 
+    flex-direction: column !important; 
+    z-index: 3000 !important; /* Memastikan menutupi tombol-tombol di bawahnya */
+    background: rgba(30, 40, 50, 0.95); 
+    color: white; 
+    padding: 12px; 
+    border-radius: 8px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    border: 2px solid #3498db; 
+    backdrop-filter: blur(5px); 
+    
+    /* SETUP ANIMASI TRANSISI HALUS */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px) scale(0.95); /* Mulai dari atas dan sedikit mengecil */
+    transform-origin: top right;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* KELAS AKTIF UNTUK MEMICU ANIMASI SAAT DIKLIK */
+.panel-legenda-dropdown.tampil {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1); /* Turun dan membesar mulus */
+}
 
 .close-legenda-btn { position: absolute; top: 13px; right: 12px; background: none; color: #e74c3c; border: none; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.2s; padding: 0; margin: 0; line-height: 1; width: 24px; height: 24px; display: flex; justify-content: center; align-items: center; }
 .close-legenda-btn:hover { color: #c0392b; transform: scale(1.2); }
@@ -262,7 +293,7 @@ STYLING CUSTOM ICON EMOJI MARKER
    TOMBOL LAPOR CEPAT (FLOATING ACTION BUTTON)
    ========================================================= */
 #btn-lapor-html {
-    position: fixed !important; bottom: 40px !important; left: 15px !important; z-index: 2005 !important;
+    position: fixed !important; bottom: 30px !important; left: 15px !important; z-index: 2005 !important;
     display: flex !important; align-items: center !important; gap: 6px !important;
     background-color: #e74c3c !important; color: white !important; border: 2px solid #c0392b !important;
     padding: 10px 18px !important; border-radius: 30px !important; font-size: 14px !important;
@@ -318,7 +349,7 @@ STYLING CUSTOM ICON EMOJI MARKER
     #route-info b { font-size: 12px; }
     #earth-status-bar { font-size: 9px; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 3px 5px; }
 
-    .panel-legenda-melayang { right: 60px !important; bottom: 35px !important; width: 170px !important; padding: 10px !important; }
+    .panel-legenda-dropdown { top: 46px !important; width: 170px !important; padding: 10px !important; }
     .close-legenda-btn { top: 11px !important; right: 10px !important; }
 
     /* Penyesuaian Menu Kanan (Hamburger) di Layar HP */
@@ -328,7 +359,7 @@ STYLING CUSTOM ICON EMOJI MARKER
     .btn-icon { width: 40px !important; height: 40px !important; font-size: 15px !important; }
 
     /* Penyesuaian FAB Lapor Cepat HP */
-    #btn-lapor-html { bottom: 45px !important; left: 10px !important; padding: 8px 14px !important; font-size: 12px !important; }
+    #btn-lapor-html { bottom: 35px !important; left: 10px !important; padding: 8px 14px !important; font-size: 12px !important; }
     #btn-lapor-html .btn-icon { font-size: 15px !important; }
 }
 
@@ -343,7 +374,7 @@ STYLING CUSTOM ICON EMOJI MARKER
     .leaflet-top.leaflet-left { margin-top: 50px !important; }
     #search-container { top: 55px !important; width: 160px !important; }
 
-    .panel-legenda-melayang { right: 60px !important; bottom: 30px !important; max-height: calc(100dvh - 80px) !important; }
+    .panel-legenda-dropdown { top: 40px !important; max-height: calc(100dvh - 110px) !important; }
 
     /* Penyesuaian Menu Kanan (Hamburger) di Layar Miring */
     #btn-hamburger { top: 55px !important; right: 10px !important; width: 34px !important; height: 34px !important; font-size: 14px !important; }
