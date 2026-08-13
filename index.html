@@ -11,93 +11,103 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
     
-    <!-- TAMBAHKAN: Plugin Measure Tool CSS -->
+    <!-- Plugin Measure Tool CSS -->
     <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
+    
     <!-- Custom CSS Anda -->
-    <link rel="stylesheet" href="style.css?v=20">
+    <link rel="stylesheet" href="style.css?v=52">
 </head>
 <body>
     <!-- HEADER WEBGIS -->
     <div id="header-webgis">
-    <div class="header-title">
-        <h1>WEBGIS DESA TULIS</h1>
-        <p>Pemetaan Potensi & Fasilitas Desa</p>
-    </div>
-    
-    <div class="header-logos">
-        <img src="UNDIPOfficial.png.webp" id="logo-kampus" class="logo-item" alt="Logo Undip">
-        <img src="LOGOKKN.png" id="logo-KKN" class="logo-item" alt="Logo KKN">
-        <img src="Lambang_Kabupaten_Batang.png" id="logo-daerah" class="logo-item" alt="Logo Batang">
+        <div class="header-title">
+            <h1>WEBGIS DESA TULIS</h1>
+            <p>Pemetaan Potensi & Fasilitas Desa</p>
+        </div>
+        
+        <div class="header-logos">
+            <img src="UNDIPOfficial.png.webp" id="logo-kampus" class="logo-item" alt="Logo Undip">
+            <img src="LOGOKKN.png" id="logo-KKN" class="logo-item" alt="Logo KKN">
+            <img src="Lambang_Kabupaten_Batang.png" id="logo-daerah" class="logo-item" alt="Logo Batang">
+        </div>
+
+        <div class="header-actions">
+            <button id="btn-tentang" onclick="window.bukaTentang()">
+                <span class="aksi-ikon">ℹ️</span> <span class="aksi-teks">Tentang Web</span>
+            </button>
+            <a href="Buku Panduan Website Desa.pdf" target="_blank" id="btn-panduan">
+                <span class="aksi-ikon">📖</span> <span class="aksi-teks">Buku Panduan</span>
+            </a>
+        </div>
     </div>
 
-    <!-- FITUR BARU: TOMBOL KANAN HEADER -->
-    <div class="header-actions">
-        <button id="btn-tentang" onclick="bukaTentang()">
-            <span class="aksi-ikon">ℹ️</span> <span class="aksi-teks">Tentang Web</span>
-        </button>
-        <!-- Pastikan nama file "panduan.pdf" sesuai dengan nama file aslimu di folder -->
-        <a href="Buku Panduan Website Desa.pdf" target="_blank" id="btn-panduan">
-            <span class="aksi-ikon">📖</span> <span class="aksi-teks">Buku Panduan</span>
-        </a>
-    </div>
-</div>
-
+    <!-- PENCARIAN -->
     <div id="search-container">
-        <!-- Wadah input dan tombol -->
         <div class="search-box-wrapper">
             <input type="text" id="search-input" placeholder="Cari lokasi" autocomplete="off">
             <button id="search-btn">🔍</button>
         </div>
-        <!-- Wadah (List) untuk memunculkan rekomendasi huruf yang diketik -->
         <ul id="search-suggestions" class="hidden"></ul>
     </div>
 
-    <div id="filter-container">
-        <button id="filter-toggle-btn">
-            <span class="btn-icon">⚙️</span><span class="btn-text">Filter Kategori</span>
-        </button>
-        <div id="filter-panel" class="hidden">
-            <div class="filter-action-wrapper">
-                <button id="btn-toggle-all" class="filter-action-btn btn-kosong" data-state="hide">Sembunyikan Semua</button>
+    <!-- TOMBOL HAMBURGER MENU -->
+    <button id="btn-hamburger" onclick="window.toggleMenuKanan(event)">
+        ☰
+    </button>
+
+    <!-- TOMBOL LAPOR CEPAT (FLOATING ACTION BUTTON) -->
+    <button id="btn-lapor-html" onclick="window.toggleLapor()">
+        <span class="btn-icon">📢</span><span class="btn-text">Lapor Cepat</span>
+    </button>
+
+    <!-- WADAH MENU KANAN (TERSEMBUNYI SECARA DEFAULT) -->
+    <div id="wadah-menu-kanan">
+        
+        <div id="filter-container">
+            <button id="filter-toggle-btn">
+                <span class="btn-icon">⚙️</span><span class="btn-text">Filter Kategori</span>
+            </button>
+            <div id="filter-panel" class="hidden">
+                <div class="filter-action-wrapper">
+                    <button id="btn-toggle-all" class="filter-action-btn btn-kosong" data-state="hide">Sembunyikan Semua</button>
+                </div>
+                <hr style="border: 0; border-top: 1px solid #7f8c8d; margin: 8px 0;">
+                
+                <button class="filter-btn active" data-category="Tulis Sari">Tulis Sari</button>
+                <button class="filter-btn active" data-category="Gondangan">Gondangan</button>
+                <button class="filter-btn active" data-category="Pesawahan">Pesawahan</button>
+                <button class="filter-btn active" data-category="Tulis Barat">Tulis Barat</button>
+                <hr style="border: 0; border-top: 1px solid #7f8c8d; margin: 8px 0;">
+                
+                <button class="filter-btn active" data-category="Pusat Pemerintahan">Pusat Pemerintahan</button>
+                <button class="filter-btn active" data-category="Fasilitas Ibadah">Fasilitas Ibadah</button>
+                <button class="filter-btn active" data-category="Fasilitas Kesehatan">Fasilitas Kesehatan</button>
+                <button class="filter-btn active" data-category="Fasilitas Pendidikan">Fasilitas Pendidikan</button>
+                <button class="filter-btn active" data-category="Pelaku Usaha">Pelaku Usaha</button>
+                <button class="filter-btn active" data-category="Keamanan Lingkungan">Keamanan Lingkungan</button>
+                <button class="filter-btn active" data-category="Jalan Desa">Jalan Desa</button>
+                <button class="filter-btn active" data-category="Jalan Pantura">Jalan Pantura</button>
             </div>
-            <hr style="border: 0; border-top: 1px solid #7f8c8d; margin: 8px 0;">
-            
-            <!-- Filter Batas Dusun -->
-            <button class="filter-btn active" data-category="Tulis Sari">Tulis Sari</button>
-            <button class="filter-btn active" data-category="Gondangan">Gondangan</button>
-            <button class="filter-btn active" data-category="Pesawahan">Pesawahan</button>
-            <button class="filter-btn active" data-category="Tulis Barat">Tulis Barat</button>
-            <hr style="border: 0; border-top: 1px solid #7f8c8d; margin: 8px 0;">
-            
-            <!-- Filter Kategori Lainnya -->
-            <button class="filter-btn active" data-category="Pusat Pemerintahan">Pusat Pemerintahan</button>
-            <button class="filter-btn active" data-category="Fasilitas Ibadah">Fasilitas Ibadah</button>
-            <button class="filter-btn active" data-category="Fasilitas Kesehatan">Fasilitas Kesehatan</button>
-            <button class="filter-btn active" data-category="Fasilitas Pendidikan">Fasilitas Pendidikan</button>
-            <button class="filter-btn active" data-category="Pelaku Usaha">Pelaku Usaha</button>
-            <button class="filter-btn active" data-category="Keamanan Lingkungan">Keamanan Lingkungan</button>
-            <button class="filter-btn active" data-category="Jalan Desa">Jalan Desa</button>
-            <button class="filter-btn active" data-category="Jalan Pantura">Jalan Pantura</button>
         </div>
+
+        <button id="btn-legenda" onclick="window.bukaLegenda()">
+            <span class="btn-icon">📜</span><span class="btn-text">Legenda Peta</span>
+        </button>
+
+        <button id="btn-bahasa" onclick="window.toggleBahasa()">
+            <span class="btn-icon">🌐</span><span class="btn-text">Ganti Bahasa</span>
+        </button>
+
+        <button id="btn-toggle-label" onclick="window.toggleLabel()">
+            <span class="btn-icon">🏷️</span><span class="btn-text">Tampil Label</span>
+        </button>
+
+        <a href="lacak.html" id="btn-lacak-laporan">
+            <span class="btn-icon">🔍</span><span class="btn-text">Cek Laporan</span>
+        </a>
     </div>
-    <button id="btn-legenda" onclick="bukaLegenda()">
-    <span class="btn-icon">📜</span><span class="btn-text">Legenda Peta</span>
-    </button>
 
-    <button id="btn-bahasa" onclick="toggleBahasa()">
-        <span class="btn-icon">🌐</span><span class="btn-text">Ganti Bahasa</span>
-    </button>
-
-    <button id="btn-toggle-label" onclick="toggleLabel()">
-        <span class="btn-icon">🏷️</span><span class="btn-text">Tampil Label</span>
-    </button>
-
-    <a href="lacak.html" id="btn-lacak-laporan">
-        <span class="btn-icon">🔍</span><span class="btn-text">Cek Laporan</span>
-    </a>
-
-    
-    
+    <!-- STATUS BAR & PETA -->
     <div id="route-info">Jarak Tempuh: <span id="distance-text">0 meter</span></div>
 
     <div id="earth-status-bar">
@@ -115,11 +125,10 @@
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.9.0/proj4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet-rotate@0.2.8/dist/leaflet-rotate.min.js"></script>    
-    
-    <!-- TAMBAHKAN: Plugin Measure Tool JS -->
     <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+    
     <!-- PANGGIL FILE LOKAL -->
-    <script src="data.js?v=20"></script>
-    <script src="script.js?v=20"></script>
+    <script src="data.js?v=52"></script>
+    <script src="script.js?v=52"></script>
 </body>
 </html>

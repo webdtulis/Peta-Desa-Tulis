@@ -1,16 +1,14 @@
 body, html { 
     margin: 0; 
     padding: 0; 
-    height: 100%; /* Fallback untuk browser lama */
-    height: 100dvh; /* KUNCI 1: Dynamic Viewport Height untuk HP modern */
+    height: 100%; 
+    height: 100dvh; 
     font-family: 'Segoe UI', Tahoma, sans-serif; 
-    
-    /* KUNCI 2: Kunci mati agar halaman web tidak bisa di-scroll ke atas/bawah */
     overflow: hidden !important; 
 }
 
 #map {
-    height: 100%; /* Mengikuti tinggi body yang sudah 100dvh */
+    height: 100%; 
     width: 100%;
     z-index: auto; 
 }
@@ -19,190 +17,64 @@ body, html {
    Styling untuk InfoWindow / Popup 
    ========================================== */
 .popup-content { max-width: 260px; }
-
-.popup-content h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 15px;
-    color: #2c3e50;
-    border-bottom: 2px solid #e74c3c;
-    padding-bottom: 5px;
-}
-
-.popup-gallery {
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 10px;
-}
-
+.popup-content h3 { margin-top: 0; margin-bottom: 10px; font-size: 15px; color: #2c3e50; border-bottom: 2px solid #e74c3c; padding-bottom: 5px; }
+.popup-gallery { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
 .popup-gallery figure { margin: 0; width: 48%; }
+.popup-gallery img { width: 100%; height: 90px; object-fit: cover; border-radius: 4px; border: 1px solid #bdc3c7; }
+.popup-gallery figcaption { font-size: 10px; text-align: center; color: #7f8c8d; margin-top: 3px; font-weight: bold; }
+.popup-content p { margin: 5px 0; font-size: 12px; color: #34495e; line-height: 1.4; }
 
-.popup-gallery img {
-    width: 100%;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 4px;
-    border: 1px solid #bdc3c7;
-}
-
-.popup-gallery figcaption {
-    font-size: 10px;
-    text-align: center;
-    color: #7f8c8d;
-    margin-top: 3px;
-    font-weight: bold;
-}
-
-.popup-content p {
-    margin: 5px 0;
-    font-size: 12px;
-    color: #34495e;
-    line-height: 1.4;
-}
-
-/* Tombol WhatsApp */
 .wa-btn { 
-    display: inline-block; 
-    background-color: #25D366; 
-    color: white; 
-    padding: 4px 8px; 
-    border-radius: 4px; 
-    text-decoration: none; 
-    font-size: 11px; 
-    font-weight: bold; 
-    margin-top: 5px; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
-    border: none; 
-    cursor: pointer; 
-    font-family: inherit;
+    display: inline-block; background-color: #25D366; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 11px; 
+    font-weight: bold; margin-top: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: none; cursor: pointer; font-family: inherit;
 }
 .wa-btn:hover { background-color: #128C7E; }
 
 /* ==========================================
-   Styling Label Tempat & Fitur Hide Google Maps
+   Styling Label Tempat & Filter Kategori
    ========================================== */
 .label-tempat {
-    background-color: rgba(0, 0, 0, 0.4) !important; 
-    backdrop-filter: blur(2px);                       
-    padding: 2px 6px !important;
-    border-radius: 4px !important;
-    border: none !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3) !important;
-    color: #ffffff;
-    font-size: 9px;
-    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.4) !important; backdrop-filter: blur(2px); padding: 2px 6px !important; border-radius: 4px !important;
+    border: none !important; box-shadow: 0 2px 4px rgba(0,0,0,0.3) !important; color: #ffffff; font-size: 9px; font-weight: 700;
     transition: opacity 0.3s ease, visibility 0.3s ease; 
 }
-
-.leaflet-tooltip-top::before,
-.leaflet-tooltip-bottom::before,
-.leaflet-tooltip-left::before,
-.leaflet-tooltip-right::before {
-    display: none !important;
-}
-
-#map.zoom-sedang .label-fasilitas-pendidikan,
-#map.zoom-sedang .label-Pelaku-Usaha,
-#map.zoom-sedang .label-keamanan-lingkungan { opacity: 0 !important; visibility: hidden !important; }
-
-#map.zoom-jauh .label-fasilitas-pendidikan,
-#map.zoom-jauh .label-Pelaku-Usaha,
-#map.zoom-jauh .label-keamanan-lingkungan,
-#map.zoom-jauh .label-fasilitas-kesehatan,
-#map.zoom-jauh .label-fasilitas-ibadah { opacity: 0 !important; visibility: hidden !important; }
-
+.leaflet-tooltip-top::before, .leaflet-tooltip-bottom::before, .leaflet-tooltip-left::before, .leaflet-tooltip-right::before { display: none !important; }
+#map.zoom-sedang .label-fasilitas-pendidikan, #map.zoom-sedang .label-Pelaku-Usaha, #map.zoom-sedang .label-keamanan-lingkungan { opacity: 0 !important; visibility: hidden !important; }
+#map.zoom-jauh .label-fasilitas-pendidikan, #map.zoom-jauh .label-Pelaku-Usaha, #map.zoom-jauh .label-keamanan-lingkungan, #map.zoom-jauh .label-fasilitas-kesehatan, #map.zoom-jauh .label-fasilitas-ibadah { opacity: 0 !important; visibility: hidden !important; }
 .leaflet-routing-container { display: none !important; }
 
 /* ==========================================
-   Panel Pencarian (Search) & Rekomendasi
+   Panel Pencarian (Search)
    ========================================== */
-#search-container { 
-    position: absolute; 
-    top: 75px; 
-    left: 60px; 
-    z-index: 1000; 
-    display: flex; 
-    flex-direction: column; 
-    border-radius: 4px; 
-    width: 260px; 
-}
-
-.search-box-wrapper {
-    display: flex;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    border-radius: 4px;
-    overflow: hidden;
-    background: white;
-    width: 100%;
-}
-
+#search-container { position: absolute; top: 75px; left: 60px; z-index: 1000; display: flex; flex-direction: column; border-radius: 4px; width: 260px; }
+.search-box-wrapper { display: flex; box-shadow: 0 2px 5px rgba(0,0,0,0.3); border-radius: 4px; overflow: hidden; background: white; width: 100%; }
 #search-input { border: none; padding: 10px; flex-grow: 1; font-size: 13px; outline: none; }
 #search-btn { background: #3498db; color: white; border: none; padding: 10px 15px; cursor: pointer; font-size: 14px; }
 #search-btn:hover { background: #2980b9; }
 
 #search-suggestions {
-    list-style: none;
-    margin: 2px 0 0 0;
-    padding: 0;
-    background: white;
-    border-radius: 4px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    max-height: 200px; 
-    overflow-y: auto;
-    width: 100%;
+    list-style: none; margin: 2px 0 0 0; padding: 0; background: white; border-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); max-height: 200px; overflow-y: auto; width: 100%;
 }
 #search-suggestions.hidden { display: none; }
-#search-suggestions li {
-    padding: 10px 12px;
-    font-size: 13px;
-    color: #2c3e50;
-    cursor: pointer;
-    border-bottom: 1px solid #ecf0f1;
-    text-transform: capitalize; 
-}
+#search-suggestions li { padding: 10px 12px; font-size: 13px; color: #2c3e50; cursor: pointer; border-bottom: 1px solid #ecf0f1; text-transform: capitalize; }
 #search-suggestions li:last-child { border-bottom: none; }
 #search-suggestions li:hover { background-color: #3498db; color: white; }
 
 /* ==========================================
-   Panel Filter Kategori
+   Filter Panel di Menu Kanan
    ========================================== */
-#filter-container {
-    position: fixed !important;
-    top: 70px !important;
-    right: 15px !important;
-    z-index: 2000 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important;
-}
-
+#filter-container { position: relative !important; top: 0 !important; right: 0 !important; }
 #filter-panel {
-    background: rgba(44, 62, 80, 0.95);
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    border: 1px solid #3498db;
-    min-width: 170px;
-    display: none; 
-    max-height: 185px; 
-    overflow-y: auto;  
-    margin-top: 8px !important; 
-    z-index: 2000 !important;
+    background: rgba(44, 62, 80, 0.95); padding: 10px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); border: 1px solid #3498db;
+    min-width: 170px; display: none; max-height: 185px; overflow-y: auto; margin-top: 8px !important; z-index: 2000 !important;
 }
-
 #filter-panel::-webkit-scrollbar { width: 6px; }
 #filter-panel::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); border-radius: 8px; margin-top: 5px; margin-bottom: 5px; }
 #filter-panel::-webkit-scrollbar-thumb { background: #3498db; border-radius: 8px; }
-#filter-panel::-webkit-scrollbar-thumb:hover { background: #2980b9; }
 #filter-panel.show { display: block; }
 
-.filter-btn {
-    display: block; width: 100%; padding: 8px; margin-bottom: 6px; color: white; border: none; border-radius: 4px;
-    cursor: pointer; font-size: 12px; font-weight: 600; text-align: left; transition: all 0.3s ease;
-}
+.filter-btn { display: block; width: 100%; padding: 8px; margin-bottom: 6px; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600; text-align: left; transition: all 0.3s ease; }
 .filter-btn:last-child { margin-bottom: 0; }
-
 .filter-btn[data-category="Pusat Pemerintahan"].active { background-color: #585858; }
 .filter-btn[data-category="Fasilitas Ibadah"].active { background-color: #cccc34; }
 .filter-btn[data-category="Fasilitas Kesehatan"].active { background-color: #e74c3c; }
@@ -215,12 +87,9 @@ body, html {
 .filter-btn[data-category="Gondangan"].active { background-color: #825b4a; } 
 .filter-btn[data-category="Pesawahan"].active { background-color: #72659d; } 
 .filter-btn[data-category="Tulis Barat"].active { background-color: #32a852; } 
-
 .filter-btn:not(.active) { background-color: #7f8c8d !important; color: #bdc3c7; text-decoration: line-through; opacity: 0.7; }
-
 .filter-action-wrapper { display: flex; gap: 5px; margin-bottom: 5px; }
-.filter-action-btn { flex: 1; padding: 6px; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 11px; font-weight: bold; text-align: center; transition: opacity 0.2s ease; }
-.filter-action-btn:hover { opacity: 0.8; }
+.filter-action-btn { flex: 1; padding: 6px; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 11px; font-weight: bold; text-align: center; }
 .btn-semua { background-color: #27ae60; } 
 .btn-kosong { background-color: #c0392b; }
 
@@ -228,261 +97,110 @@ body, html {
    Panel Info Rute & Status Google Earth
    ========================================== */
 #route-info {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    background: rgba(44, 62, 80, 0.9);
-    color: #ffffff;
-    padding: 10px 24px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 500;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    display: none; 
-    border: 2px solid #3498db;
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 1000; background: rgba(44, 62, 80, 0.9);
+    color: #ffffff; padding: 10px 24px; border-radius: 30px; font-size: 14px; font-weight: 500; box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    display: none; border: 2px solid #3498db;
 }
 #route-info b { color: #f39c12; font-size: 16px; margin-left: 5px; }
 
 #earth-status-bar { 
-    position: fixed !important; 
-    bottom: 0; 
-    left: 0; 
-    width: 100%; 
-    box-sizing: border-box; 
-    background: rgba(0, 0, 0, 0.5); 
-    color: #fff; 
-    font-size: 14px; 
-    padding: 4px 10px; 
-    z-index: 1000; 
-    display: flex; 
-    gap: 20px; 
-    pointer-events: none; 
+    position: fixed !important; bottom: 0; left: 0; width: 100%; box-sizing: border-box; background: rgba(0, 0, 0, 0.5); 
+    color: #fff; font-size: 14px; padding: 4px 10px; z-index: 1000; display: flex; gap: 20px; pointer-events: none; 
 }
 
-/* ==========================================
-   STYLING WATERMARK / ATRIBUSI TIM KKN
-   ========================================== */
 .leaflet-control-attribution {
-    background-color: rgba(255, 255, 255, 0.9) !important;
-    color: #2c3e50 !important;
-    font-weight: 700;
-    padding: 4px 10px !important;
-    border-top-left-radius: 8px;
-    box-shadow: -2px -2px 5px rgba(0,0,0,0.2);
-    margin-bottom: 28px !important; 
+    background-color: rgba(255, 255, 255, 0.9) !important; color: #2c3e50 !important; font-weight: 700; padding: 4px 10px !important;
+    border-top-left-radius: 8px; box-shadow: -2px -2px 5px rgba(0,0,0,0.2); margin-bottom: 28px !important; 
 }
 .leaflet-control-attribution a { color: #3498db !important; text-decoration: none; }
 
 /* ==========================================
-   STYLING TOMBOL & GALERI FOTO (MODAL/POPUP)
+   STYLING GALERI FOTO (MODAL/POPUP)
    ========================================== */
-.btn-lihat-foto {
-    display: flex; justify-content: center; align-items: center; background-color: #f39c12; color: white; border: none;
-    width: 30px; height: 30px; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    transition: all 0.3s ease; flex-shrink: 0; margin-left: 8px; 
-}
+.btn-lihat-foto { display: flex; justify-content: center; align-items: center; background-color: #f39c12; color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; transition: 0.3s; margin-left: 8px; }
 .btn-lihat-foto:hover { background-color: #d68910; transform: scale(1.15); }
-
-/* Latar Gelap untuk Pop-up Galeri & Pop-up Legenda Baru */
-.galeri-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(44, 62, 80, 0.9); z-index: 9999;
-    display: flex; justify-content: center; align-items: center;
-    backdrop-filter: blur(4px); animation: fadeIn 0.3s ease;
-}
-
-.galeri-modal {
-    background: #fff; padding: 15px; border-radius: 12px; width: 90%; max-width: 500px;
-    position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-}
-
-.galeri-title {
-    margin: 0 0 15px 0; color: #2c3e50; font-size: 16px; text-align: center;
-    border-bottom: 2px solid #3498db; padding-bottom: 8px;
-}
-
-.close-galeri {
-    position: absolute; top: -12px; right: -12px; background: #e74c3c; color: white;
-    border: 2px solid #fff; border-radius: 50%; width: 34px; height: 34px;
-    font-size: 16px; cursor: pointer; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-.close-galeri:hover { background: #c0392b; }
-
-.foto-container {
-    position: relative; flex: 0 0 100%; scroll-snap-align: center; aspect-ratio: 16 / 9; 
-    max-height: 70vh; background-color: #f8f9fa; border-radius: 8px;
-    display: flex; justify-content: center; align-items: center; overflow: hidden; border: 1px solid #ddd;
-}
-
-.loading-spinner {
-    width: 40px; height: 40px; border: 4px solid #bdc3c7; border-top: 4px solid #3498db; 
-    border-radius: 50%; animation: spin-loader 1s linear infinite; position: absolute; z-index: 1; 
-}
-@keyframes spin-loader { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-.foto-container img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 2; opacity: 0; transition: opacity 0.6s ease-in-out; }
+.galeri-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 62, 80, 0.9); z-index: 9999; display: flex; justify-content: center; align-items: center; backdrop-filter: blur(4px); animation: fadeIn 0.3s ease; }
+.galeri-modal { background: #fff; padding: 15px; border-radius: 12px; width: 90%; max-width: 500px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+.galeri-title { margin: 0 0 15px 0; color: #2c3e50; font-size: 16px; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 8px; }
+.close-galeri { position: absolute; top: -12px; right: -12px; background: #e74c3c; color: white; border: 2px solid #fff; border-radius: 50%; width: 34px; height: 34px; font-size: 16px; cursor: pointer; font-weight: bold; }
+.foto-container { position: relative; flex: 0 0 100%; scroll-snap-align: center; aspect-ratio: 16 / 9; max-height: 70vh; background-color: #f8f9fa; border-radius: 8px; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+.loading-spinner { width: 40px; height: 40px; border: 4px solid #bdc3c7; border-top: 4px solid #3498db; border-radius: 50%; animation: spin-loader 1s linear infinite; position: absolute; }
+@keyframes spin-loader { 100% { transform: rotate(360deg); } }
+.foto-container img { width: 100%; height: 100%; object-fit: cover; position: absolute; opacity: 0; transition: opacity 0.6s ease-in-out; }
 .foto-container img.loaded { opacity: 1; }
-
 .galeri-hint { font-size: 12px; color: #7f8c8d; text-align: center; margin: 10px 0 0 0; font-weight: bold; animation: pulse 1.5s infinite; }
-
 @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; color: #3498db; } 100% { opacity: 0.6; } }
-
-.nav-btn {
-    position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; width: 35px; height: 35px; border-radius: 50%;
-    cursor: pointer; z-index: 10; font-size: 16px; display: flex; justify-content: center; align-items: center; transition: background 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-.nav-btn:hover { background: rgba(0, 0, 0, 0.9); }
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 16px; }
 .prev-btn { left: 5px; } .next-btn { right: 5px; }
-
-.galeri-slider {
-    display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; width: 100%;
-    -ms-overflow-style: none; scrollbar-width: none;  
-}
-.galeri-slider::-webkit-scrollbar { display: none; }
-
+.galeri-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; width: 100%; scrollbar-width: none; }
 
 /* =========================================================
-   SISTEM TOMBOL MENU KANAN (DESKTOP)
+   SISTEM TOMBOL MENU KANAN (HAMBURGER & WADAH)
    ========================================================= */
-#filter-toggle-btn, #btn-legenda, .lapor-warga-control, #btn-bahasa, #btn-toggle-label, #btn-lacak-laporan {
-    width: 44px !important; 
-    height: 44px !important;
-    display: flex !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
-    font-size: 13px !important;
-    font-weight: bold !important;
-    border-radius: 8px !important;
-    padding: 0 !important; 
-    box-sizing: border-box !important;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
-    cursor: pointer !important;
-    margin: 0 !important;
-    text-decoration: none !important;
-    
-    overflow: hidden !important; 
-    white-space: nowrap !important; 
-    transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease !important;
+#btn-hamburger {
+    position: fixed; top: 75px; right: 15px; z-index: 2001; width: 44px; height: 44px;
+    background: rgba(30, 40, 50, 0.95); color: white; border: 2px solid #3498db;
+    border-radius: 8px; cursor: pointer; display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3); font-size: 24px; transition: 0.3s;
+}
+#btn-hamburger:hover { background: #3498db; }
+
+#wadah-menu-kanan {
+    position: fixed; top: 130px; right: 15px; z-index: 2000;
+    display: flex; flex-direction: column; gap: 10px;
+    transform: translateX(150%); opacity: 0; pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+#wadah-menu-kanan.tampil { transform: translateX(0); opacity: 1; pointer-events: auto; }
+
+/* CSS Grup untuk Menu Hamburger (Tanpa Lapor Cepat) */
+#filter-toggle-btn, #btn-legenda, #btn-bahasa, #btn-toggle-label, #btn-lacak-laporan {
+    width: 170px !important; height: 44px !important; display: flex !important; justify-content: flex-start !important;
+    align-items: center !important; font-size: 13px !important; font-weight: bold !important; border-radius: 8px !important;
+    padding: 0 !important; box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important; cursor: pointer !important; text-decoration: none !important;
 }
 
-.btn-icon {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 44px !important; 
-    height: 44px !important;
-    font-size: 17px !important;
-    flex-shrink: 0 !important; 
-}
+.btn-icon { display: flex !important; justify-content: center !important; align-items: center !important; width: 44px !important; height: 44px !important; font-size: 17px !important; flex-shrink: 0 !important; }
+.btn-text { opacity: 1 !important; padding-right: 15px !important; }
 
-.btn-text {
-    opacity: 0;
-    padding-right: 15px !important;
-    transition: opacity 0.2s ease !important;
-}
-
-/* Efek Melebar (Dikendalikan murni oleh JS dengan kelas .terbuka) */
-#filter-toggle-btn.terbuka, #btn-legenda.terbuka, .lapor-warga-control.terbuka, #btn-bahasa.terbuka, #btn-toggle-label.terbuka, #btn-lacak-laporan.terbuka, .lapor-warga-control.active {
-    width: 155px !important; 
-    box-shadow: 0 6px 12px rgba(0,0,0,0.5) !important;
-}
-
-#filter-toggle-btn.terbuka .btn-text, #btn-legenda.terbuka .btn-text, .lapor-warga-control.terbuka .btn-text, #btn-bahasa.terbuka .btn-text, #btn-toggle-label.terbuka .btn-text, #btn-lacak-laporan.terbuka .btn-text, .lapor-warga-control.active .btn-text {
-    opacity: 1; 
-    transition-delay: 0.1s;
-}
-
-/* Kustomisasi Warna Tombol Spesifik */
-#btn-legenda { background: rgba(30, 40, 50, 0.85) !important; color: white !important; border: 2px solid #3498db !important; backdrop-filter: blur(4px) !important; }
-.lapor-warga-control { background-color: #e74c3c !important; color: white !important; border: 2px solid #c0392b !important; }
-#btn-bahasa { background: rgba(30, 40, 50, 0.85) !important; color: white !important; border: 2px solid #3498db !important; backdrop-filter: blur(4px) !important; }
+#filter-toggle-btn { background: rgba(30, 40, 50, 0.85); color: white; border: 2px solid #3498db; }
+#btn-legenda { background: rgba(30, 40, 50, 0.85) !important; color: white !important; border: 2px solid #3498db !important; }
+#btn-bahasa { background: rgba(30, 40, 50, 0.85) !important; color: white !important; border: 2px solid #3498db !important; }
 #btn-lacak-laporan { background: #e67e22 !important; color: white !important; border: none !important; }
 
-.lapor-warga-control.active { background-color: #f1c40f !important; color: #2c3e50 !important; border-color: #f39c12 !important; animation: pulse-border 1.5s infinite; }
-@keyframes pulse-border { 0% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(241, 196, 15, 0); } 100% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0); } }
-
-/* Posisi Masing-masing Tombol Kanan (Desktop) */
-#filter-toggle-btn { position: relative !important; top: 0 !important; right: 0 !important; left: auto !important; }
-#btn-legenda { position: fixed !important; top: 125px !important; right: 15px !important; z-index: 1001 !important; }
-.lapor-warga-control { position: fixed !important; top: 180px !important; right: 15px !important; z-index: 1000 !important; }
-#btn-bahasa { position: fixed !important; top: 235px !important; right: 15px !important; left: auto !important; z-index: 999 !important; }
-#btn-toggle-label { position: fixed !important; top: 290px !important; right: 15px !important; left: auto !important; z-index: 998 !important; }
-#btn-lacak-laporan { position: fixed !important; top: 345px !important; right: 15px !important; left: auto !important; z-index: 997 !important; }
-
 /*==========================================   
-STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
+STYLING CUSTOM ICON EMOJI MARKER
 ========================================== */
 .custom-div-icon { background: transparent; border: none; }
 .custom-marker-wrapper {
     width: 15px; height: 15px; background-color: var(--warna-marker); border-radius: 50% 50% 50% 0; border: 2px solid #ffffff;
     box-shadow: -2px 2px 4px rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; transform: rotate(-45deg); 
-    transform-origin: center center; transition: transform 0.2s ease;
+    transition: transform 0.2s ease;
 }
 .custom-marker-wrapper:hover { transform: rotate(-45deg) scale(1.15); cursor: pointer; }
 .marker-emoji { transform: rotate(45deg); font-size: 10px; }
-
 #map.hide-labels .label-tempat { opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
 
-/* ==========================================
-   STYLING HEADER LOGO
-   ========================================== */
 /* ==========================================
    STYLING HEADER LOGO (DENGAN ESTETIKA MODERN)
    ========================================== */
 #header-webgis {
     position: absolute; top: 0; left: 0; width: 100%; height: 60px; background: rgba(44, 62, 80, 0.95); backdrop-filter: blur(5px);
     z-index: 3000; display: flex; justify-content: flex-start !important; align-items: center !important; gap: 15px !important; 
-    padding: 0 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.5); box-sizing: border-box;
-    /* ESTETIKA 1: Garis aksen biru di pucuk atas layar */
-    border-top: 3px solid #3498db; 
+    padding: 0 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.5); box-sizing: border-box; border-top: 3px solid #3498db; 
 }
 #header-webgis > div:not(.header-logos) { text-align: left !important; }
 
 .header-logos { 
-    display: flex !important; 
-    gap: 10px !important; 
-    align-items: center !important; 
-    flex-shrink: 0 !important; 
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    
-    /* ESTETIKA 2: Glow membulat halus di belakang logo */
-    padding: 4px 20px !important;
-    border-radius: 50px !important;
+    display: flex !important; gap: 10px !important; align-items: center !important; flex-shrink: 0 !important; 
+    position: absolute !important; left: 50% !important; transform: translateX(-50%) !important;
+    padding: 4px 20px !important; border-radius: 50px !important;
     background: radial-gradient(ellipse at center, rgba(52, 152, 219, 0.15) 0%, transparent 75%) !important;
 }
 
-/* ESTETIKA 3: Sayap garis memudar (Fading Lines) ke Kiri */
-.header-logos::before {
-    content: '';
-    position: absolute;
-    right: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 18vw; /* Lebar sayap menyesuaikan jarak layar */
-    max-width: 300px;
-    height: 1px;
-    background: linear-gradient(to left, rgba(255,255,255,0.25), transparent);
-    margin-right: 15px;
-}
-
-/* ESTETIKA 4: Sayap garis memudar (Fading Lines) ke Kanan */
-.header-logos::after {
-    content: '';
-    position: absolute;
-    left: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 18vw;
-    max-width: 300px;
-    height: 1px;
-    background: linear-gradient(to right, rgba(255,255,255,0.25), transparent);
-    margin-left: 15px;
-}
+.header-logos::before { content: ''; position: absolute; right: 100%; top: 50%; transform: translateY(-50%); width: 18vw; max-width: 300px; height: 1px; background: linear-gradient(to left, rgba(255,255,255,0.25), transparent); margin-right: 15px; }
+.header-logos::after { content: ''; position: absolute; left: 100%; top: 50%; transform: translateY(-50%); width: 18vw; max-width: 300px; height: 1px; background: linear-gradient(to right, rgba(255,255,255,0.25), transparent); margin-left: 15px; }
 
 .logo-item { width: auto !important; object-fit: contain !important; flex-shrink: 0 !important; max-width: none !important; }
 #logo-kampus { height: 42px !important; margin-right: -5px !important; }
@@ -497,126 +215,39 @@ STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
 .leaflet-container.reporting-mode { cursor: crosshair !important; }
 .leaflet-control-measure { border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.3) !important; border: none !important; }
 #map { touch-action: pan-x pan-y; }
-
-.leaflet-popup, .leaflet-tooltip, .galeri-slider {
-    will-change: transform, opacity; -webkit-transform: translateZ(0); transform: translateZ(0);
-    -webkit-backface-visibility: hidden; backface-visibility: hidden;
-}
+.leaflet-popup, .leaflet-tooltip, .galeri-slider { will-change: transform, opacity; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-backface-visibility: hidden; backface-visibility: hidden; }
 
 /* ==========================================
    FITUR HEADER KANAN (TENTANG & PANDUAN)
    ========================================== */
-.header-actions {
-    margin-left: auto !important; /* Mendorong tombol mentok ke ujung kanan */
-    display: flex;
-    gap: 10px;
-    align-items: center;
+.header-actions { margin-left: auto !important; display: flex; gap: 10px; align-items: center; }
+.header-actions button, .header-actions a {
+    display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600;
+    text-decoration: none; cursor: pointer; transition: all 0.2s ease; font-family: inherit; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
-
-.header-actions button,
-.header-actions a {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: inherit;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-#btn-tentang {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
+#btn-tentang { background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid rgba(255, 255, 255, 0.3); }
 #btn-tentang:hover { background: rgba(255, 255, 255, 0.25); }
-
-#btn-panduan {
-    background: #27ae60; /* Hijau agar kontras dan mudah dilihat */
-    color: white;
-    border: 1px solid #2ecc71;
-}
+#btn-panduan { background: #27ae60; color: white; border: 1px solid #2ecc71; }
 #btn-panduan:hover { background: #2ecc71; }
 
-/* ==========================================
-   STYLING LEGENDA MELAYANG (WIDGET PANEL KANAN)
-   ========================================== */
+/* ====================================================================
+   SOLUSI IFRAME: LEGENDA TUMBUH KE ATAS & MENGGESER KE KIRI TOMBOL
+   ==================================================================== */
 .panel-legenda-melayang {
-    position: fixed;
-    top: 400px; 
-    right: 15px; 
-    background: rgba(30, 40, 50, 0.95);
-    color: white;
-    padding: 12px;
-    border-radius: 12px;
-    box-shadow: -4px 6px 20px rgba(0,0,0,0.5);
-    border: 2px solid #3498db;
-    z-index: 2000;
-    width: 190px; 
-    backdrop-filter: blur(5px);
-    animation: slideInRight 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    
-    /* KUNCI ANTI-TENGGELAM: Flexbox & Max-Height */
-    display: flex;
-    flex-direction: column;
-    max-height: calc(100dvh - 440px); /* Menyisakan 40px ruang aman di bawah untuk status bar */
+    position: fixed !important; top: auto !important; bottom: 35px !important; right: 70px !important; left: auto !important;
+    width: 190px !important; max-height: calc(100dvh - 100px) !important; display: flex !important; flex-direction: column !important; z-index: 2000 !important;
+    background: rgba(30, 40, 50, 0.95); color: white; padding: 12px; border-radius: 12px; box-shadow: -4px 6px 20px rgba(0,0,0,0.5);
+    border: 2px solid #3498db; backdrop-filter: blur(5px); animation: slideInRight 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+@keyframes slideInRight { from { transform: translateX(30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
-@keyframes slideInRight {
-    from { transform: translateX(30px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-.close-legenda-btn {
-    position: absolute; 
-    top: 13px; 
-    right: 12px; 
-    background: none; 
-    color: #e74c3c;
-    border: none; 
-    font-size: 16px; 
-    font-weight: bold; 
-    cursor: pointer; 
-    transition: 0.2s;
-    padding: 0;
-    margin: 0;
-    line-height: 1; 
-    width: 24px;
-    height: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+.close-legenda-btn { position: absolute; top: 13px; right: 12px; background: none; color: #e74c3c; border: none; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.2s; padding: 0; margin: 0; line-height: 1; width: 24px; height: 24px; display: flex; justify-content: center; align-items: center; }
 .close-legenda-btn:hover { color: #c0392b; transform: scale(1.2); }
-
-.legenda-title {
-    margin: 0 0 10px 0; 
-    font-size: 14px; 
-    border-bottom: 2px solid #3498db; 
-    padding-bottom: 8px; 
-    padding-right: 25px; 
-    color: #ecf0f1;
-    min-height: 24px; 
-    display: flex;
-    align-items: center;
-}
-
-.legenda-scroll-area {
-    overflow-y: auto; 
-    padding-right: 8px;
-    flex-grow: 1; /* Area scroll akan otomatis menyusut jika layar laptop pendek */
-    min-height: 100px;
-}
-
+.legenda-title { margin: 0 0 10px 0; font-size: 14px; border-bottom: 2px solid #3498db; padding-bottom: 8px; padding-right: 25px; color: #ecf0f1; min-height: 24px; display: flex; align-items: center; }
+.legenda-scroll-area { max-height: none !important; overflow-y: auto !important; flex-grow: 1 !important; padding-right: 8px; min-height: 100px; }
 .legenda-scroll-area::-webkit-scrollbar { width: 5px; }
 .legenda-scroll-area::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 5px; }
 .legenda-scroll-area::-webkit-scrollbar-thumb { background: #3498db; border-radius: 5px; }
-
 .legenda-item { display: flex; align-items: center; margin-bottom: 8px; font-size: 11px; font-weight: 500; }
 .legenda-icon { width: 20px; height: 20px; border-radius: 50%; border: 1px solid #fff; display: flex; justify-content: center; align-items: center; margin-right: 10px; font-size: 10px; flex-shrink: 0; }
 .legenda-icon-lokasi { background-color: #3498db; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; margin-right: 12px; margin-left: 3px; flex-shrink: 0; }
@@ -628,12 +259,30 @@ STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
 
 
 /* =========================================================
+   TOMBOL LAPOR CEPAT (FLOATING ACTION BUTTON)
+   ========================================================= */
+#btn-lapor-html {
+    position: fixed !important; bottom: 40px !important; left: 15px !important; z-index: 2005 !important;
+    display: flex !important; align-items: center !important; gap: 6px !important;
+    background-color: #e74c3c !important; color: white !important; border: 2px solid #c0392b !important;
+    padding: 10px 18px !important; border-radius: 30px !important; font-size: 14px !important;
+    font-weight: 800 !important; cursor: pointer !important; box-shadow: 0 6px 15px rgba(231, 76, 60, 0.5) !important;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important; animation: pulse-red 2s infinite; 
+}
+#btn-lapor-html:hover { background-color: #c0392b !important; transform: scale(1.05) translateY(-3px) !important; }
+#btn-lapor-html .btn-icon { width: auto !important; height: auto !important; font-size: 18px !important; margin: 0 !important; display: inline-block !important; }
+#btn-lapor-html .btn-text { padding: 0 !important; opacity: 1 !important; }
+#btn-lapor-html.active { background-color: #f1c40f !important; color: #2c3e50 !important; border-color: #f39c12 !important; animation: pulse-yellow 1.5s infinite !important; }
+
+@keyframes pulse-red { 0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(231, 76, 60, 0); } 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); } }
+@keyframes pulse-yellow { 0% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(241, 196, 15, 0); } 100% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0); } }
+
+
+/* =========================================================
    ULTIMATE RESPONSIVE & FLUID DESIGN (Adaptasi Semua Device)
    ========================================================= */
 
-#search-container {
-    top: 75px !important; left: 60px !important; max-width: 70vw !important; transition: all 0.3s ease;
-}
+#search-container { top: 75px !important; left: 60px !important; max-width: 70vw !important; transition: all 0.3s ease; }
 
 /* MEDIA QUERY 1: Tablet / iPad (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -650,57 +299,37 @@ STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
     #search-btn { padding: 8px 12px !important; font-size: 12px !important; flex-shrink: 0 !important; }
     #search-suggestions { width: 100% !important; }
 
-    #header-webgis { padding: 0 10px; height: 55px; }
-    .header-logos { gap: 8px !important; }
+    #header-webgis { padding: 0 10px; height: 55px; border-top: 2px solid #3498db; }
+    .header-logos { gap: 8px !important; background: none !important; padding: 0 !important; }
+    .header-logos::before, .header-logos::after { display: none !important; }
     #logo-kampus { height: 35px !important; margin-right: -3px !important; }
     #logo-KKN { height: 28px !important; }
     #logo-daerah { height: 26px !important; }
     .header-title h1 { font-size: 13px; }
     .header-title p { font-size: 9px; }
+    
     .header-actions { gap: 5px !important; }
     .header-actions button, .header-actions a { padding: 6px !important; }
-    .header-actions .aksi-teks { display: none !important; } /* Sembunyikan tulisan */
+    .header-actions .aksi-teks { display: none !important; } 
     .header-actions .aksi-ikon { font-size: 14px !important; margin: 0 !important; }
 
-    .leaflet-control-attribution {
-        position: fixed !important; z-index: 9000 !important; bottom: 18px !important; right: 5px !important;   
-        top: auto !important; right: auto !important; writing-mode: horizontal-tb !important; transform: none !important;
-        text-align: right !important; padding: 4px 8px !important; border-radius: 6px !important; 
-        font-size: 8px !important; white-space: nowrap !important; max-width: 65vw !important; overflow: hidden !important; text-overflow: ellipsis !important;
-    }
-
+    .leaflet-control-attribution { position: fixed !important; z-index: 9000 !important; bottom: 18px !important; right: 5px !important; top: auto !important; left: auto !important; text-align: right !important; padding: 4px 8px !important; border-radius: 6px !important; font-size: 8px !important; max-width: 65vw !important; overflow: hidden !important; text-overflow: ellipsis !important; }
     #route-info { bottom: 30px; font-size: 11px; padding: 6px 15px; width: max-content; border-width: 1px; }
     #route-info b { font-size: 12px; }
     #earth-status-bar { font-size: 9px; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 3px 5px; }
 
-    /* Jarak Antar Tombol Kanan Dirapatkan agar tidak dempet di HP */
-    #filter-container { top: 75px !important; }
-    #btn-legenda { top: 130px !important; }
-    .lapor-warga-control { top: 185px !important; } 
-    #btn-bahasa { top: 240px !important; }          
-    #btn-toggle-label { top: 295px !important; }    
-    #btn-lacak-laporan { top: 350px !important; }   
-  
-    .panel-legenda-melayang {
-        top: 405px !important; 
-        right: 15px !important;
-        left: auto !important;
-        bottom: auto !important;
-        width: 170px !important;
-        padding: 10px !important;
-        max-height: calc(100dvh - 460px) !important; /* Disesuaikan untuk tinggi HP */
-    }
-    
-    .close-legenda-btn {
-        top: 11px !important; 
-        right: 10px !important;
-    }
-    /* Matikan estetika sayap & glow logo di layar HP agar tidak sumpek */
-    .header-logos::before, .header-logos::after { display: none !important; }
-    .header-logos { background: none !important; padding: 0 !important; }
-    
-    /* Tipiskan garis aksen atas di HP */
-    #header-webgis { border-top: 2px solid #3498db; }
+    .panel-legenda-melayang { right: 60px !important; bottom: 35px !important; width: 170px !important; padding: 10px !important; }
+    .close-legenda-btn { top: 11px !important; right: 10px !important; }
+
+    /* Penyesuaian Menu Kanan (Hamburger) di Layar HP */
+    #btn-hamburger { top: 70px !important; right: 10px !important; width: 38px !important; height: 38px !important; font-size: 18px !important; }
+    #wadah-menu-kanan { top: 115px !important; right: 10px !important; }
+    #filter-toggle-btn, #btn-legenda, #btn-bahasa, #btn-toggle-label, #btn-lacak-laporan { width: 150px !important; height: 40px !important; font-size: 11px !important; }
+    .btn-icon { width: 40px !important; height: 40px !important; font-size: 15px !important; }
+
+    /* Penyesuaian FAB Lapor Cepat HP */
+    #btn-lapor-html { bottom: 45px !important; left: 10px !important; padding: 8px 14px !important; font-size: 12px !important; }
+    #btn-lapor-html .btn-icon { font-size: 15px !important; }
 }
 
 /* MEDIA QUERY 3: HP Mode Landscape / Miring (Tinggi Maks 450px) */
@@ -714,29 +343,13 @@ STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
     .leaflet-top.leaflet-left { margin-top: 50px !important; }
     #search-container { top: 55px !important; width: 160px !important; }
 
-    /* Jarak Antar Tombol Kanan Dirapatkan */
-    #filter-container { top: 55px !important; }
-    #btn-legenda { top: 97px !important; }
-    .lapor-warga-control { top: 139px !important; }   
-    #btn-bahasa { top: 181px !important; }           
-    #btn-toggle-label { top: 223px !important; }     
-    #btn-lacak-laporan { top: 265px !important; }    
+    .panel-legenda-melayang { right: 60px !important; bottom: 30px !important; max-height: calc(100dvh - 80px) !important; }
 
-    #filter-toggle-btn, #btn-legenda, .lapor-warga-control, #btn-bahasa, #btn-toggle-label, #btn-lacak-laporan {
-        width: 34px !important; height: 34px !important;
-    }
+    /* Penyesuaian Menu Kanan (Hamburger) di Layar Miring */
+    #btn-hamburger { top: 55px !important; right: 10px !important; width: 34px !important; height: 34px !important; font-size: 14px !important; }
+    #wadah-menu-kanan { top: 97px !important; right: 10px !important; }
+    #filter-toggle-btn, #btn-legenda, #btn-bahasa, #btn-toggle-label, #btn-lacak-laporan { width: 135px !important; height: 34px !important; font-size: 10px !important; }
     .btn-icon { width: 34px !important; height: 34px !important; font-size: 14px !important; }
-    
-    #filter-toggle-btn.terbuka, #btn-legenda.terbuka, .lapor-warga-control.terbuka, #btn-bahasa.terbuka, #btn-toggle-label.terbuka, #btn-lacak-laporan.terbuka, .lapor-warga-control.active {
-        width: 135px !important;
-    }
-    .panel-legenda-melayang {
-        top: 307px !important; 
-        right: 15px !important;
-        left: auto !important;
-        bottom: auto !important;
-        max-height: calc(100dvh - 340px) !important; /* Disesuaikan untuk tinggi Layar Miring */
-    }
 }
 
 /* MEDIA QUERY 4: HP Sangat Kecil / Lipat (Maks Lebar 380px) */
@@ -747,12 +360,7 @@ STYLING CUSTOM ICON EMOJI MARKER BENTUK PIN
     .logo-item { height: 26px !important; }
     #logo-kampus { height: 30px !important; }
 
-    #filter-toggle-btn, #btn-legenda, .lapor-warga-control, #btn-bahasa, #btn-toggle-label, #btn-lacak-laporan {
-        width: 38px !important; height: 38px !important;
-    }
-    .btn-icon { width: 38px !important; height: 38px !important; font-size: 15px !important; }
+    #btn-hamburger { width: 38px !important; height: 38px !important; font-size: 15px !important; }
 }
 
-/* MEMASTIKAN WADAH POPUP BERSIFAT FLUID */
 .galeri-modal { max-width: 90vw !important; }
-
