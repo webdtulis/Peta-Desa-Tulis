@@ -25,973 +25,999 @@ const batasDesaData = {
 // DATA LOKASI (MULTILINGUAL)
 // ==========================================
 const locations = [
-//PUSAT PEMERINTAHAN
-    {
-        name: "Balai Desa", 
-        lat: -6.947617, lng: 109.784071, 
-        type: "Pusat Pemerintahan",
-        
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "Senin - Jumat (08:00 - 15:00)",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "The central administrative office and public service center of Tulis Village.",
-        jamOperasional_en: "Monday - Friday (08:00 AM - 03:00 PM)",
-        
-        whatsapp: "", 
-        imgSatu: "A.jpg", imgDua:"B.jpg", imgTiga: "C.jpg"
-    },
-//PUSAT KESEHATAN
-    {
-        name: "Poliklinik 'Sejahtera'", 
-        lat: -6.948900, lng: 109.794243, 
-        type: "Fasilitas Kesehatan",
-        
-        // Bahasa Indonesia
-        desc: "Poliklinik Kesehatan Desa 'Sejahtera' berperan sebagai fasilitas kesehatan bagi warga Desa Tulis dengan pelayanan yang dikelola oleh Bidan Desa.",
-        jamOperasional: "Senin & Jumat (08.00 - 11.00 WIB)",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "Primary healthcare facility for the local community.",
-        jamOperasional_en: "5 Hours",
-        
-        whatsapp: "", 
-        imgSatu: "KLINIK_D.jpg", imgDua: "KLINIK_A.jpg", imgTiga: "PSYC.jpg"
-    },
-    {
-        name: "Puskemas Tulis", 
-        lat: -6.949048, lng: 109.808075, 
-        type: "Fasilitas Kesehatan",
-        
-        // Bahasa Indonesia
-        desc: "Puskesmas Tulis merupakan fasilitas kesehatan bagi masyarakat Kecamatan Tulis, Kabupaten Batang, yang memberikan pelayanan kesehatan terpadu melalui beberapa klaster pelayanan.",
-        jamOperasional: "Jam pendaftaran: Senin - Kamis: 07.00 - 12.00 WIB, Jumat: 07.00 - 10.00 WIB, Sabtu: 07.00 - 11.00 WIB. Jam pelayanan: Senin - Kamis: 07.00 - 14.00 WIB, Jumat: 07.00 - 11.00 WIB, Sabtu: 07.00 - 12.30 WIB. Ruang bersalin: Melayani persalinan dan kegawatdaruratan maternal selama 24 jam. Hari libur: Minggu Tanggal merah mengikuti hari libur/cuti nasional yang ditetapkan pemerintah",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "Primary healthcare facility for the local community.",
-        jamOperasional_en: "5 Hours",
-        
-        whatsapp: "082322173998", 
-        imgSatu: "https://lh3.googleusercontent.com/d/1UYA6eJ3Lc7XHZ6EBWAXFk8oDyS_x7jtP", 
-        imgDua: "https://lh3.googleusercontent.com/d/1cwbn4GhzmXCpD7qMcNaipjVeZ-taJwqs", 
-        imgTiga: ""
-    },
-    {
-        name: "Posyandu Mawar Tulis Barat", 
-        lat: -6.947398, lng: 109.780387, 
-        type: "Fasilitas Kesehatan",
-        
-        // Bahasa Indonesia
-        desc: "Pos Pelayanan Terpadu (Posyandu) merupakan layanan kesehatan masyarakat untuk memantau tumbuh kembang balita melalui pengukuran BB, TB, LiLA, dan LK, serta pemberian imunisasi dan vitamin. Posyandu ini juga menyediakan pemeriksaan kesehatan dasar bagi lansia.",
-        jamOperasional: "Setiap Selasa minggu ke-1 (08.00-10.30)",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "Primary healthcare facility for the local community.",
-        jamOperasional_en: "5 Hours",
-        
-        whatsapp: "089667058249", 
-        imgSatu: "https://lh3.googleusercontent.com/d/1QUU1GC8BNpfgfq9EiTca3q_2yr_U8Fre", 
-        imgDua: "https://lh3.googleusercontent.com/d/1PhV3IziL8Sb8UNy3Wy2uzoKmPeL-EuHv", 
-        imgTiga: ""
-    },
-    {
-        name: "Rumah Sakit Qolbu Insan Mulia (QIM)", 
-        lat: -6.915932, lng: 109.745810, 
-        type: "Fasilitas Kesehatan",
-        
-        // Bahasa Indonesia
-        desc: "Rumah Sakit QIM Batang merupakan fasilitas kesehatan yang melayani pasien BPJS Kesehatan serta menyediakan berbagai layanan kesehatan rujukan bagi masyarakat.",
-        jamOperasional: "24 jam (Informasi perubahan jam operasional tiap pelayanan cek instagram @rumahsakitqim)",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "",
-        jamOperasional_en: "",
-        
-        whatsapp: "", 
-        imgSatu: "https://lh3.googleusercontent.com/d/1TOYY9p2mLeRU96vwi19ZCWxkximO2t--", 
-        imgDua: "https://lh3.googleusercontent.com/d/1DdJ_z9Q_LxY0WTvJyJRsDvpscSr8lU_h", 
-        imgTiga: ""
-    },
-    {
-        name: "RSUD Batang", 
-        lat: -6.914977, lng: 109.718856, 
-        type: "Fasilitas Kesehatan",
-        
-        // Bahasa Indonesia
-        desc: "RSUD Kabupaten Batang adalah rumah sakit tipe C milik Pemerintah Kabupaten Batang yang menyediakan pelayanan kesehatan bagi masyarakat.",
-        jamOperasional: "24 jam (Informasi perubahan jam operasional tiap pelayanan cek instagram @rsud_batang) Jam besuk: Setiap hari (11.00 - 13.00 WIB & 16.00 - 19.00 WIB)",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "",
-        jamOperasional_en: "",
-        
-        whatsapp: "", 
-        imgSatu: "", 
-        imgDua: "", 
-        imgTiga: ""
-    },
-    {
-        name: "Posyandu Pesawahan ", 
-        lat: -6.948887, lng: 109.794175, 
-        type: "Fasilitas Kesehatan",
-        
-        // Bahasa Indonesia
-        desc: "Pos Pelayanan Terpadu (Posyandu) merupakan layanan kesehatan masyarakat untuk memantau tumbuh kembang balita melalui pengukuran BB, TB, LiLA, dan LK, serta pemberian imunisasi dan vitamin. Posyandu ini juga menyediakan pemeriksaan kesehatan dasar bagi lansia.",
-        jamOperasional: "Setiap Kamis minggu ke-2 (08.00-12.00)",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "",
-        jamOperasional_en: "",
-        
-        whatsapp: "", 
-        imgSatu: "https://lh3.googleusercontent.com/d/1_AaWiDDEVCvgrJjFy5L8E4thOzrn7Wiu", 
-        imgDua: "https://lh3.googleusercontent.com/d/1fBEp-lqIHps9g0BRu-azgMzkDtBnlGXJ", 
-        imgTiga: ""
-    },
-    {
-        name: "Posyandu Tulis Sari", 
-        lat: -6.949926, lng: 109.780533, 
-        type: "Fasilitas Kesehatan",
-        
-        // Bahasa Indonesia
-        desc: "Pos Pelayanan Terpadu (Posyandu) merupakan layanan kesehatan masyarakat untuk memantau tumbuh kembang balita melalui pengukuran BB, TB, LiLA, dan LK, serta pemberian imunisasi dan vitamin. Posyandu ini juga menyediakan pemeriksaan kesehatan dasar bagi lansia.",
-        jamOperasional: "Setiap Kamis minggu ke-1 (08.00-10.30)",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "",
-        jamOperasional_en: "",
-        
-        whatsapp: "", 
-        imgSatu: "https://lh3.googleusercontent.com/d/1ZNhVxJMOr8d9VYIfkvRln9za5DcshMBN", 
-        imgDua: "", 
-        imgTiga: ""
-    },
-    {
-        name: "Posyandu Gondangan", 
-        lat: -6.949195, lng: 109.787294, 
-        type: "Fasilitas Kesehatan",
-        
-        // Bahasa Indonesia
-        desc: "Pos Pelayanan Terpadu (Posyandu) merupakan layanan kesehatan masyarakat untuk memantau tumbuh kembang balita melalui pengukuran BB, TB, LiLA, dan LK, serta pemberian imunisasi dan vitamin. Posyandu ini juga menyediakan pemeriksaan kesehatan dasar bagi lansia.",
-        jamOperasional: "Setiap Selasa minggu ke-3 (08.00 - 10.00)",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "",
-        jamOperasional_en: "",
-        
-        whatsapp: "", 
-        imgSatu: "https://lh3.googleusercontent.com/d/17R7h332Jmf-uc3Uf85tbr11Z93gi_3EB", 
-        imgDua: "https://lh3.googleusercontent.com/d/1jBShDCrpIhoM2ruLP1Nxm5mm5ewNS1E_", 
-        imgTiga: "https://lh3.googleusercontent.com/d/12G4BuvzxQpS4K2n4F0dmQNXUzXDKP3eC"
-    },
-    {
-        name: "Klinik Pratama Diyah Husada", 
-        lat: -6.948167, lng: 109.785019, 
-        type: "Fasilitas Kesehatan",
-        
-        // Bahasa Indonesia
-        desc: "Klinik pratama rawat jalan yang melayani pasien umum dan BPJS kesehatan dan asuransi isomedik. Fasilitas pelayanan klinik ini meliputi pemeriksaan umum, pelayanan kesehatan gigi dan mulut, pelayanan kesehatan ibu dan anak, pelayanan kulit dan kecantikan, layanan kefarmasian, pemeriksaan laboratorium, dan kunjungan rumah",
-        jamOperasional: "Senin - sabtu (08.00 - 20.00)",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "",
-        jamOperasional_en: "",
-        
-        whatsapp: "", 
-        imgSatu: "https://lh3.googleusercontent.com/d/1_pYQ5-Dlg3Gf8AlqNN06yQPpvYmnasfw", 
-        imgDua: "", 
-        imgTiga: ""
-    },
-    {
-        name: "Posyandu Seberang Balai Desa", 
-        lat: -6.947824, lng: 109.783778, 
-        type: "Fasilitas Kesehatan",
-        
-        // Bahasa Indonesia
-        desc: "Klinik pratama rawat jalan yang melayani pasien umum dan BPJS kesehatan dan asuransi isomedik. Fasilitas pelayanan klinik ini meliputi pemeriksaan umum, pelayanan kesehatan gigi dan mulut, pelayanan kesehatan ibu dan anak, pelayanan kulit dan kecantikan, layanan kefarmasian, pemeriksaan laboratorium, dan kunjungan rumah",
-        jamOperasional: "Setiap Selasa minggu ke-2 (08.00-10.30)",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "",
-        jamOperasional_en: "",
-        
-        whatsapp: "", 
-        imgSatu: "https://lh3.googleusercontent.com/d/1bZ-TY4VhZM5gTMjQQ-aK4XA5PuT7q_3d", 
-        imgDua: "", 
-        imgTiga: ""
-    },
-
-    
-    
-    
-//FASILITAS PENDIDIKAN
-    {
-        name: "SDN 01 TULIS", 
-        lat: -6.949718, lng: 109.788332, 
-        type: "Fasilitas Pendidikan",       
-        desc: "SDN 01 Tulis yang terletak di  Jalan Raya Tulis No. 45, Kec. Tulis, Kab. Batang, Prov. Jawa Tengah merupakan fasilitas pendidikan dasar formal yang menyelenggarakan kegiatan belajar mengajar bagi anak-anak di Desa Tulis. Selain fokus pada akademik, sekolah ini menjadi wadah pembentukan karakter, pengembangan minat siswa melalui  kegiatan ekstrakulikuler.",
-        jamOperasional: "Senin - Sabtu (07.00 - 15.00) ",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "The main public elementary school in Tulis Village.",
-        jamOperasional_en: "Monday - Saturday (07:00 AM - 02:00 PM)",
-        
-        whatsapp: "",
-        imgSatu: "SDN1A.jpg", imgDua: "SDN1B.jpg", imgTiga: "SDN1C.jpg"
-    },
-    {
-        name: "TK Tulis 02", 
-        lat:  -6.948789, lng: 109.794374, 
-        type: "Fasilitas Pendidikan",       
-        desc: "SD Negeri Tulis 01 merupakan sekolah dasar negeri yang berlokasi di Jl. Raya Tulis No. 45, Desa Tulis, Kecamatan Tulis, Kabupaten Batang, Jawa Tengah. Sekolah ini memiliki NPSN 20322859 dan telah berdiri sejak tahun 1985 berdasarkan SK Pendirian No. 421.2/021/X/43/85 tertanggal 1 April 1985. SD Negeri Tulis 01 dikenal sebagai sekolah yang unggul dan memiliki akreditasi A berdasarkan SK Akreditasi  tertanggal 20 Oktober 2015. Sekolah ini menerapkan sistem pembelajaran sehari penuh dengan 6 hari pembelajaran dalam seminggu. Dengan akses internet Telkom Speedy dan sumber listrik PLN, SD Negeri Tulis 01 siap mendukung proses belajar mengajar yang efektif dan modern",
-        jamOperasional: "Senin - Sabtu (07:00 - 14:00)",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "The main public elementary school in Tulis Village.",
-        jamOperasional_en: "Monday - Saturday (07:00 AM - 02:00 PM)",
-        
-        whatsapp: "",
-        imgSatu: "SDN1A.jpg", imgDua: "SDN1B.jpg", imgTiga: "SDN1C.jpg"
-    },
-   
-//TITIK Pelaku Usaha
-    {
-        name: "Warung Pecel", 
-        lat: -6.9483611, lng: 109.7864591, 
-        type: "Pelaku Usaha",
-        desc: "",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu sarkumi",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1mia28hzgthmB3QcwlyZa3TtI_l4-EFUe", 
-        imgDua: "", 
-        imgTiga: ""
-    },
-        {
-        name: "Produksi Kerupuk Mie Raket", 
-        lat:  -6.947636, lng: 109.794701, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "mie raket 2.jpeg", 
-        imgDua: "mie raket 1.jpg", 
-        imgTiga: "mie raket 3.jpeg"
-    },
-        {
-        name: "Produksi Kerupuk Selondok", 
-        lat:  -6.949033, lng: 109.796306, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1aHfZrziYhfck-h_ra7BiKRGKENNtr6Ei", 
-        imgDua: "https://lh3.googleusercontent.com/d/100wuPKEmI9rTosTdusvCw71XQ9nVI3w3", 
-        imgTiga: "https://lh3.googleusercontent.com/d/1-CJjGzOdewggsKsQuCzerIjZuyIKPp0o"
-    },
-    {
-        name: "Warung takoyaki", 
-        lat: -6.9464141, lng: 109.7818712, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Tina",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Tina",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1MDLSBdpYdqYADW1MXTlE0H-41UgHYJ5Z",
-         imgDua: "https://lh3.googleusercontent.com/d/1Pw_m5n8y0kXJunbXlMbhn52iLnEJ-sXk", 
-         imgTiga: ""
-    },
-    {
-        name: "Harum Wangi Laundry", 
-        lat: -6.949016, lng: 109.790953, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Bu Subadriah",
-        jamOperasional: "-",
-        desc_en: "Owner: Bu Subadriah",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Toko KAF", 
-        lat: -6.949273, lng: 109.785961, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Linarsih",
-        jamOperasional: "-",
-        desc_en: "Owner: Linarsih",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Toko Abdul", 
-        lat: -6.9490231, lng: 109.7837916, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Ida",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Ida",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Sumber panen / toko Berkah", 
-        lat: -6.950552, lng: 109.781193, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Bapa Agus",
-        jamOperasional: "-",
-        desc_en: "Owner: Bapa Agus",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Warung Bu Hj Ning", 
-        lat: -6.9500165, lng: 109.7883169, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Bu Hj Ning",
-        jamOperasional: "-",
-        desc_en: "Owner: Bu Hj Ning",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Es teh Dylan", 
-        lat: -6.946554, lng: 109.783619, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Riski",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Riski",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/17UEQIHl3-N0pqms3EN2BHL76SD24ALey", 
-        imgDua: "https://lh3.googleusercontent.com/d/10x38qf0Lso-FjyiE5cg8dv0WeKA-L8nR", 
-        imgTiga: ""
-    },
-    {
-        name: "Toko Anis", 
-        lat: -6.945870, lng: 109.778859, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Anis",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Anis",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1ifDUOIeuYAYywOC_QfsBwN5hlBY40kO_", 
-        imgDua: "https://lh3.googleusercontent.com/d/1daNrATRzoez7gEX1gSox_8u9TO0JsuHY", 
-        imgTiga: ""
-    },
-    {
-        name: "mie ayam Sri Rahayu", 
-        lat: -6.949985, lng: 109.797367, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Sri Rahayu",
-        jamOperasional: "-",
-        desc_en: "Owner: Sri Rahayu",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "mie ayam sri 2.jpg", 
-        imgDua: "mie ayam sri 1.jpg", 
-        imgTiga: ""
-    },
-    {
-        name: "Toko iyah", 
-        lat: -6.948756, lng: 109.795932, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: bpk kasudi",
-        jamOperasional: "-",
-        desc_en: "Owner: bpk kasudi",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "umi.png", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Kedai Pinka", 
-        lat: -6.9504482, lng: 109.7843482, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Indah",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Indah",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Toko Istiqomah", 
-        lat: -6.949915, lng: 109.784319, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Giswanto",
-        jamOperasional: "-",
-        desc_en: "Owner: Giswanto",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1tmlXdY55KNsj1TJv6Zdou85EIooW_opx", 
-        imgDua: "https://lh3.googleusercontent.com/d/1dSxA5p_L1fCZK5Mjk4jqzPZItlxmFKQW", 
-        imgTiga: ""
-    },
-    {
-        name: "Warung Tini", 
-        lat: -6.949813, lng: 109.786088, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Tini dan pak yulianto",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Tini dan pak yulianto",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1PHkVjwyU_fLouaJPQwdRXcDDYMn0txkt", 
-        imgDua: "https://lh3.googleusercontent.com/d/1rtSdDaKRYK_JFuHa3rzVWI6sUWyiH9E9", 
-        imgTiga: ""
-    },
-    {
-        name: "Toko Daryuni", 
-        lat: -6.949844, lng: 109.780835, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Bu Daryuni",
-        jamOperasional: "-",
-        desc_en: "Owner: Bu Daryuni",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1LAtOD0LhoVptG2pAWfyq1R2PaSxN0VTO", 
-        imgDua: "", 
-        imgTiga: ""
-    },
-    {
-        name: "Warung Ibu Eti", 
-        lat: -6.947597, lng: 109.790443, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Sutini (Eti)",
-        jamOperasional: "-",
-        desc_en: "Owner: Sutini (Eti)",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "eti1.jpeg", imgDua: "eti2.jpeg", imgTiga: "eti3.jpeg"
-    },
-    {
-        name: "Warung Minarsih", 
-        lat: -6.948798, lng: 109.781470, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Minarsih",
-        jamOperasional: "-",
-        desc_en: "Owner: Minarsih",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Warung Ibu Tumika", 
-        lat: -6.9500395, lng: 109.7958928, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Tumika",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Tumika",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Toko Udin", 
-        lat: -6.947616, lng: 109.780058, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Udin",
-        jamOperasional: "-",
-        desc_en: "Owner: Udin",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1HiiFSRwjRBPB7FSBae67IC8gVRGZk-fJ", 
-        imgDua: "", 
-        imgTiga: ""
-    },
-    {
-        name: "Warung Mithun", 
-        lat: -6.950130, lng: 109.789293, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Mithun",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Mithun",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1NDCQAK7fO5AzMEGff8b1TpNxpJebqULJ", 
-        imgDua: "https://lh3.googleusercontent.com/d/1iBYsjJsMjKbVx2sxbHn4EgmQMsE9NJxM", 
-        imgTiga: ""
-    },
-    {
-        name: "Toko Aisah", 
-        lat: -6.946655, lng: 109.784013, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Bapak Suratno",
-        jamOperasional: "-",
-        desc_en: "Owner: Bapak Suratno",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/11sPJFWyrz_HnqLvdjB8ME0DE4hblQFWm", 
-        imgDua: "https://lh3.googleusercontent.com/d/1buwAt9To2Z9CVE9y-vQbmz8QlZNLQKqv", 
-        imgTiga: "https://lh3.googleusercontent.com/d/1OuHzqY2ynuxZD-ipiANQzbcMIUoZHb_k"
-    },
-    {
-        name: "warung pak marjo", 
-        lat: -6.949645, lng: 109.797285, 
-        type: "Pelaku Usaha",
-        desc: "",
-        jamOperasional: "-",
-        desc_en: "Owner: marjo",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "marjo 1.jpeg", 
-        imgDua: "marjo 2.jpeg", 
-        imgTiga: "marjo 3.jpeg"
-    },
-    {
-        name: "Mie Ayam", 
-        lat: -6.949305, lng: 109.784647, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Rauna",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Rauna",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1GptGEdp17TN1-EqwGBPfL-8Gq2IuVqLP", 
-        imgDua: "https://lh3.googleusercontent.com/d/1lAHBP9pg680HcnBNIacfQ0zL7UgZp_Og", 
-        imgTiga: "https://lh3.googleusercontent.com/d/15Rfq-1FqS5TGrOQOxpMz6VNVs0Q6pUmp"
-    },
-    {
-        name: "Toko Kasturi", 
-        lat: -6.946177, lng: 109.792676, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Kasturi",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Kasturi",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "kasturi 2.jpg", 
-        imgDua: "kasturi 1.jpg", 
-        imgTiga: ""
-    },
-    {
-        name: "Warung Ibu Barkah", 
-        lat: -6.949873, lng: 109.787184, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Barkah",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Barkah",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1_6YxrYTpSwmO5fBBJQkm-pApvFe0nFdl", 
-        imgDua: "https://lh3.googleusercontent.com/d/11OHrSXdhMwtehUVJ8AOLTUUHg0j1hrpO", 
-        imgTiga: ""
-    },
-    {
-        name: "Warung Kopi & Gorengan", 
-        lat: -6.949852, lng: 109.786710, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Asri",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Asri",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/13YXItiruY8nfCxpoHSSN2PG64_5xWh4R", 
-        imgDua: "https://lh3.googleusercontent.com/d/1S7buk2k1wydIKq1qYnTX8oURryiFC-hC", 
-        imgTiga: ""
-    },
-    {
-        name: "Toko Tulissari", 
-        lat: -6.948747, lng: 109.778337, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Tegar",
-        jamOperasional: "-",
-        desc_en: "Owner: Tegar",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1RO6v44o73PKqcQkCUUCbaXwKhME8rY9x", 
-        imgDua: "https://lh3.googleusercontent.com/d/1iTenAxGEr0GxQaTGKr85fK-X8vRw02Td", 
-        imgTiga: ""
-    },
-    {
-        name: "Bu Damusri", 
-        lat: -6.9497935, lng: 109.7857409, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Toko Bu Damusri",
-        jamOperasional: "-",
-        desc_en: "Owner: Toko Bu Damusri",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/11187ihU2ItklZHbpXlPMtGEawGegmbBe", 
-        imgDua: "", 
-        imgTiga: ""
-    },
-    {
-        name: "Toko Sumirah", 
-        lat: -6.948311, lng: 109.785467, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Sumirah",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Sumirah",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1jMH8VzgTqiLbkDqs6D-6UDMWJtzrkc9e", 
-        imgDua: "https://lh3.googleusercontent.com/d/1o8NKp8kABg9GHCgPNFW-KRMVJn2mONlw", 
-        imgTiga: ""
-    },
-    {
-        name: "Warung Ibu Kolifah", 
-        lat: -6.949612, lng: 109.797543, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Kolifah",
-        jamOperasional: "-",
-        desc_en: "Owner: Kolifah",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "bu kolifa.jpg", 
-        imgDua: "", 
-        imgTiga: ""
-    },
-    {
-        name: "Warung pecel bu yani", 
-        lat: -6.946657, lng: 109.792638, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Bu yani",
-        jamOperasional: "-",
-        desc_en: "Owner: Bu yani",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", 
-        imgDua: "", 
-        imgTiga: ""
-    },
-    {
-        name: "Ibu Ika 87", 
-        lat: -6.949773, lng: 109.785771, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Ika",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Ika",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1lgKpIuyHF0Z4aBoFKiagcEQ0j4k_IVQR", 
-        imgDua: "", 
-        imgTiga: ""
-    },
-    {
-        name: "Warung Resti", 
-        lat: -6.9468441, lng: 109.7845034, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Resti",
-        jamOperasional: "-",
-        desc_en: "Owner: Resti",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Warung Rohenda", 
-        lat: -6.9487262, lng: 109.7867974, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Rohenda",
-        jamOperasional: "-",
-        desc_en: "Owner: Rohenda",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Toko Umi", 
-        lat: -6.949432, lng: 109.795726, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Mba Umi",
-        jamOperasional: "-",
-        desc_en: "Owner: Mba Umi",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Warung Migunani", 
-        lat: -6.9505993, lng: 109.7930771, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Migunani",
-        jamOperasional: "-",
-        desc_en: "Owner: Migunani",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Jajanan Mbak Desi", 
-        lat: -6.9497366, lng: 109.7796443, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Desi",
-        jamOperasional: "-",
-        desc_en: "Owner: Desi",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Warung Homsatun", 
-        lat: -6.9486889, lng: 109.7941302, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Homsatun",
-        jamOperasional: "-",
-        desc_en: "Owner: Homsatun",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "SRC TK Endang", 
-        lat: -6.9492587, lng: 109.7845467, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Endang",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Endang",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "https://lh3.googleusercontent.com/d/1bOtQAIXAwPOfim6wUwEAFDJZyrjABRnE", 
-        imgDua: "", 
-        imgTiga: ""
-    },
-    {
-        name: "Warung Ibu Wastuti", 
-        lat: -6.9489781, lng: 109.7837812, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Ibu Wastuti",
-        jamOperasional: "-",
-        desc_en: "Owner: Ibu Wastuti",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Warung Darsinah", 
-        lat: -6.9461096, lng: 109.7803390, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Darsinah",
-        jamOperasional: "-",
-        desc_en: "Owner: Darsinah",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Sahabat Bintang", 
-        lat: -6.9492015, lng: 109.7813190, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Dwi",
-        jamOperasional: "-",
-        desc_en: "Owner: Dwi",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", 
-        imgDua: "", 
-        imgTiga: ""
-    },
-    {
-        name: "barokah", 
-        lat: -6.9474740, lng: 109.7935860, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: solikhin",
-        jamOperasional: "-",
-        desc_en: "Owner: solikhin",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "barokah 2.jpeg", 
-        imgDua: "barokah.jpg", 
-        imgTiga: "barokah3.jpeg"
-    },
-    {
-        name: "Toko Sinta", 
-        lat: -6.9486583, lng: 109.7934955, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Asih",
-        jamOperasional: "-",
-        desc_en: "Owner: Asih",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", 
-        imgDua: "", 
-        imgTiga: ""
-    },
-    {
-        name: "Gerai Kuning", 
-        lat: -6.9497380, lng: 109.7803983, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Siti",
-        jamOperasional: "-",
-        desc_en: "Owner: Siti",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Warung ika sulistyaningsih", 
-        lat: -6.947829, lng: 109.791979, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: ika sulistyaningsih",
-        jamOperasional: "-",
-        desc_en: "Owner: ika sulistyaningsih",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Warung Makan Mbak Patun", 
-        lat: -6.950263, lng: 109.781254, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Supriyatun",
-        jamOperasional: "-",
-        desc_en: "Owner: Supriyatun",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "toko warung kelontong", 
-        lat: -6.946635, lng: 109.792619, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Rosi",
-        jamOperasional: "-",
-        desc_en: "Owner: Rosi",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Warung Bu Siti", 
-        lat: -6.9474685, lng: 109.7817545, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Siti Fatonah",
-        jamOperasional: "-",
-        desc_en: "Owner: Siti Fatonah",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Warung Coffee Giras", 
-        lat: -6.9491625, lng: 109.7787236, 
-        type: "Pelaku Usaha",
-        desc: "Pemilik: Wayati",
-        jamOperasional: "-",
-        desc_en: "Owner: Wayati",
-        jamOperasional_en: "-",
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-
-//FFASILITAS KEAMANAN
-    {
-        name: "Poskamling Tulis Barat", 
-        lat: -6.949591, lng: 109.786011, 
-        type: "Keamanan Lingkungan",
-        
-        // Bahasa Indonesia
-        desc: "Poskamling utama untuk blok utara.",
-        jamOperasional: "Pos Siaga 24 Jam",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "The main neighborhood security post for the northern block.",
-        jamOperasional_en: "24-Hour Security Post",
-        
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Poskamling Gondangan", 
-        lat: -6.945758, lng: 109.778930, 
-        type: "Keamanan Lingkungan",
-        
-        // Bahasa Indonesia
-        desc: "Poskamling utama untuk blok utara.",
-        jamOperasional: "Pos Siaga 24 Jam",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "The main neighborhood security post for the northern block.",
-        jamOperasional_en: "24-Hour Security Post",
-        
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Poskamling", 
-        lat: -6.948546, lng: 109.792585, 
-        type: "Keamanan Lingkungan",
-        
-        // Bahasa Indonesia
-        desc: "Poskamling utama untuk blok utara.",
-        jamOperasional: "Pos Siaga 24 Jam",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "The main neighborhood security post for the northern block.",
-        jamOperasional_en: "24-Hour Security Post",
-        
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-//FASILITAS IBADAH
-    {
-        name: "Masjid Baitul Izzah", 
-        lat: -6.949011, lng: 109.787278, 
-        type: "Fasilitas Ibadah",
-        
-        // Bahasa Indonesia
-        desc: "Pusat kegiatan ibadah warga sekitar.",
-        jamOperasional: "24 Jam",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "The central place of worship for the surrounding community.",
-        jamOperasional_en: "24 Hours",
-        
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Masjid At-Taqwa", 
-        lat: -6.948900, lng: 109.793913, 
-        type: "Fasilitas Ibadah",
-        
-        // Bahasa Indonesia
-        desc: "Pusat kegiatan ibadah warga sekitar.",
-        jamOperasional: "24 Jam",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "The central place of worship for the surrounding community.",
-        jamOperasional_en: "24 Hours",
-        
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
-    },
-    {
-        name: "Masjid Jami 'Nurul Yaqin'", 
-        lat: -6.947549, lng: 109.779929, 
-        type: "Fasilitas Ibadah",
-        
-        // Bahasa Indonesia
-        desc: "Pusat kegiatan ibadah warga sekitar.",
-        jamOperasional: "24 Jam",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "The central place of worship for the surrounding community.",
-        jamOperasional_en: "24 Hours",
-        
-        whatsapp: "",
-        imgSatu: "", imgDua: "", imgTiga: ""
+    {
+        "name": "Balai Desa",
+        "lat": -6.947617,
+        "lng": 109.784071,
+        "type": "Pusat Pemerintahan",
+        "desc": "-",
+        "jamOperasional": "Senin - Jumat (08:00 - 15:00)",
+        "desc_en": "The central administrative office and public service center of Tulis Village.",
+        "jamOperasional_en": "Monday - Friday (08:00 AM - 03:00 PM)",
+        "whatsapp": "",
+        "imgSatu": "A.jpg",
+        "imgDua": "B.jpg",
+        "imgTiga": "C.jpg"
+    },
+    {
+        "name": "Poliklinik 'Sejahtera'",
+        "lat": -6.9489,
+        "lng": 109.794243,
+        "type": "Fasilitas Kesehatan",
+        "desc": "Poliklinik Kesehatan Desa 'Sejahtera' berperan sebagai fasilitas kesehatan bagi warga Desa Tulis dengan pelayanan yang dikelola oleh Bidan Desa.",
+        "jamOperasional": "Senin & Jumat (08.00 - 11.00 WIB)",
+        "desc_en": "Primary healthcare facility for the local community.",
+        "jamOperasional_en": "5 Hours",
+        "whatsapp": "",
+        "imgSatu": "KLINIK_D.jpg",
+        "imgDua": "KLINIK_A.jpg",
+        "imgTiga": "PSYC.jpg"
+    },
+    {
+        "name": "Puskemas Tulis",
+        "lat": -6.949048,
+        "lng": 109.808075,
+        "type": "Fasilitas Kesehatan",
+        "desc": "Puskesmas Tulis merupakan fasilitas kesehatan bagi masyarakat Kecamatan Tulis, Kabupaten Batang, yang memberikan pelayanan kesehatan terpadu melalui beberapa klaster pelayanan.",
+        "jamOperasional": "Jam pendaftaran: Senin - Kamis: 07.00 - 12.00 WIB, Jumat: 07.00 - 10.00 WIB, Sabtu: 07.00 - 11.00 WIB. Jam pelayanan: Senin - Kamis: 07.00 - 14.00 WIB, Jumat: 07.00 - 11.00 WIB, Sabtu: 07.00 - 12.30 WIB. Ruang bersalin: Melayani persalinan dan kegawatdaruratan maternal selama 24 jam. Hari libur: Minggu Tanggal merah mengikuti hari libur/cuti nasional yang ditetapkan pemerintah",
+        "desc_en": "Primary healthcare facility for the local community.",
+        "jamOperasional_en": "5 Hours",
+        "whatsapp": "082322173998",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1UYA6eJ3Lc7XHZ6EBWAXFk8oDyS_x7jtP",
+        "imgDua": "https://lh3.googleusercontent.com/d/1cwbn4GhzmXCpD7qMcNaipjVeZ-taJwqs",
+        "imgTiga": ""
+    },
+    {
+        "name": "Posyandu Mawar Tulis Barat",
+        "lat": -6.947398,
+        "lng": 109.780387,
+        "type": "Fasilitas Kesehatan",
+        "desc": "Pos Pelayanan Terpadu (Posyandu) merupakan layanan kesehatan masyarakat untuk memantau tumbuh kembang balita melalui pengukuran BB, TB, LiLA, dan LK, serta pemberian imunisasi dan vitamin. Posyandu ini juga menyediakan pemeriksaan kesehatan dasar bagi lansia.",
+        "jamOperasional": "Setiap Selasa minggu ke-1 (08.00-10.30)",
+        "desc_en": "Primary healthcare facility for the local community.",
+        "jamOperasional_en": "5 Hours",
+        "whatsapp": "089667058249",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1QUU1GC8BNpfgfq9EiTca3q_2yr_U8Fre",
+        "imgDua": "https://lh3.googleusercontent.com/d/1PhV3IziL8Sb8UNy3Wy2uzoKmPeL-EuHv",
+        "imgTiga": ""
+    },
+    {
+        "name": "Rumah Sakit Qolbu Insan Mulia (QIM)",
+        "lat": -6.915932,
+        "lng": 109.74581,
+        "type": "Fasilitas Kesehatan",
+        "desc": "Rumah Sakit QIM Batang merupakan fasilitas kesehatan yang melayani pasien BPJS Kesehatan serta menyediakan berbagai layanan kesehatan rujukan bagi masyarakat.",
+        "jamOperasional": "24 jam (Informasi perubahan jam operasional tiap pelayanan cek instagram @rumahsakitqim)",
+        "desc_en": "",
+        "jamOperasional_en": "",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1TOYY9p2mLeRU96vwi19ZCWxkximO2t--",
+        "imgDua": "https://lh3.googleusercontent.com/d/1DdJ_z9Q_LxY0WTvJyJRsDvpscSr8lU_h",
+        "imgTiga": ""
+    },
+    {
+        "name": "RSUD Batang",
+        "lat": -6.914977,
+        "lng": 109.718856,
+        "type": "Fasilitas Kesehatan",
+        "desc": "RSUD Kabupaten Batang adalah rumah sakit tipe C milik Pemerintah Kabupaten Batang yang menyediakan pelayanan kesehatan bagi masyarakat.",
+        "jamOperasional": "24 jam (Informasi perubahan jam operasional tiap pelayanan cek instagram @rsud_batang) Jam besuk: Setiap hari (11.00 - 13.00 WIB & 16.00 - 19.00 WIB)",
+        "desc_en": "",
+        "jamOperasional_en": "",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Posyandu Pesawahan ",
+        "lat": -6.948887,
+        "lng": 109.794175,
+        "type": "Fasilitas Kesehatan",
+        "desc": "Pos Pelayanan Terpadu (Posyandu) merupakan layanan kesehatan masyarakat untuk memantau tumbuh kembang balita melalui pengukuran BB, TB, LiLA, dan LK, serta pemberian imunisasi dan vitamin. Posyandu ini juga menyediakan pemeriksaan kesehatan dasar bagi lansia.",
+        "jamOperasional": "Setiap Kamis minggu ke-2 (08.00-12.00)",
+        "desc_en": "",
+        "jamOperasional_en": "",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1_AaWiDDEVCvgrJjFy5L8E4thOzrn7Wiu",
+        "imgDua": "https://lh3.googleusercontent.com/d/1fBEp-lqIHps9g0BRu-azgMzkDtBnlGXJ",
+        "imgTiga": ""
+    },
+    {
+        "name": "Posyandu Tulis Sari",
+        "lat": -6.949926,
+        "lng": 109.780533,
+        "type": "Fasilitas Kesehatan",
+        "desc": "Pos Pelayanan Terpadu (Posyandu) merupakan layanan kesehatan masyarakat untuk memantau tumbuh kembang balita melalui pengukuran BB, TB, LiLA, dan LK, serta pemberian imunisasi dan vitamin. Posyandu ini juga menyediakan pemeriksaan kesehatan dasar bagi lansia.",
+        "jamOperasional": "Setiap Kamis minggu ke-1 (08.00-10.30)",
+        "desc_en": "",
+        "jamOperasional_en": "",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1ZNhVxJMOr8d9VYIfkvRln9za5DcshMBN",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Posyandu Gondangan",
+        "lat": -6.949195,
+        "lng": 109.787294,
+        "type": "Fasilitas Kesehatan",
+        "desc": "Pos Pelayanan Terpadu (Posyandu) merupakan layanan kesehatan masyarakat untuk memantau tumbuh kembang balita melalui pengukuran BB, TB, LiLA, dan LK, serta pemberian imunisasi dan vitamin. Posyandu ini juga menyediakan pemeriksaan kesehatan dasar bagi lansia.",
+        "jamOperasional": "Setiap Selasa minggu ke-3 (08.00 - 10.00)",
+        "desc_en": "",
+        "jamOperasional_en": "",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/17R7h332Jmf-uc3Uf85tbr11Z93gi_3EB",
+        "imgDua": "https://lh3.googleusercontent.com/d/1jBShDCrpIhoM2ruLP1Nxm5mm5ewNS1E_",
+        "imgTiga": "https://lh3.googleusercontent.com/d/12G4BuvzxQpS4K2n4F0dmQNXUzXDKP3eC"
+    },
+    {
+        "name": "Klinik Pratama Diyah Husada",
+        "lat": -6.948167,
+        "lng": 109.785019,
+        "type": "Fasilitas Kesehatan",
+        "desc": "Klinik pratama rawat jalan yang melayani pasien umum dan BPJS kesehatan dan asuransi isomedik. Fasilitas pelayanan klinik ini meliputi pemeriksaan umum, pelayanan kesehatan gigi dan mulut, pelayanan kesehatan ibu dan anak, pelayanan kulit dan kecantikan, layanan kefarmasian, pemeriksaan laboratorium, dan kunjungan rumah",
+        "jamOperasional": "Senin - sabtu (08.00 - 20.00)",
+        "desc_en": "",
+        "jamOperasional_en": "",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1_pYQ5-Dlg3Gf8AlqNN06yQPpvYmnasfw",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Posyandu Seberang Balai Desa",
+        "lat": -6.947824,
+        "lng": 109.783778,
+        "type": "Fasilitas Kesehatan",
+        "desc": "Klinik pratama rawat jalan yang melayani pasien umum dan BPJS kesehatan dan asuransi isomedik. Fasilitas pelayanan klinik ini meliputi pemeriksaan umum, pelayanan kesehatan gigi dan mulut, pelayanan kesehatan ibu dan anak, pelayanan kulit dan kecantikan, layanan kefarmasian, pemeriksaan laboratorium, dan kunjungan rumah",
+        "jamOperasional": "Setiap Selasa minggu ke-2 (08.00-10.30)",
+        "desc_en": "",
+        "jamOperasional_en": "",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1bZ-TY4VhZM5gTMjQQ-aK4XA5PuT7q_3d",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "SDN 01 TULIS",
+        "lat": -6.949718,
+        "lng": 109.788332,
+        "type": "Fasilitas Pendidikan",
+        "desc": "SDN 01 Tulis yang terletak di  Jalan Raya Tulis No. 45, Kec. Tulis, Kab. Batang, Prov. Jawa Tengah merupakan fasilitas pendidikan dasar formal yang menyelenggarakan kegiatan belajar mengajar bagi anak-anak di Desa Tulis. Selain fokus pada akademik, sekolah ini menjadi wadah pembentukan karakter, pengembangan minat siswa melalui  kegiatan ekstrakulikuler.",
+        "jamOperasional": "Senin - Sabtu (07.00 - 15.00) ",
+        "desc_en": "The main public elementary school in Tulis Village.",
+        "jamOperasional_en": "Monday - Saturday (07:00 AM - 02:00 PM)",
+        "whatsapp": "",
+        "imgSatu": "SDN1A.jpg",
+        "imgDua": "SDN1B.jpg",
+        "imgTiga": "SDN1C.jpg"
+    },
+    {
+        "name": "TK Tulis 02",
+        "lat": -6.948789,
+        "lng": 109.794374,
+        "type": "Fasilitas Pendidikan",
+        "desc": "SD Negeri Tulis 01 merupakan sekolah dasar negeri yang berlokasi di Jl. Raya Tulis No. 45, Desa Tulis, Kecamatan Tulis, Kabupaten Batang, Jawa Tengah. Sekolah ini memiliki NPSN 20322859 dan telah berdiri sejak tahun 1985 berdasarkan SK Pendirian No. 421.2/021/X/43/85 tertanggal 1 April 1985. SD Negeri Tulis 01 dikenal sebagai sekolah yang unggul dan memiliki akreditasi A berdasarkan SK Akreditasi  tertanggal 20 Oktober 2015. Sekolah ini menerapkan sistem pembelajaran sehari penuh dengan 6 hari pembelajaran dalam seminggu. Dengan akses internet Telkom Speedy dan sumber listrik PLN, SD Negeri Tulis 01 siap mendukung proses belajar mengajar yang efektif dan modern",
+        "jamOperasional": "Senin - Sabtu (07:00 - 14:00)",
+        "desc_en": "The main public elementary school in Tulis Village.",
+        "jamOperasional_en": "Monday - Saturday (07:00 AM - 02:00 PM)",
+        "whatsapp": "",
+        "imgSatu": "SDN1A.jpg",
+        "imgDua": "SDN1B.jpg",
+        "imgTiga": "SDN1C.jpg"
+    },
+    {
+        "name": "Warung Pecel",
+        "lat": -6.9483611,
+        "lng": 109.7864591,
+        "type": "Pelaku Usaha",
+        "desc": "Warung Jajan milik Ibu Sarkumi yang terletak di RW 02 RT 007 Gondangan menyediakan berbagai jajanan atau snack serta minuman. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Ibu Sarkumi's snack stall is located in RW 02, RT 07, Gondangan, provides a variety of snacks and drinks. The shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1mia28hzgthmB3QcwlyZa3TtI_l4-EFUe",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Produksi Kerupuk Mie Raket",
+        "lat": -6.947636,
+        "lng": 109.794701,
+        "type": "Pelaku Usaha",
+        "desc": "Usaha produksi mie raket yang beroperasi di wilayah Desa Tulis merupakan salah satu sentra industri rumah tangga unggulan desa. Usaha ini memiliki proses pengolahan tradisional yang menghasilkan mie raket berkualitas untuk memenuhi permintaan pasar lokal maupun distribusi luar daerah.",
+        "jamOperasional": "-",
+        "desc_en": "-",
+        "jamOperasional_en": "",
+        "whatsapp": "",
+        "imgSatu": "mie raket 2.jpeg",
+        "imgDua": "mie raket 1.jpg",
+        "imgTiga": "mie raket 3.jpeg"
+    },
+    {
+        "name": "Produksi Kerupuk Selondok",
+        "lat": -6.949033,
+        "lng": 109.796306,
+        "type": "Pelaku Usaha",
+        "desc": "Usaha produksi slondok yang terdapat di Desa Tulis merupakan salah satu industri rumah tangga terbesar di desa ini. Usaha ini memiliki kapasitas produksi skala besar yang mengolah singkong menjadi camilan khas renyah dan gurih, serta menjadi penggerak utama ekonomi warga sekaligus penyedia pasokan slondok ke berbagai daerah.",
+        "jamOperasional": "-",
+        "desc_en": "-",
+        "jamOperasional_en": "",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1aHfZrziYhfck-h_ra7BiKRGKENNtr6Ei",
+        "imgDua": "https://lh3.googleusercontent.com/d/100wuPKEmI9rTosTdusvCw71XQ9nVI3w3",
+        "imgTiga": "https://lh3.googleusercontent.com/d/1-CJjGzOdewggsKsQuCzerIjZuyIKPp0o"
+    },
+    {
+        "name": "Warung takoyaki",
+        "lat": -6.9464141,
+        "lng": 109.7818712,
+        "type": "Pelaku Usaha",
+        "desc": "Warung Takoyaki milik Ibu Tina yang terletak di RW 03 RT 010 Tulis Barat menyajikan berbagai jajanan anak anak atau snack, tempura, dan menu utamanya yaitu takoyaki, serta berbagai minuman. Warung ini memiliki area makan yang nyaman dan menjadi tempat favorit warga maupun pengunjung untuk menikmati santapan lezat dengan harga bersahabat.",
+        "jamOperasional": "-",
+        "desc_en": "Warung Takoyaki is a snack stall owned by Ibu Tina and located in RW 03, RT 10, Tulis Barat, serves a variety of children's snacks, tempura, its signature takoyaki, and various drinks. The shop has a comfortable dining area and is a favorite among residents and visitors looking to enjoy delicious food at affordable prices.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1MDLSBdpYdqYADW1MXTlE0H-41UgHYJ5Z",
+        "imgDua": "https://lh3.googleusercontent.com/d/1Pw_m5n8y0kXJunbXlMbhn52iLnEJ-sXk",
+        "imgTiga": ""
+    },
+    {
+        "name": "Harum Wangi Laundry",
+        "lat": -6.949016,
+        "lng": 109.790953,
+        "type": "Pelaku Usaha",
+        "desc": "Jasa laundry Harum Wangi Laundry milik Ibu Subadriah yang terletak di RW 01 RT 005 Pesawahan melayani kebutuhan cuci dan setrika pakaian harian warga Desa Tulis. Tempat ini memiliki layanan cuci bersih, wangi, dan rapi dengan pilihan paket kiloan maupun satuan yang selesai tepat waktu dan terjangkau.",
+        "jamOperasional": "-",
+        "desc_en": "Harum Wangi Laundry is a laundry service owned by Ibu Subadriah and located in RW 01, RT 05, Pesawahan, provides daily laundry and ironing services for residents of Tulis Village. The laundry offers clean, fresh-smelling, and neatly finished clothes, with both per-kilogram and individual-item service options at affordable prices and with timely completion.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Toko KAF",
+        "lat": -6.949273,
+        "lng": 109.785961,
+        "type": "Pelaku Usaha",
+        "desc": "Warung sembako Toko KAF milik Ibu Linarsih yang terletak di RW 04 RT 007 menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Toko KAF, a grocery shop owned by Ibu Linarsih and located in RW 04, RT 07, Gondangan, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and household supplies. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Toko Abdul",
+        "lat": -6.9490231,
+        "lng": 109.7837916,
+        "type": "Pelaku Usaha",
+        "desc": "Toko Abdul milik Ibu Ida yang terletak di RW 02 RT 009 Gondangan menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Toko Abdul, owned by Ibu Ida and located in RW 02, RT 09, Gondangan, is a grocery shop that provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and household supplies. The shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Sumber panen / toko Berkah",
+        "lat": -6.950552,
+        "lng": 109.781193,
+        "type": "Pelaku Usaha",
+        "desc": "Pemilik: Bapa Agus",
+        "jamOperasional": "-",
+        "desc_en": "Owner: Bapa Agus",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Bu Hj Ning",
+        "lat": -6.9500165,
+        "lng": 109.7883169,
+        "type": "Pelaku Usaha",
+        "desc": "Warung Bu Hj Ning milik Ibu Hj. Ning yang terletak di RW 02 RT 006 Gondangan menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Warung Ibu Hj. Ning is a grocery shop owned by Ibu Hj. Ning and located in RW 02, RT 06, Gondangan, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and household supplies. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Es teh Dylan",
+        "lat": -6.946554,
+        "lng": 109.783619,
+        "type": "Pelaku Usaha",
+        "desc": "Warung Es Teh Dylan milik Ibu Riski yang terletak di RW 03 RT 010 Tulis Barat menyajikan minuman es teh segar untuk menyegarkan hari warga Desa Tulis. Warung ini memiliki berbagai pilihan varian rasa es teh manis yang nikmat, dibuat dari racikan teh pilihan dengan harga yang sangat terjangkau.",
+        "jamOperasional": "-",
+        "desc_en": "Warung Es Teh Dylan, owned by Ibu Riski and located in RW 03, RT 10, Tulis Barat, is an iced tea stall serving refreshing iced tea to residents of Tulis Village. The stall offers various flavors of sweet iced tea made from selected tea blends at very affordable prices.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/17UEQIHl3-N0pqms3EN2BHL76SD24ALey",
+        "imgDua": "https://lh3.googleusercontent.com/d/10x38qf0Lso-FjyiE5cg8dv0WeKA-L8nR",
+        "imgTiga": ""
+    },
+    {
+        "name": "Toko Anis",
+        "lat": -6.94587,
+        "lng": 109.778859,
+        "type": "Pelaku Usaha",
+        "desc": "Toko Anis milik Ibu Anis yang terletak di RW 03 RT 014 Tulis Barat menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Toko Anis, owned by Ibu Anis and located in RW 03, RT 14, Tulis Barat, is a grocery shop that provides a variety of daily necessities, including rice, cooking oil, sugar, spices, and snacks. The shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1ifDUOIeuYAYywOC_QfsBwN5hlBY40kO_",
+        "imgDua": "https://lh3.googleusercontent.com/d/1daNrATRzoez7gEX1gSox_8u9TO0JsuHY",
+        "imgTiga": ""
+    },
+    {
+        "name": "mie ayam Sri Rahayu",
+        "lat": -6.949985,
+        "lng": 109.797367,
+        "type": "Pelaku Usaha",
+        "desc": "Mie Ayam Sri Rahayu milik Sri Rahayu yang terletak di RW 01 RT 001 Pesawahan menyajikan makanan tradisional yaitu mie ayam. Warung ini memiliki area makan yang nyaman dan menjadi tempat favorit warga maupun pengunjung untuk menikmati santapan lezat dengan harga bersahabat.",
+        "jamOperasional": "-",
+        "desc_en": "Mie Ayam Sri Rahayu is a food stall owned by Sri Rahayu and located in RW 01, RT 01, Pesawahan, serves the traditional dish Mie Ayam (Chicken Noodles). The shop has a comfortable dining area and is a favorite among residents and visitors looking to enjoy a delicious meal at an affordable price.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "mie ayam sri 2.jpg",
+        "imgDua": "mie ayam sri 1.jpg",
+        "imgTiga": ""
+    },
+    {
+        "name": "Toko iyah",
+        "lat": -6.948756,
+        "lng": 109.795932,
+        "type": "Pelaku Usaha",
+        "desc": "Pemilik: bpk kasudi",
+        "jamOperasional": "-",
+        "desc_en": "Owner: bpk kasudi",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "umi.png",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Kedai Pinka",
+        "lat": -6.9504482,
+        "lng": 109.7843482,
+        "type": "Pelaku Usaha",
+        "desc": "Kedai Pinka milik Ibu Indah yang terletak di RW 02 RT 009 Gondangan menyajikan beraneka ragam minuman dan jajanan anak anak serta lauk seperti ayam goreng. Warung ini memiliki area makan yang nyaman dan menjadi tempat favorit warga maupun pengunjung untuk menikmati santapan lezat dengan harga bersahabat.",
+        "jamOperasional": "-",
+        "desc_en": "Kedai Pinka is a snack and beverage stall owned by Ibu Indah and located in RW 02, RT 09, Gondangan, serves a variety of drinks, children's snacks, and dishes such as fried chicken. The shop has a comfortable dining area and is a favorite among residents and visitors looking to enjoy delicious meals at affordable prices.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Toko Istiqomah",
+        "lat": -6.949915,
+        "lng": 109.784319,
+        "type": "Pelaku Usaha",
+        "desc": "Toko Istiqomah milik Pak Giswanto yang terletak di RW 02 RT 009 Gondangan menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Toko Istiqomah is a grocery shop owned by Bapak Giswanto and located in RW 02, RT 09, Gondangan, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and household supplies. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1tmlXdY55KNsj1TJv6Zdou85EIooW_opx",
+        "imgDua": "https://lh3.googleusercontent.com/d/1dSxA5p_L1fCZK5Mjk4jqzPZItlxmFKQW",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Tini",
+        "lat": -6.949813,
+        "lng": 109.786088,
+        "type": "Pelaku Usaha",
+        "desc": "Warung Tini milik Ibu Tini dan Pak Yulianto yang terletak di RW 02 RT 007 menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Warung Tini is a grocery shop owned by Ibu Tini and Bapak Yulianto and located in RW 02, RT 07, Gondangan, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, and household supplies. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1PHkVjwyU_fLouaJPQwdRXcDDYMn0txkt",
+        "imgDua": "https://lh3.googleusercontent.com/d/1rtSdDaKRYK_JFuHa3rzVWI6sUWyiH9E9",
+        "imgTiga": ""
+    },
+    {
+        "name": "Toko Daryuni",
+        "lat": -6.949844,
+        "lng": 109.780835,
+        "type": "Pelaku Usaha",
+        "desc": "Toko Daryuni milik Ibu Daryuni yang terletak di RW 04 RT 017 Tulis Sari menyediakan berbagai jajanan cemilan  anak anak. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Toko Daryuni is a neighborhood shop owned by Ibu Daryuni and located in RW 04, RT 17, Tulis Sari, provides a variety of children's snacks. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1LAtOD0LhoVptG2pAWfyq1R2PaSxN0VTO",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Ibu Eti",
+        "lat": -6.947597,
+        "lng": 109.790443,
+        "type": "Pelaku Usaha",
+        "desc": "Warung Ibu Eti milik Ibu Sutini yang terletak di RW 01 RT 005 Pesawahan menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Warung Ibu Eti is a grocery shop owned by Ibu Sutini and located in RW 01, RT 05, Pesawahan, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, and snacks. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "eti1.jpeg",
+        "imgDua": "eti2.jpeg",
+        "imgTiga": "eti3.jpeg"
+    },
+    {
+        "name": "Warung Minarsih",
+        "lat": -6.948798,
+        "lng": 109.78147,
+        "type": "Pelaku Usaha",
+        "desc": "Pemilik: Minarsih",
+        "jamOperasional": "-",
+        "desc_en": "Owner: Minarsih",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Ibu Tumika",
+        "lat": -6.9500395,
+        "lng": 109.7958928,
+        "type": "Pelaku Usaha",
+        "desc": "Pemilik: Ibu Tumika",
+        "jamOperasional": "-",
+        "desc_en": "Owner: Ibu Tumika",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Toko Udin",
+        "lat": -6.947616,
+        "lng": 109.780058,
+        "type": "Pelaku Usaha",
+        "desc": "Toko Udin milik Pak Udin yang terletak di RW 03 RT 013 Tulis Sari menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Toko Udin is a grocery shop owned by Bapak Udin and located in RW 03, RT 13, Tulis Sari, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and household supplies. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1HiiFSRwjRBPB7FSBae67IC8gVRGZk-fJ",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Mithun",
+        "lat": -6.95013,
+        "lng": 109.789293,
+        "type": "Pelaku Usaha",
+        "desc": "Warung Mithun milik Ibu Mithun yang terletak di RW 02 RT 006 Gondangan menyajikan beragam makanan seperti Nasi Megono, Nasi Rames, Gorengan dan jajanan serta kopi dengan harga terjangkau untuk warga maupun pengunjung. Tempat ini menjadi pilihan tepat untuk menikmati hidangan lezat dengan cita rasa rumahan, sekaligus menjadi sarana santai dan berinteraksi antarwarga Desa Tulis.",
+        "jamOperasional": "-",
+        "desc_en": "Warung Mithun, owned by Ibu Mithun and located in RW 02, RT 06, Gondangan, is a food stall serving a variety of dishes such as Nasi Megono, Nasi Rames, fried snacks, other snacks, and coffee at affordable prices for residents and visitors. It is a great place to enjoy delicious homemade-style dishes, while also providing a space for residents of Tulis Village to relax and interact with one another.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1NDCQAK7fO5AzMEGff8b1TpNxpJebqULJ",
+        "imgDua": "https://lh3.googleusercontent.com/d/1iBYsjJsMjKbVx2sxbHn4EgmQMsE9NJxM",
+        "imgTiga": ""
+    },
+    {
+        "name": "Toko Aisah",
+        "lat": -6.946655,
+        "lng": 109.784013,
+        "type": "Pelaku Usaha",
+        "desc": "Toko Aisha milik Bapak Suratno yang terletak di RW 03 RT 010 Tulis Barat menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Toko Aisha is a grocery shop owned by Bapak Suratno and located in RW 03, RT 10, Tulis Barat, provides a variety of daily necessities, including rice, cooking oil, sugar, and spices. The shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/11sPJFWyrz_HnqLvdjB8ME0DE4hblQFWm",
+        "imgDua": "https://lh3.googleusercontent.com/d/1buwAt9To2Z9CVE9y-vQbmz8QlZNLQKqv",
+        "imgTiga": "https://lh3.googleusercontent.com/d/1OuHzqY2ynuxZD-ipiANQzbcMIUoZHb_k"
+    },
+    {
+        "name": "warung pak marjo",
+        "lat": -6.949645,
+        "lng": 109.797285,
+        "type": "Pelaku Usaha",
+        "desc": "Warung Pak Marjo milik Pak Marjo yang terletak di RW 01 RT 001 Pesawahan menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Warung Pak Marjo is a grocery shop owned by Bapak Marjo and located in RW 01, RT 01, Pesawahan, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and household supplies. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "marjo 1.jpeg",
+        "imgDua": "marjo 2.jpeg",
+        "imgTiga": "marjo 3.jpeg"
+    },
+    {
+        "name": "Mie Ayam",
+        "lat": -6.949305,
+        "lng": 109.784647,
+        "type": "Pelaku Usaha",
+        "desc": "Warung makan milik Ibu Rauna yang terletak di RW 02 RT 008 menyajikan makanan Mie Ayam dan aneka minuman. Warung ini memiliki area makan yang nyaman dan menjadi tempat favorit warga maupun pengunjung untuk menikmati santapan lezat dengan harga bersahabat.",
+        "jamOperasional": "-",
+        "desc_en": "Ibu Rauna's food stall, located in RW 02, RT 08, Gondangan, serves Mie Ayam (Chicken Noodles) and a variety of drinks. The stall has a comfortable dining area and is a favorite among residents and visitors looking to enjoy delicious meals at affordable prices.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1GptGEdp17TN1-EqwGBPfL-8Gq2IuVqLP",
+        "imgDua": "https://lh3.googleusercontent.com/d/1lAHBP9pg680HcnBNIacfQ0zL7UgZp_Og",
+        "imgTiga": "https://lh3.googleusercontent.com/d/15Rfq-1FqS5TGrOQOxpMz6VNVs0Q6pUmp"
+    },
+    {
+        "name": "Toko Kasturi",
+        "lat": -6.946177,
+        "lng": 109.792676,
+        "type": "Pelaku Usaha",
+        "desc": "Toko Kasturi milik Ibu Kasturi yang terletak di RW 01 RT 004 Pesawahan menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Toko Kasturi is a grocery shop owned by Ibu Kasturi and located in RW 01, RT 04, Pesawahan, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and household supplies. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "kasturi 2.jpg",
+        "imgDua": "kasturi 1.jpg",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Ibu Barkah",
+        "lat": -6.949873,
+        "lng": 109.787184,
+        "type": "Pelaku Usaha",
+        "desc": "Warung Ibu Barkah yang terletak di RW 02 RT 007 Gondangan menyediakan berbagai jajanan atau snack, bensin hingga pasir. Kehadiran warung ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Warung Ibu Barkah is a neighborhood shop located in RW 02, RT 07, Gondangan, provides a variety of snacks, gasoline, and sand. The presence of this shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1_6YxrYTpSwmO5fBBJQkm-pApvFe0nFdl",
+        "imgDua": "https://lh3.googleusercontent.com/d/11OHrSXdhMwtehUVJ8AOLTUUHg0j1hrpO",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Kopi & Gorengan",
+        "lat": -6.949852,
+        "lng": 109.78671,
+        "type": "Pelaku Usaha",
+        "desc": "Warung kopi dan gorengan Ibu Asri yang terletak di RW 02 RT 007 Gondangan menyajikan beragam pilihan minuman, kopi serta gorengan untuk warga maupun pengunjung. Tempat ini menjadi pilihan tepat untuk menikmati hidangan lezat dengan cita rasa rumahan, sekaligus menjadi sarana santai dan berinteraksi antarwarga Desa Tulis.",
+        "jamOperasional": "-",
+        "desc_en": "Warung Kopi dan Gorengan Ibu Asri is a traditional Coffee and Fried Snack Stall located in RW 02, RT 07, Gondangan, offers a variety of drinks, coffee, and fried snacks for residents and visitors. The shop is a great place to enjoy delicious food with a homemade taste, while also providing a space for residents of Tulis Village to relax and interact with one another.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/13YXItiruY8nfCxpoHSSN2PG64_5xWh4R",
+        "imgDua": "https://lh3.googleusercontent.com/d/1S7buk2k1wydIKq1qYnTX8oURryiFC-hC",
+        "imgTiga": ""
+    },
+    {
+        "name": "Toko Tulissari",
+        "lat": -6.948747,
+        "lng": 109.778337,
+        "type": "Pelaku Usaha",
+        "desc": "Toko Tulissari milik Pak Tegar yang terletak di RW 04 RT 019 Tulis Sari menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Toko Tulissari is a grocery shop owned by Bapak Tegar and located in RW 04, RT 19, Tulis Sari, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and household supplies. The shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1RO6v44o73PKqcQkCUUCbaXwKhME8rY9x",
+        "imgDua": "https://lh3.googleusercontent.com/d/1iTenAxGEr0GxQaTGKr85fK-X8vRw02Td",
+        "imgTiga": ""
+    },
+    {
+        "name": "Bu Damusri",
+        "lat": -6.9497935,
+        "lng": 109.7857409,
+        "type": "Pelaku Usaha",
+        "desc": "Toko Bu Damusri milik Ibu Damusri yang terletak di RW 02 RT 006 Gondangan menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Toko Bu Damusri is a grocery shop owned by Ibu Damusri and located in RW 02, RT 06, Gondangan, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and household supplies. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/11187ihU2ItklZHbpXlPMtGEawGegmbBe",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Toko Sumirah",
+        "lat": -6.948311,
+        "lng": 109.785467,
+        "type": "Pelaku Usaha",
+        "desc": "Toko Sumirah milik Ibu Sumirah yang terletak di RW 02 RT 008 Gondangan menyediakan berbagai jajanan atau snack serta minuman. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Toko Sumirah, owned by Ibu Sumirah and located in RW 02, RT 08, Gondangan, provides a variety of snacks and drinks. The shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1jMH8VzgTqiLbkDqs6D-6UDMWJtzrkc9e",
+        "imgDua": "https://lh3.googleusercontent.com/d/1o8NKp8kABg9GHCgPNFW-KRMVJn2mONlw",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Ibu Kolifah",
+        "lat": -6.949612,
+        "lng": 109.797543,
+        "type": "Pelaku Usaha",
+        "desc": "Pemilik: Kolifah",
+        "jamOperasional": "-",
+        "desc_en": "Owner: Kolifah",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "bu kolifa.jpg",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung pecel bu yani",
+        "lat": -6.946657,
+        "lng": 109.792638,
+        "type": "Pelaku Usaha",
+        "desc": "Warung Pecel Bu Yani milik Ibu Yani yang terletak di RW 01 RT 004 Pesawahan menyajikan beraneka ragam minuman es dan gorengan, dengan menu utamanya pecel. Warung ini memiliki area makan yang nyaman dan menjadi tempat favorit warga maupun pengunjung untuk menikmati santapan lezat dengan harga bersahabat.",
+        "jamOperasional": "-",
+        "desc_en": "Warung Pecel Bu Yani is a food stall owned by Ibu Yani and located in RW 01, RT 04, Pesawahan, serves a variety of iced drinks and fried snacks, with pecel as its main dish. The food stall has a comfortable dining area and is a favorite among residents and visitors looking to enjoy delicious meals at affordable prices.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Ibu Ika 87",
+        "lat": -6.949773,
+        "lng": 109.785771,
+        "type": "Pelaku Usaha",
+        "desc": "Warung 87 Bu Ika milik Ibu Ika yang terletak di RW 02 RT 007 Gondangan menyajikan beragam makanan atau jajanan anak anak seperti tempura, snack, serta terdapat permainan anak anak dengan harga terjangkau untuk warga maupun pengunjung. Tempat ini menjadi pilihan tepat untuk menikmati hidangan lezat dengan cita rasa rumahan, sekaligus menjadi sarana santai dan berinteraksi antarwarga Desa Tulis.",
+        "jamOperasional": "-",
+        "desc_en": "Owner: Ibu Ika",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1lgKpIuyHF0Z4aBoFKiagcEQ0j4k_IVQR",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Resti",
+        "lat": -6.9468441,
+        "lng": 109.7845034,
+        "type": "Pelaku Usaha",
+        "desc": "Warung Resti milik Ibu Resti yang terletak di RW 02 RT 009 Gondangan menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Warung Resti is a grocery shop owned by Ibu Resti and located in RW 02, RT 09, Gondangan, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and household supplies. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Rohenda",
+        "lat": -6.9487262,
+        "lng": 109.7867974,
+        "type": "Pelaku Usaha",
+        "desc": "Pemilik: Rohenda",
+        "jamOperasional": "-",
+        "desc_en": "Owner: Rohenda",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Toko Umi",
+        "lat": -6.949432,
+        "lng": 109.795726,
+        "type": "Pelaku Usaha",
+        "desc": "Toko Umi milik Mba Umi yang terletak di RW 01 RT 002 Pesawahan menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Toko Umi is a grocery shop owned by Ibu Umi and located in RW 01, RT 02, Pesawahan, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and household supplies. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Migunani",
+        "lat": -6.9505993,
+        "lng": 109.7930771,
+        "type": "Pelaku Usaha",
+        "desc": "Pemilik: Migunani",
+        "jamOperasional": "-",
+        "desc_en": "Owner: Migunani",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Jajanan Mbak Desi",
+        "lat": -6.9497366,
+        "lng": 109.7796443,
+        "type": "Pelaku Usaha",
+        "desc": "Jajanan Mbak Desi milik Ibu Desi yang terletak di RW 04 RT 017 Tulis Sari menyediakan berbagai kebutuhan pokok harian, jajanan atau snack hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Jajanan Mbak Desi is a snack stall owned by Ibu Desi and located in RW 04, RT 17, Tulis Sari, provides a variety of daily necessities, snacks, and household supplies. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Homsatun",
+        "lat": -6.9486889,
+        "lng": 109.7941302,
+        "type": "Pelaku Usaha",
+        "desc": "Pemilik: Homsatun",
+        "jamOperasional": "-",
+        "desc_en": "Owner: Homsatun",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "SRC TK Endang",
+        "lat": -6.9492587,
+        "lng": 109.7845467,
+        "type": "Pelaku Usaha",
+        "desc": "Warung SRC TK Endang milik Ibu Endang yang terletak di RW 02 RT 009 Gondangan menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Warung SRC TK Endang is a grocery shop owned by Ibu Endang and located in RW 02, RT 09, Gondangan, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and household supplies. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "https://lh3.googleusercontent.com/d/1bOtQAIXAwPOfim6wUwEAFDJZyrjABRnE",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Ibu Wastuti",
+        "lat": -6.9489781,
+        "lng": 109.7837812,
+        "type": "Pelaku Usaha",
+        "desc": "Pemilik: Ibu Wastuti",
+        "jamOperasional": "-",
+        "desc_en": "Owner: Ibu Wastuti",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Darsinah",
+        "lat": -6.9461096,
+        "lng": 109.780339,
+        "type": "Pelaku Usaha",
+        "desc": "Pemilik: Darsinah",
+        "jamOperasional": "-",
+        "desc_en": "Owner: Darsinah",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Sahabat Bintang",
+        "lat": -6.9492015,
+        "lng": 109.781319,
+        "type": "Pelaku Usaha",
+        "desc": "Toko mainan dan alat tulis Sahabat Bintang milik Ibu Dwi yang terletak di RW 04 RT 017 Tulis Sari menyediakan berbagai kebutuhan sekolah serta aneka mainan anak untuk warga Desa Tulis. Toko ini memiliki koleksi alat tulis yang lengkap seperti buku, pulpen, dan alat mewarnai, serta pilihan mainan edukatif dan hiburan anak dengan harga yang ramah di kantong.",
+        "jamOperasional": "-",
+        "desc_en": "Sahabat Bintang is a toy and stationery shop owned by Ibu Dwi and located in RW 04, RT 17, Tulis Sari, provides various school supplies and children's toys for residents of Tulis Village. The shop offers a wide selection of stationery, including books, pens, and coloring tools, as well as educational and recreational toys at affordable prices.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "barokah",
+        "lat": -6.947474,
+        "lng": 109.793586,
+        "type": "Pelaku Usaha",
+        "desc": "Usaha produksi kerupuk goreng pasir \"Barokah\" milik Bapak Solikhin yang terletak di RW 002 RT 004 Dusun Pesawahan merupakan salah satu industri rumah tangga aktif di Desa Tulis. Usaha ini memiliki kapasitas produksi harian yang melayani pemesanan kerupuk khas renyah untuk kebutuhan warga sekitar maupun pasokan toko kuliner.",
+        "jamOperasional": "-",
+        "desc_en": "\u201cBarokah\u201d Sand-Fried Cracker Production, owned by Bapak Solikhin and located in RW 02, RT 04, Pesawahan, is one of the active home industries in Tulis Village. The business has a daily production capacity and accepts orders for its signature crispy crackers, serving both local residents and culinary businesses.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "barokah 2.jpeg",
+        "imgDua": "barokah.jpg",
+        "imgTiga": "barokah3.jpeg"
+    },
+    {
+        "name": "Toko Sinta",
+        "lat": -6.9486583,
+        "lng": 109.7934955,
+        "type": "Pelaku Usaha",
+        "desc": "Toko Sinta milik Ibu Asih yang terletak di RW 01 RT 003 Pesawahan menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack hingga perlengkapan rumah tangga. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Toko Sinta is a grocery shop owned by Ibu Asih and located in RW 01, RT 03, Pesawahan, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and household supplies. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Gerai Kuning",
+        "lat": -6.949738,
+        "lng": 109.7803983,
+        "type": "Pelaku Usaha",
+        "desc": "Gerai Kuning milik Ibu Siti yang terletak di RW 04 RT 017 Pesawahan menyediakan berbagai minuman terutama es teh dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Gerai Kuning is a beverage stall owned by Ibu Siti and located in RW 04, RT 17, Pesawahan, offers a variety of drinks, particularly iced tea, at affordable prices and with convenient access close to residential areas.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung ika sulistyaningsih",
+        "lat": -6.947829,
+        "lng": 109.791979,
+        "type": "Pelaku Usaha",
+        "desc": "Pemilik: ika sulistyaningsih",
+        "jamOperasional": "-",
+        "desc_en": "Owner: ika sulistyaningsih",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Makan Mbak Patun",
+        "lat": -6.950263,
+        "lng": 109.781254,
+        "type": "Pelaku Usaha",
+        "desc": "Warung Makan Mbak Patun milik Ibu Supriiyatun yang terletak di RW 04 RT 016 Tulis Sari menyajikan aneka hidangan masakan rumahan khas lokal. Warung ini memiliki area makan yang nyaman dan menjadi tempat favorit warga maupun pengunjung untuk menikmati santapan lezat dengan harga bersahabat.",
+        "jamOperasional": "-",
+        "desc_en": "Warung Makan Mbak Patun, a food stall owned by Ibu Supriiyatun and located in RW 04, RT 16, Tulis Sari, serves a variety of local homemade dishes. The stall has a comfortable dining area and is a favorite among residents and visitors looking to enjoy delicious meals at affordable prices.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "toko warung kelontong",
+        "lat": -6.946635,
+        "lng": 109.792619,
+        "type": "Pelaku Usaha",
+        "desc": "Toko Warung Kelontong milik Ibu Rosi yang terletak di RW  01 RT 004 Pesawahan menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack hingga perlengkapan rumah tangga, selain itu toko kelontong ini juga menyediakan kartu perdana dan juga agen brilink. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Ibu Rosi\u2019s grocery shop, owned by Ibu Rosi and located in RW 01, RT 04, Pesawahan, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and household supplies. The shop also provides prepaid SIM cards and BRILink agent services. The presence of this neighborhood grocery shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Bu Siti",
+        "lat": -6.9474685,
+        "lng": 109.7817545,
+        "type": "Pelaku Usaha",
+        "desc": "Warung Bu Siti milik Ibu Siti Fatonah yang terletak di RW 03 RT 010 Tulis Barat menyediakan berbagai kebutuhan pokok harian seperti beras, minyak goreng, gula, bumbu dapur, jajanan atau snack serta minuman. Kehadiran warung kelontong ini memudahkan warga Desa Tulis untuk memenuhi kebutuhan sehari-hari dengan harga terjangkau dan lokasi yang dekat dari pemukiman.",
+        "jamOperasional": "-",
+        "desc_en": "Warung Bu Siti is a grocery shop owned by Ibu Siti Fatonah and located in RW 03, RT 10, Tulis Barat, provides a variety of daily necessities, including rice, cooking oil, sugar, spices, snacks, and drinks. The presence of this neighborhood shop makes it easier for residents of Tulis Village to meet their daily needs at affordable prices, with convenient access close to their homes.",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Warung Coffee Giras",
+        "lat": -6.9491625,
+        "lng": 109.7787236,
+        "type": "Pelaku Usaha",
+        "desc": "Pemilik: Wayati",
+        "jamOperasional": "-",
+        "desc_en": "Owner: Wayati",
+        "jamOperasional_en": "-",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Poskamling Tulis Barat",
+        "lat": -6.949591,
+        "lng": 109.786011,
+        "type": "Keamanan Lingkungan",
+        "desc": "Poskamling utama untuk blok utara.",
+        "jamOperasional": "Pos Siaga 24 Jam",
+        "desc_en": "The main neighborhood security post for the northern block.",
+        "jamOperasional_en": "24-Hour Security Post",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Poskamling Gondangan",
+        "lat": -6.945758,
+        "lng": 109.77893,
+        "type": "Keamanan Lingkungan",
+        "desc": "Poskamling utama untuk blok utara.",
+        "jamOperasional": "Pos Siaga 24 Jam",
+        "desc_en": "The main neighborhood security post for the northern block.",
+        "jamOperasional_en": "24-Hour Security Post",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Poskamling",
+        "lat": -6.948546,
+        "lng": 109.792585,
+        "type": "Keamanan Lingkungan",
+        "desc": "Poskamling utama untuk blok utara.",
+        "jamOperasional": "Pos Siaga 24 Jam",
+        "desc_en": "The main neighborhood security post for the northern block.",
+        "jamOperasional_en": "24-Hour Security Post",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Masjid Baitul Izzah",
+        "lat": -6.949011,
+        "lng": 109.787278,
+        "type": "Fasilitas Ibadah",
+        "desc": "Pusat kegiatan ibadah warga sekitar.",
+        "jamOperasional": "24 Jam",
+        "desc_en": "The central place of worship for the surrounding community.",
+        "jamOperasional_en": "24 Hours",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Masjid At-Taqwa",
+        "lat": -6.9489,
+        "lng": 109.793913,
+        "type": "Fasilitas Ibadah",
+        "desc": "Pusat kegiatan ibadah warga sekitar.",
+        "jamOperasional": "24 Jam",
+        "desc_en": "The central place of worship for the surrounding community.",
+        "jamOperasional_en": "24 Hours",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
+    },
+    {
+        "name": "Masjid Jami 'Nurul Yaqin'",
+        "lat": -6.947549,
+        "lng": 109.779929,
+        "type": "Fasilitas Ibadah",
+        "desc": "Pusat kegiatan ibadah warga sekitar.",
+        "jamOperasional": "24 Jam",
+        "desc_en": "The central place of worship for the surrounding community.",
+        "jamOperasional_en": "24 Hours",
+        "whatsapp": "",
+        "imgSatu": "",
+        "imgDua": "",
+        "imgTiga": ""
     }
 ];
 
