@@ -120,13 +120,45 @@ body, html {
 .btn-lihat-foto { display: flex; justify-content: center; align-items: center; background-color: #f39c12; color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; transition: 0.3s; margin-left: 8px; }
 .btn-lihat-foto:hover { background-color: #d68910; transform: scale(1.15); }
 .galeri-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 62, 80, 0.9); z-index: 9999; display: flex; justify-content: center; align-items: center; backdrop-filter: blur(4px); animation: fadeIn 0.3s ease; }
-.galeri-modal { background: #fff; padding: 15px; border-radius: 12px; width: 90%; max-width: 500px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+.galeri-modal { 
+    background: #fff; 
+    padding: 15px; 
+    border-radius: 12px; 
+    width: 90%; 
+    max-width: 650px; /* KUNCI: Membatasi lebar maksimal agar tidak terlalu landscape */
+    position: relative; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
+}
 .galeri-title { margin: 0 0 15px 0; color: #2c3e50; font-size: 16px; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 8px; }
 .close-galeri { position: absolute; top: -12px; right: -12px; background: #e74c3c; color: white; border: 2px solid #fff; border-radius: 50%; width: 34px; height: 34px; font-size: 16px; cursor: pointer; font-weight: bold; }
-.foto-container { position: relative; flex: 0 0 100%; scroll-snap-align: center; aspect-ratio: 16 / 9; max-height: 70vh; background-color: #f8f9fa; border-radius: 8px; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+.foto-container { 
+    position: relative; 
+    flex: 0 0 100%; 
+    scroll-snap-align: center; 
+    height: 50vh; 
+    min-height: 250px;
+    background-color: transparent; /* KUNCI 1: Buang latar belakang gelapnya */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border: none; /* Hilangkan garis kotak terluar */
+}
 .loading-spinner { width: 40px; height: 40px; border: 4px solid #bdc3c7; border-top: 4px solid #3498db; border-radius: 50%; animation: spin-loader 1s linear infinite; position: absolute; }
 @keyframes spin-loader { 100% { transform: rotate(360deg); } }
-.foto-container img { width: 100%; height: 100%; object-fit: cover; position: absolute; opacity: 0; transition: opacity 0.6s ease-in-out; }
+.foto-container img { 
+    width: auto; /* KUNCI 2: Biarkan lebar menyesuaikan rasio asli */
+    height: auto; /* KUNCI 3: Biarkan tinggi menyesuaikan rasio asli */
+    max-width: 100%; 
+    max-height: 100%; 
+    object-fit: contain; 
+    border-radius: 8px; /* Lengkungan kini menempel pas pada gambar */
+    border: 1px solid #939597; /* Garis bingkai menempel pada gambar */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Bayangan mengikuti bentuk gambar */
+    position: relative; /* Jangan jadikan absolute agar posisinya natural */
+    z-index: 2; 
+    opacity: 0; 
+    transition: opacity 0.6s ease-in-out; 
+}
 .foto-container img.loaded { opacity: 1; }
 .galeri-hint { font-size: 12px; color: #7f8c8d; text-align: center; margin: 10px 0 0 0; font-weight: bold; animation: pulse 1.5s infinite; }
 @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
@@ -308,6 +340,67 @@ STYLING CUSTOM ICON EMOJI MARKER
 @keyframes pulse-red { 0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(231, 76, 60, 0); } 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); } }
 @keyframes pulse-yellow { 0% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(241, 196, 15, 0); } 100% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0); } }
 
+/* =========================================================
+   TOMBOL POPUP LAPOR WARGA (DESAIN ELEGAN & MODERN)
+   ========================================================= */
+.lapor-popup-container { 
+    min-width: 220px; 
+    text-align: center; 
+    font-family: 'Segoe UI', Tahoma, sans-serif; 
+    padding: 5px 2px; 
+}
+
+.lapor-popup-title { 
+    margin: 0 0 8px 0; 
+    color: #1e293b; 
+    font-size: 15px; 
+    font-weight: 800; 
+    letter-spacing: 0.3px;
+}
+
+.lapor-popup-badge { 
+    font-size: 10.5px; 
+    color: #64748b; 
+    background: #f1f5f9; 
+    display: inline-block; 
+    padding: 4px 12px; 
+    border-radius: 20px; 
+    margin-bottom: 16px; 
+    letter-spacing: 0.5px; 
+    font-weight: 600; 
+    border: 1px solid #e2e8f0; 
+}
+
+/* --- PERUBAHAN WARNA SOLID (JELAS & TEGAS) --- */
+.btn-lapor-item {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 8px; 
+    width: 100%; 
+    padding: 10px;
+    color: #ffffff; /* Teks putih agar kontras dengan latar warna */
+    border: none; /* Hilangkan garis pinggir */
+    border-radius: 8px;
+    cursor: pointer; 
+    font-size: 12.5px; 
+    font-weight: 700; 
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1); 
+    margin-bottom: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15); /* Bayangan lembut */
+}
+.btn-lapor-item:last-child { margin-bottom: 0; }
+.btn-lapor-item .ikon { font-size: 16px; }
+
+/* Warna Utama Masing-masing Tombol */
+.btn-lapor-item.keamanan { background: #e74c3c; } /* Merah Tegas */
+.btn-lapor-item.medis { background: #27ae60; }    /* Hijau Segar */
+.btn-lapor-item.fasilitas { background: #f39c12; } /* Oranye Hangat */
+
+/* Efek Tombol Terangkat & Lebih Gelap Saat Disentuh (Hover) */
+.btn-lapor-item.keamanan:hover { background: #c0392b; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(231, 76, 60, 0.3); }
+.btn-lapor-item.medis:hover { background: #219653; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3); }
+.btn-lapor-item.fasilitas:hover { background: #d68910; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(243, 156, 18, 0.3); }
 
 /* =========================================================
    ULTIMATE RESPONSIVE & FLUID DESIGN (Adaptasi Semua Device)
@@ -394,4 +487,12 @@ STYLING CUSTOM ICON EMOJI MARKER
     #btn-hamburger { width: 38px !important; height: 38px !important; font-size: 15px !important; }
 }
 
-.galeri-modal { max-width: 90vw !important; }
+.galeri-modal { 
+    background: #fff; 
+    padding: 15px; 
+    border-radius: 12px; 
+    width: 90%; 
+    max-width: 650px; /* KUNCI: Membatasi lebar maksimal agar tidak terlalu landscape */
+    position: relative; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
+}

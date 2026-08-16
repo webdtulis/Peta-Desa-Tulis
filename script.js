@@ -259,36 +259,68 @@ function getCustomIcon(kategori) {
 }
 
 let searchData = [];
+// 1. BUAT POPUP LENGKAP DENGAN LAZY LOADING & INFO PEMILIK TERPISAH
 function getPopupHTML(index) {
     const loc = locations[index];
     const t = terjemahan[bahasaSaatIni];
+    
+    // Tarik data bahasa
     const deskripsi = (bahasaSaatIni === 'en' && loc.desc_en) ? loc.desc_en : loc.desc;
     const operasional = (bahasaSaatIni === 'en' && loc.jamOperasional_en) ? loc.jamOperasional_en : loc.jamOperasional;
     const katName = t["kat" + loc.type.replace(/\s+/g, '')] || loc.type;
 
+    // Tombol WhatsApp
     let waButtonHTML = '';
-    if (loc.whatsapp) {
+    if (loc.whatsapp && loc.whatsapp !== "") {
         let nomorWA = loc.whatsapp.startsWith('0') ? '62' + loc.whatsapp.substring(1) : loc.whatsapp;
         waButtonHTML = `<button type="button" class="wa-btn" onclick="window.open('https://wa.me/${nomorWA}', '_blank'); event.stopPropagation();" style="width:100%; margin-bottom:8px; padding:6px; border-radius:4px; text-align:center;">${t.txtChatWA}</button>`;
     }
     
+    // Thumbnail Foto
     let imgThumbnailHTML = '';
-    if(loc.imgSatu && loc.imgSatu !== "") {
-        imgThumbnailHTML = `<img src="${loc.imgSatu}" alt="Foto ${loc.name}" loading="lazy" decoding="async" style="width:100%; height:130px; object-fit:cover; border-radius:6px; margin-bottom:10px; border:1px solid #bdc3c7;" onerror="this.style.display='none'">`;
+    if(loc.imgSatu && loc.imgSatu !== "" && loc.imgSatu !== "-") {
+        imgThumbnailHTML = `<img src="${loc.imgSatu}" alt="Foto ${loc.name}" loading="lazy" decoding="async" style="width:100%; height:auto; max-height:180px; object-fit:contain; background-color:#f1f5f9; border-radius:6px; margin-bottom:10px; border:1px solid #bdc3c7;" onerror="this.style.display='none'">`;
+    }
+
+    // Ekstraksi Nama Pemilik (Jika ada, pisahkan dari deskripsi. Jika tidak ada, sembunyikan barisnya)
+    let infoPemilikHTML = '';
+    let teksDeskripsiBersih = deskripsi;
+    
+    if (deskripsi && deskripsi.includes("Pemilik:")) {
+        // Pisahkan teks berdasarkan kata "Pemilik:"
+        let parts = deskripsi.split("Pemilik:");
+        // Ambil bagian belakang sebagai nama pemilik dan bersihkan spasinya
+        let namaPemilik = parts[1].trim(); 
+        
+        // Buat HTML khusus untuk baris pemilik
+        infoPemilikHTML = `<div style="margin-bottom: 4px; font-size: 12px; color: #e67e22;"><strong>Pemilik:</strong> ${namaPemilik}</div>`;
+        
+        // Bersihkan deskripsi utama agar tidak mengulang kata "Pemilik:"
+        // (Jika bagian depan kosong, berarti memang tidak ada deskripsi tambahan, jadi kita ubah jadi strip saja)
+        teksDeskripsiBersih = parts[0].trim() !== "" ? parts[0].trim() : "-";
     }
 
     return `
         <div class="popup-content" style="position: relative; min-width: 220px; max-width: 270px; text-align: left; padding-top: 2px;">
             ${imgThumbnailHTML}
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e74c3c; padding-bottom: 5px; margin-bottom: 8px;">
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #2f2f78; padding-bottom: 5px; margin-bottom: 8px;">
                 <h3 style="margin: 0; font-size: 15px; border: none; padding: 0;">${loc.name}</h3>
             </div>
+            
             <div style="margin-bottom: 4px; font-size: 12px;"><strong>${t.txtKategori}:</strong> ${katName}</div>
+            
+            <!-- Memasukkan Baris Pemilik (Hanya muncul jika ada datanya) -->
+            ${infoPemilikHTML}
+            
             <div style="margin-bottom: 4px; font-size: 12px;"><strong>${t.txtOperasional}:</strong> ${operasional}</div>
-            <div style="max-height: 85px; overflow-y: auto; overflow-wrap: break-word; word-wrap: break-word; padding-right: 5px; margin-bottom: 10px; font-size: 12px; line-height: 1.4; background: rgba(0,0,0,0.03); padding: 5px; border-radius: 4px;">
-                <strong>${t.txtInfo}:</strong> ${deskripsi}
+            
+            <div style="max-height: 85px; overflow-y: auto; overflow-wrap: break-word; word-wrap: break-word; padding-right: 5px; margin-bottom: 10px; margin-top: 8px; font-size: 12px; line-height: 1.4; background: rgba(0,0,0,0.03); padding: 5px; border-radius: 4px; border-left: 3px solid #3498db;">
+                <strong>${t.txtInfo}:</strong> ${teksDeskripsiBersih}
             </div>
+            
             ${waButtonHTML}
+            
             <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #bdc3c7; padding-top: 8px;">
                 <button onclick="window.bukaGaleriFoto(${index}, event)" style="background: #f39c12; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">📷 Semua Foto</button>
                 <button onclick="window.buatRute(${index}, event)" title="${t.txtNavigasi}" style="background-color: #3498db; color: white; border: none; border-radius: 50%; width: 34px; height: 34px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.3);">
@@ -593,7 +625,22 @@ window.toggleLapor = function() {
 map.on('click', function(e) {
     if (isReportingMode) {
         const lat = e.latlng.lat.toFixed(6), lng = e.latlng.lng.toFixed(6);
-        let popupLaporHTML = `<div style="text-align: center; min-width: 200px; padding: 5px;"><h4 style="margin: 0 0 10px 0; color: #e74c3c; border-bottom: 2px solid #e74c3c; padding-bottom: 5px; font-size: 14px;">Tujuan Laporan</h4><p style="font-size: 11px; color: #7f8c8d; margin-bottom: 12px; font-weight: bold;">Lokasi: ${lat}, ${lng}</p><button onclick="window.prosesKirimLaporan('keamanan', ${lat}, ${lng})" style="width: 100%; margin-bottom: 6px; padding: 8px; background: #2c3e50; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">🚨 Laporan Keamanan</button><button onclick="window.prosesKirimLaporan('kesehatan', ${lat}, ${lng})" style="width: 100%; margin-bottom: 6px; padding: 8px; background: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">🏥 Laporan Medis</button><button onclick="window.prosesKirimLaporan('infrastruktur', ${lat}, ${lng})" style="width: 100%; margin-bottom: 6px; padding: 8px; background: #e67e22; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">🏗️ Laporan Fasilitas Desa</button></div>`;
+        let popupLaporHTML = `
+            <div class="lapor-popup-container">
+                <h4 class="lapor-popup-title">Pilih Jenis Laporan</h4>
+                <div class="lapor-popup-badge">📍 ${lat}, ${lng}</div>
+                
+                <button class="btn-lapor-item keamanan" onclick="window.prosesKirimLaporan('keamanan', ${lat}, ${lng})">
+                    <span class="ikon">🚨</span> Darurat Keamanan
+                </button>
+                <button class="btn-lapor-item medis" onclick="window.prosesKirimLaporan('kesehatan', ${lat}, ${lng})">
+                    <span class="ikon">🏥</span> Bantuan Medis
+                </button>
+                <button class="btn-lapor-item fasilitas" onclick="window.prosesKirimLaporan('infrastruktur', ${lat}, ${lng})">
+                    <span class="ikon">🏗️</span> Lapor Terkait Desa
+                </button>
+            </div>
+        `;
         L.popup({ closeOnClick: false, autoClose: false }).setLatLng(e.latlng).setContent(popupLaporHTML).openOn(map);
         isReportingMode = false;
         const btn = document.getElementById('btn-lapor-html');

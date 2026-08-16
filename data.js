@@ -39,33 +39,17 @@ const locations = [
         desc_en: "The central administrative office and public service center of Tulis Village.",
         jamOperasional_en: "Monday - Friday (08:00 AM - 03:00 PM)",
         
-        whatsapp: "6285624166392", 
+        whatsapp: "", 
         imgSatu: "A.jpg", imgDua:"B.jpg", imgTiga: "C.jpg"
     },
 //PUSAT KESEHATAN
-    {
-        name: "Posyandu", 
-        lat: -6.949139, lng: 109.787277, 
-        type: "Fasilitas Kesehatan",
-        
-        // Bahasa Indonesia
-        desc: "Pelayanan kesehatan tingkat pertama bagi warga.",
-        jamOperasional: "5 Jam",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "Primary healthcare facility for the local community.",
-        jamOperasional_en: "5 Hours",
-        
-        whatsapp: "6287810107158", 
-        imgSatu: "PSYA.jpg", imgDua: "PSYB.jpg", imgTiga: "PSYC.jpg"
-    },
     {
         name: "Poliklinik 'Sejahtera'", 
         lat: -6.948900, lng: 109.794243, 
         type: "Fasilitas Kesehatan",
         
         // Bahasa Indonesia
-        desc: "Pelayanan kesehatan warga Desa Tulis.",
+        desc: "Poliklinik Kesehatan Desa 'Sejahtera' berperan sebagai fasilitas kesehatan bagi warga Desa Tulis dengan pelayanan yang dikelola oleh Bidan Desa.",
         jamOperasional: "Senin & Jumat (08.00 - 11.00 WIB)",
         
         // Bahasa Inggris (Tambahan Baru)
@@ -81,7 +65,7 @@ const locations = [
         type: "Fasilitas Kesehatan",
         
         // Bahasa Indonesia
-        desc: "Pelayanan kesehatan warga Desa Tulis.",
+        desc: "Puskesmas Tulis merupakan fasilitas kesehatan bagi masyarakat Kecamatan Tulis, Kabupaten Batang, yang memberikan pelayanan kesehatan terpadu melalui beberapa klaster pelayanan.",
         jamOperasional: "Jam pendaftaran: Senin - Kamis: 07.00 - 12.00 WIB, Jumat: 07.00 - 10.00 WIB, Sabtu: 07.00 - 11.00 WIB. Jam pelayanan: Senin - Kamis: 07.00 - 14.00 WIB, Jumat: 07.00 - 11.00 WIB, Sabtu: 07.00 - 12.30 WIB. Ruang bersalin: Melayani persalinan dan kegawatdaruratan maternal selama 24 jam. Hari libur: Minggu Tanggal merah mengikuti hari libur/cuti nasional yang ditetapkan pemerintah",
         
         // Bahasa Inggris (Tambahan Baru)
@@ -89,7 +73,9 @@ const locations = [
         jamOperasional_en: "5 Hours",
         
         whatsapp: "082322173998", 
-        imgSatu: "KLINIK_D.jpg", imgDua: "KLINIK_A.jpg", imgTiga: "PSYC.jpg"
+        imgSatu: "https://lh3.googleusercontent.com/d/1UYA6eJ3Lc7XHZ6EBWAXFk8oDyS_x7jtP", 
+        imgDua: "https://lh3.googleusercontent.com/d/1cwbn4GhzmXCpD7qMcNaipjVeZ-taJwqs", 
+        imgTiga: ""
     },
     {
         name: "Posyandu Mawar Tulis Barat", 
@@ -97,24 +83,155 @@ const locations = [
         type: "Fasilitas Kesehatan",
         
         // Bahasa Indonesia
-        desc: "Pelayanan kesehatan warga Desa Tulis.",
+        desc: "Pos Pelayanan Terpadu (Posyandu) merupakan layanan kesehatan masyarakat untuk memantau tumbuh kembang balita melalui pengukuran BB, TB, LiLA, dan LK, serta pemberian imunisasi dan vitamin. Posyandu ini juga menyediakan pemeriksaan kesehatan dasar bagi lansia.",
         jamOperasional: "Setiap Selasa minggu ke-1 (08.00-10.30)",
         
         // Bahasa Inggris (Tambahan Baru)
         desc_en: "Primary healthcare facility for the local community.",
         jamOperasional_en: "5 Hours",
         
-        whatsapp: "089667058249 (Bu Novi)", 
-        imgSatu: "KLINIK_D.jpg", imgDua: "KLINIK_A.jpg", imgTiga: "PSYC.jpg"
+        whatsapp: "089667058249", 
+        imgSatu: "https://lh3.googleusercontent.com/d/1QUU1GC8BNpfgfq9EiTca3q_2yr_U8Fre", 
+        imgDua: "https://lh3.googleusercontent.com/d/1PhV3IziL8Sb8UNy3Wy2uzoKmPeL-EuHv", 
+        imgTiga: ""
+    },
+    {
+        name: "Rumah Sakit Qolbu Insan Mulia (QIM)", 
+        lat: -6.915932, lng: 109.745810, 
+        type: "Fasilitas Kesehatan",
+        
+        // Bahasa Indonesia
+        desc: "Rumah Sakit QIM Batang merupakan fasilitas kesehatan yang melayani pasien BPJS Kesehatan serta menyediakan berbagai layanan kesehatan rujukan bagi masyarakat.",
+        jamOperasional: "24 jam (Informasi perubahan jam operasional tiap pelayanan cek instagram @rumahsakitqim)",
+        
+        // Bahasa Inggris (Tambahan Baru)
+        desc_en: "",
+        jamOperasional_en: "",
+        
+        whatsapp: "", 
+        imgSatu: "https://lh3.googleusercontent.com/d/1TOYY9p2mLeRU96vwi19ZCWxkximO2t--", 
+        imgDua: "https://lh3.googleusercontent.com/d/1DdJ_z9Q_LxY0WTvJyJRsDvpscSr8lU_h", 
+        imgTiga: ""
+    },
+    {
+        name: "RSUD Batang", 
+        lat: -6.914977, lng: 109.718856, 
+        type: "Fasilitas Kesehatan",
+        
+        // Bahasa Indonesia
+        desc: "RSUD Kabupaten Batang adalah rumah sakit tipe C milik Pemerintah Kabupaten Batang yang menyediakan pelayanan kesehatan bagi masyarakat.",
+        jamOperasional: "24 jam (Informasi perubahan jam operasional tiap pelayanan cek instagram @rsud_batang) Jam besuk: Setiap hari (11.00 - 13.00 WIB & 16.00 - 19.00 WIB)",
+        
+        // Bahasa Inggris (Tambahan Baru)
+        desc_en: "",
+        jamOperasional_en: "",
+        
+        whatsapp: "", 
+        imgSatu: "", 
+        imgDua: "", 
+        imgTiga: ""
+    },
+    {
+        name: "Posyandu Pesawahan ", 
+        lat: -6.948887, lng: 109.794175, 
+        type: "Fasilitas Kesehatan",
+        
+        // Bahasa Indonesia
+        desc: "Pos Pelayanan Terpadu (Posyandu) merupakan layanan kesehatan masyarakat untuk memantau tumbuh kembang balita melalui pengukuran BB, TB, LiLA, dan LK, serta pemberian imunisasi dan vitamin. Posyandu ini juga menyediakan pemeriksaan kesehatan dasar bagi lansia.",
+        jamOperasional: "Setiap Kamis minggu ke-2 (08.00-12.00)",
+        
+        // Bahasa Inggris (Tambahan Baru)
+        desc_en: "",
+        jamOperasional_en: "",
+        
+        whatsapp: "", 
+        imgSatu: "https://lh3.googleusercontent.com/d/1_AaWiDDEVCvgrJjFy5L8E4thOzrn7Wiu", 
+        imgDua: "https://lh3.googleusercontent.com/d/1fBEp-lqIHps9g0BRu-azgMzkDtBnlGXJ", 
+        imgTiga: ""
+    },
+    {
+        name: "Posyandu Tulis Sari", 
+        lat: -6.949926, lng: 109.780533, 
+        type: "Fasilitas Kesehatan",
+        
+        // Bahasa Indonesia
+        desc: "Pos Pelayanan Terpadu (Posyandu) merupakan layanan kesehatan masyarakat untuk memantau tumbuh kembang balita melalui pengukuran BB, TB, LiLA, dan LK, serta pemberian imunisasi dan vitamin. Posyandu ini juga menyediakan pemeriksaan kesehatan dasar bagi lansia.",
+        jamOperasional: "Setiap Kamis minggu ke-1 (08.00-10.30)",
+        
+        // Bahasa Inggris (Tambahan Baru)
+        desc_en: "",
+        jamOperasional_en: "",
+        
+        whatsapp: "", 
+        imgSatu: "https://lh3.googleusercontent.com/d/1ZNhVxJMOr8d9VYIfkvRln9za5DcshMBN", 
+        imgDua: "", 
+        imgTiga: ""
+    },
+    {
+        name: "Posyandu Gondangan", 
+        lat: -6.949195, lng: 109.787294, 
+        type: "Fasilitas Kesehatan",
+        
+        // Bahasa Indonesia
+        desc: "Pos Pelayanan Terpadu (Posyandu) merupakan layanan kesehatan masyarakat untuk memantau tumbuh kembang balita melalui pengukuran BB, TB, LiLA, dan LK, serta pemberian imunisasi dan vitamin. Posyandu ini juga menyediakan pemeriksaan kesehatan dasar bagi lansia.",
+        jamOperasional: "Setiap Selasa minggu ke-3 (08.00 - 10.00)",
+        
+        // Bahasa Inggris (Tambahan Baru)
+        desc_en: "",
+        jamOperasional_en: "",
+        
+        whatsapp: "", 
+        imgSatu: "https://lh3.googleusercontent.com/d/17R7h332Jmf-uc3Uf85tbr11Z93gi_3EB", 
+        imgDua: "https://lh3.googleusercontent.com/d/1jBShDCrpIhoM2ruLP1Nxm5mm5ewNS1E_", 
+        imgTiga: "https://lh3.googleusercontent.com/d/12G4BuvzxQpS4K2n4F0dmQNXUzXDKP3eC"
+    },
+    {
+        name: "Klinik Pratama Diyah Husada", 
+        lat: -6.948167, lng: 109.785019, 
+        type: "Fasilitas Kesehatan",
+        
+        // Bahasa Indonesia
+        desc: "Klinik pratama rawat jalan yang melayani pasien umum dan BPJS kesehatan dan asuransi isomedik. Fasilitas pelayanan klinik ini meliputi pemeriksaan umum, pelayanan kesehatan gigi dan mulut, pelayanan kesehatan ibu dan anak, pelayanan kulit dan kecantikan, layanan kefarmasian, pemeriksaan laboratorium, dan kunjungan rumah",
+        jamOperasional: "Senin - sabtu (08.00 - 20.00)",
+        
+        // Bahasa Inggris (Tambahan Baru)
+        desc_en: "",
+        jamOperasional_en: "",
+        
+        whatsapp: "", 
+        imgSatu: "https://lh3.googleusercontent.com/d/1_pYQ5-Dlg3Gf8AlqNN06yQPpvYmnasfw", 
+        imgDua: "", 
+        imgTiga: ""
+    },
+    {
+        name: "Posyandu Seberang Balai Desa", 
+        lat: -6.947824, lng: 109.783778, 
+        type: "Fasilitas Kesehatan",
+        
+        // Bahasa Indonesia
+        desc: "Klinik pratama rawat jalan yang melayani pasien umum dan BPJS kesehatan dan asuransi isomedik. Fasilitas pelayanan klinik ini meliputi pemeriksaan umum, pelayanan kesehatan gigi dan mulut, pelayanan kesehatan ibu dan anak, pelayanan kulit dan kecantikan, layanan kefarmasian, pemeriksaan laboratorium, dan kunjungan rumah",
+        jamOperasional: "Setiap Selasa minggu ke-2 (08.00-10.30)",
+        
+        // Bahasa Inggris (Tambahan Baru)
+        desc_en: "",
+        jamOperasional_en: "",
+        
+        whatsapp: "", 
+        imgSatu: "https://lh3.googleusercontent.com/d/1bZ-TY4VhZM5gTMjQQ-aK4XA5PuT7q_3d", 
+        imgDua: "", 
+        imgTiga: ""
     },
 
+    
+    
+    
 //FASILITAS PENDIDIKAN
     {
-        name: "SDN Tulis 01", 
+        name: "SDN 01 TULIS", 
         lat: -6.949718, lng: 109.788332, 
         type: "Fasilitas Pendidikan",       
-        desc: "SD Negeri Tulis 01 merupakan sekolah dasar negeri yang berlokasi di Jl. Raya Tulis No. 45, Desa Tulis, Kecamatan Tulis, Kabupaten Batang, Jawa Tengah. Sekolah ini memiliki NPSN 20322859 dan telah berdiri sejak tahun 1985 berdasarkan SK Pendirian No. 421.2/021/X/43/85 tertanggal 1 April 1985. SD Negeri Tulis 01 dikenal sebagai sekolah yang unggul dan memiliki akreditasi A berdasarkan SK Akreditasi  tertanggal 20 Oktober 2015. Sekolah ini menerapkan sistem pembelajaran sehari penuh dengan 6 hari pembelajaran dalam seminggu. Dengan akses internet Telkom Speedy dan sumber listrik PLN, SD Negeri Tulis 01 siap mendukung proses belajar mengajar yang efektif dan modern",
-        jamOperasional: "Senin - Sabtu (07:00 - 14:00)",
+        desc: "SDN 01 Tulis yang terletak di  Jalan Raya Tulis No. 45, Kec. Tulis, Kab. Batang, Prov. Jawa Tengah merupakan fasilitas pendidikan dasar formal yang menyelenggarakan kegiatan belajar mengajar bagi anak-anak di Desa Tulis. Selain fokus pada akademik, sekolah ini menjadi wadah pembentukan karakter, pengembangan minat siswa melalui  kegiatan ekstrakulikuler.",
+        jamOperasional: "Senin - Sabtu (07.00 - 15.00) ",
         
         // Bahasa Inggris (Tambahan Baru)
         desc_en: "The main public elementary school in Tulis Village.",
@@ -140,182 +257,19 @@ const locations = [
    
 //TITIK Pelaku Usaha
     {
-        name: "Toko KAF", 
-        lat: -6.949273, lng: 109.785961, 
+        name: "Warung Pecel", 
+        lat: -6.9483611, lng: 109.7864591, 
         type: "Pelaku Usaha",
-    
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "",
         jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
+        desc_en: "Owner: Ibu sarkumi",
         jamOperasional_en: "-",
-        
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "https://lh3.googleusercontent.com/d/1mia28hzgthmB3QcwlyZa3TtI_l4-EFUe", 
+        imgDua: "", 
+        imgTiga: ""
     },
-    {
-        name: "Warung Tini", 
-        lat: -6.949813, lng: 109.786088, 
-        type: "Pelaku Usaha",
-    
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "-",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
-        name: "Warung Bu HJ Ning", 
-        lat: -6.9500165, lng: 109.7883169, 
-        type: "Pelaku Usaha",
-     
-        // Bahasa Indonesia
-        desc: "-.",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "-",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
-        name: "Warung Kopi & Gorengan", 
-        lat: -6.949852, lng: 109.786710, 
-        type: "Pelaku Usaha",
-     
-         // Bahasa Indonesia
-        desc: "-.",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "-",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
-        name: "SRC Teka Endang", 
-        lat: -6.9492587, lng: 109.7845467, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
-        name: "Warung Ibu Barkah", 
-        lat: -6.949873, lng: 109.787184, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
-        name: "Toko Ibu Damusri", 
-        lat:  -6.9497935, lng: 109.7857409, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
-        name: "Warung Ibu Mithun", 
-        lat: -6.950130, lng: 109.789293, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
-        name: "Warung Ibu Ika", 
-        lat:   -6.949773, lng: 109.785771, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
-        name: "Toko Istiqomah", 
-        lat:  -6.949915, lng: 109.784319, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
-        name: "Produksi Tapioka", 
-        lat:  -6.948308, lng: 109.795359, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
+        {
         name: "Produksi Kerupuk Mie Raket", 
         lat:  -6.947636, lng: 109.794701, 
         type: "Pelaku Usaha",
@@ -329,11 +283,13 @@ const locations = [
         jamOperasional_en: "",
         
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "mie raket 2.jpeg", 
+        imgDua: "mie raket 1.jpg", 
+        imgTiga: "mie raket 3.jpeg"
     },
-    {
-        name: "Produksi Kerupuk Slondok", 
-        lat:  -6.948378, lng: 109.795572, 
+        {
+        name: "Produksi Kerupuk Selondok", 
+        lat:  -6.949033, lng: 109.796306, 
         type: "Pelaku Usaha",
       
         // Bahasa Indonesia
@@ -345,647 +301,598 @@ const locations = [
         jamOperasional_en: "",
         
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "https://lh3.googleusercontent.com/d/1aHfZrziYhfck-h_ra7BiKRGKENNtr6Ei", 
+        imgDua: "https://lh3.googleusercontent.com/d/100wuPKEmI9rTosTdusvCw71XQ9nVI3w3", 
+        imgTiga: "https://lh3.googleusercontent.com/d/1-CJjGzOdewggsKsQuCzerIjZuyIKPp0o"
     },
     {
-        name: "Barokah", 
-        lat:  -6.9474740, lng: 109.7935860, 
+        name: "Warung takoyaki", 
+        lat: -6.9464141, lng: 109.7818712, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Ibu Tina",
         jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Ibu Tina",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "https://lh3.googleusercontent.com/d/1MDLSBdpYdqYADW1MXTlE0H-41UgHYJ5Z",
+         imgDua: "https://lh3.googleusercontent.com/d/1Pw_m5n8y0kXJunbXlMbhn52iLnEJ-sXk", 
+         imgTiga: ""
     },
     {
-        name: "Sumber Panen", 
-        lat:  -6.950521, lng: 109.781130, 
+        name: "Harum Wangi Laundry", 
+        lat: -6.949016, lng: 109.790953, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Bu Subadriah",
         jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Bu Subadriah",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
     {
-        name: "WM Mbak Patun", 
-        lat:  -6.950212, lng: 109.781195, 
+        name: "Toko KAF", 
+        lat: -6.949273, lng: 109.785961, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Linarsih",
         jamOperasional: "-",
-        
-        // Bahasa Inggris (Tambahan Baru)
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Linarsih",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
-        name: "Toko Tulis Sari", 
-        lat:  -6.948747, lng: 109.778337, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
-        name: "Toko Udin", 
-        lat:  -6.947616, lng: 109.780058, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
-        name: "WM Minarsih", 
-        lat:  -6.948798, lng: 109.781470, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
-        name: "Kedai Pinka", 
-        lat:  -6.9504482, lng: 109.7843482, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-    {
-        name: "WM Wastuti", 
-        lat:  -6.9489781, lng: 109.7837812, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
     {
         name: "Toko Abdul", 
-        lat:  -6.9490231, lng: 109.7837916, 
+        lat: -6.9490231, lng: 109.7837916, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Ibu Ida",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Ibu Ida",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
+    },
+    {
+        name: "Sumber panen / toko Berkah", 
+        lat: -6.950552, lng: 109.781193, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Bapa Agus",
+        jamOperasional: "-",
+        desc_en: "Owner: Bapa Agus",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "", imgDua: "", imgTiga: ""
+    },
+    {
+        name: "Warung Bu Hj Ning", 
+        lat: -6.9500165, lng: 109.7883169, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Bu Hj Ning",
+        jamOperasional: "-",
+        desc_en: "Owner: Bu Hj Ning",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "", imgDua: "", imgTiga: ""
+    },
+    {
+        name: "Es teh Dylan", 
+        lat: -6.946554, lng: 109.783619, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Ibu Riski",
+        jamOperasional: "-",
+        desc_en: "Owner: Ibu Riski",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "https://lh3.googleusercontent.com/d/17UEQIHl3-N0pqms3EN2BHL76SD24ALey", 
+        imgDua: "https://lh3.googleusercontent.com/d/10x38qf0Lso-FjyiE5cg8dv0WeKA-L8nR", 
+        imgTiga: ""
+    },
+    {
+        name: "Toko Anis", 
+        lat: -6.945870, lng: 109.778859, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Ibu Anis",
+        jamOperasional: "-",
+        desc_en: "Owner: Ibu Anis",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "https://lh3.googleusercontent.com/d/1ifDUOIeuYAYywOC_QfsBwN5hlBY40kO_", 
+        imgDua: "https://lh3.googleusercontent.com/d/1daNrATRzoez7gEX1gSox_8u9TO0JsuHY", 
+        imgTiga: ""
+    },
+    {
+        name: "mie ayam Sri Rahayu", 
+        lat: -6.949985, lng: 109.797367, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Sri Rahayu",
+        jamOperasional: "-",
+        desc_en: "Owner: Sri Rahayu",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "mie ayam sri 2.jpg", 
+        imgDua: "mie ayam sri 1.jpg", 
+        imgTiga: ""
+    },
+    {
+        name: "Toko iyah", 
+        lat: -6.948756, lng: 109.795932, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: bpk kasudi",
+        jamOperasional: "-",
+        desc_en: "Owner: bpk kasudi",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "umi.png", imgDua: "", imgTiga: ""
+    },
+    {
+        name: "Kedai Pinka", 
+        lat: -6.9504482, lng: 109.7843482, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Ibu Indah",
+        jamOperasional: "-",
+        desc_en: "Owner: Ibu Indah",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "", imgDua: "", imgTiga: ""
+    },
+    {
+        name: "Toko Istiqomah", 
+        lat: -6.949915, lng: 109.784319, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Giswanto",
+        jamOperasional: "-",
+        desc_en: "Owner: Giswanto",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "https://lh3.googleusercontent.com/d/1tmlXdY55KNsj1TJv6Zdou85EIooW_opx", 
+        imgDua: "https://lh3.googleusercontent.com/d/1dSxA5p_L1fCZK5Mjk4jqzPZItlxmFKQW", 
+        imgTiga: ""
+    },
+    {
+        name: "Warung Tini", 
+        lat: -6.949813, lng: 109.786088, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Ibu Tini dan pak yulianto",
+        jamOperasional: "-",
+        desc_en: "Owner: Ibu Tini dan pak yulianto",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "https://lh3.googleusercontent.com/d/1PHkVjwyU_fLouaJPQwdRXcDDYMn0txkt", 
+        imgDua: "https://lh3.googleusercontent.com/d/1rtSdDaKRYK_JFuHa3rzVWI6sUWyiH9E9", 
+        imgTiga: ""
     },
     {
         name: "Toko Daryuni", 
-        lat:  -6.949844, lng: 109.780835, 
+        lat: -6.949844, lng: 109.780835, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Bu Daryuni",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Bu Daryuni",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "https://lh3.googleusercontent.com/d/1LAtOD0LhoVptG2pAWfyq1R2PaSxN0VTO", 
+        imgDua: "", 
+        imgTiga: ""
     },
     {
-        name: "Warung Pak Marjo", 
-        lat:  -6.949645, lng: 109.797285, 
+        name: "Warung Ibu Eti", 
+        lat: -6.947597, lng: 109.790443, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Sutini (Eti)",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Sutini (Eti)",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "eti1.jpeg", imgDua: "eti2.jpeg", imgTiga: "eti3.jpeg"
     },
     {
-        name: "Toko Sinta", 
-        lat:  -6.9486583, lng: 109.7934955, 
+        name: "Warung Minarsih", 
+        lat: -6.948798, lng: 109.781470, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Minarsih",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Minarsih",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
     {
-        name: "Restu", 
-        lat:  -6.948756, lng: 109.795932, 
+        name: "Warung Ibu Tumika", 
+        lat: -6.9500395, lng: 109.7958928, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Ibu Tumika",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Ibu Tumika",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
     {
-        name: "Warung Ibu Kolifah", 
-        lat:  -6.949612, lng: 109.797543, 
+        name: "Toko Udin", 
+        lat: -6.947616, lng: 109.780058, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Udin",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Udin",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "https://lh3.googleusercontent.com/d/1HiiFSRwjRBPB7FSBae67IC8gVRGZk-fJ", 
+        imgDua: "", 
+        imgTiga: ""
     },
     {
-        name: "Warung Coffee Giras", 
-        lat:  -6.9491625, lng: 109.7787236, 
+        name: "Warung Mithun", 
+        lat: -6.950130, lng: 109.789293, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Ibu Mithun",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Ibu Mithun",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "https://lh3.googleusercontent.com/d/1NDCQAK7fO5AzMEGff8b1TpNxpJebqULJ", 
+        imgDua: "https://lh3.googleusercontent.com/d/1iBYsjJsMjKbVx2sxbHn4EgmQMsE9NJxM", 
+        imgTiga: ""
+    },
+    {
+        name: "Toko Aisah", 
+        lat: -6.946655, lng: 109.784013, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Bapak Suratno",
+        jamOperasional: "-",
+        desc_en: "Owner: Bapak Suratno",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "https://lh3.googleusercontent.com/d/11sPJFWyrz_HnqLvdjB8ME0DE4hblQFWm", 
+        imgDua: "https://lh3.googleusercontent.com/d/1buwAt9To2Z9CVE9y-vQbmz8QlZNLQKqv", 
+        imgTiga: "https://lh3.googleusercontent.com/d/1OuHzqY2ynuxZD-ipiANQzbcMIUoZHb_k"
+    },
+    {
+        name: "warung pak marjo", 
+        lat: -6.949645, lng: 109.797285, 
+        type: "Pelaku Usaha",
+        desc: "",
+        jamOperasional: "-",
+        desc_en: "Owner: marjo",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "marjo 1.jpeg", 
+        imgDua: "marjo 2.jpeg", 
+        imgTiga: "marjo 3.jpeg"
+    },
+    {
+        name: "Mie Ayam", 
+        lat: -6.949305, lng: 109.784647, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Ibu Rauna",
+        jamOperasional: "-",
+        desc_en: "Owner: Ibu Rauna",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "https://lh3.googleusercontent.com/d/1GptGEdp17TN1-EqwGBPfL-8Gq2IuVqLP", 
+        imgDua: "https://lh3.googleusercontent.com/d/1lAHBP9pg680HcnBNIacfQ0zL7UgZp_Og", 
+        imgTiga: "https://lh3.googleusercontent.com/d/15Rfq-1FqS5TGrOQOxpMz6VNVs0Q6pUmp"
     },
     {
         name: "Toko Kasturi", 
-        lat:  -6.946177, lng: 109.792676, 
+        lat: -6.946177, lng: 109.792676, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Ibu Kasturi",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Ibu Kasturi",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "kasturi 2.jpg", 
+        imgDua: "kasturi 1.jpg", 
+        imgTiga: ""
     },
     {
-        name: "Gerai Kuning", 
-        lat:  -6.9497380, lng: 109.7803983, 
+        name: "Warung Ibu Barkah", 
+        lat: -6.949873, lng: 109.787184, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Ibu Barkah",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Ibu Barkah",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "https://lh3.googleusercontent.com/d/1_6YxrYTpSwmO5fBBJQkm-pApvFe0nFdl", 
+        imgDua: "https://lh3.googleusercontent.com/d/11OHrSXdhMwtehUVJ8AOLTUUHg0j1hrpO", 
+        imgTiga: ""
     },
     {
-        name: "Warung Bu Eti", 
-        lat:  -6.947597, lng: 109.790443, 
+        name: "Warung Kopi & Gorengan", 
+        lat: -6.949852, lng: 109.786710, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Ibu Asri",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Ibu Asri",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "https://lh3.googleusercontent.com/d/13YXItiruY8nfCxpoHSSN2PG64_5xWh4R", 
+        imgDua: "https://lh3.googleusercontent.com/d/1S7buk2k1wydIKq1qYnTX8oURryiFC-hC", 
+        imgTiga: ""
     },
     {
-        name: "Warung Pecel Bu Yani", 
-        lat:  -6.946657, lng: 109.792638, 
+        name: "Toko Tulissari", 
+        lat: -6.948747, lng: 109.778337, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Tegar",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Tegar",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "https://lh3.googleusercontent.com/d/1RO6v44o73PKqcQkCUUCbaXwKhME8rY9x", 
+        imgDua: "https://lh3.googleusercontent.com/d/1iTenAxGEr0GxQaTGKr85fK-X8vRw02Td", 
+        imgTiga: ""
     },
     {
-        name: "Mie Ayam Sri Rahayu", 
-        lat:  -6.949985, lng: 109.797367, 
+        name: "Bu Damusri", 
+        lat: -6.9497935, lng: 109.7857409, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Toko Bu Damusri",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Toko Bu Damusri",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "https://lh3.googleusercontent.com/d/11187ihU2ItklZHbpXlPMtGEawGegmbBe", 
+        imgDua: "", 
+        imgTiga: ""
+    },
+    {
+        name: "Toko Sumirah", 
+        lat: -6.948311, lng: 109.785467, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Ibu Sumirah",
+        jamOperasional: "-",
+        desc_en: "Owner: Ibu Sumirah",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "https://lh3.googleusercontent.com/d/1jMH8VzgTqiLbkDqs6D-6UDMWJtzrkc9e", 
+        imgDua: "https://lh3.googleusercontent.com/d/1o8NKp8kABg9GHCgPNFW-KRMVJn2mONlw", 
+        imgTiga: ""
+    },
+    {
+        name: "Warung Ibu Kolifah", 
+        lat: -6.949612, lng: 109.797543, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Kolifah",
+        jamOperasional: "-",
+        desc_en: "Owner: Kolifah",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "bu kolifa.jpg", 
+        imgDua: "", 
+        imgTiga: ""
+    },
+    {
+        name: "Warung pecel bu yani", 
+        lat: -6.946657, lng: 109.792638, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Bu yani",
+        jamOperasional: "-",
+        desc_en: "Owner: Bu yani",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "", 
+        imgDua: "", 
+        imgTiga: ""
+    },
+    {
+        name: "Ibu Ika 87", 
+        lat: -6.949773, lng: 109.785771, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Ibu Ika",
+        jamOperasional: "-",
+        desc_en: "Owner: Ibu Ika",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "https://lh3.googleusercontent.com/d/1lgKpIuyHF0Z4aBoFKiagcEQ0j4k_IVQR", 
+        imgDua: "", 
+        imgTiga: ""
+    },
+    {
+        name: "Warung Resti", 
+        lat: -6.9468441, lng: 109.7845034, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Resti",
+        jamOperasional: "-",
+        desc_en: "Owner: Resti",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "", imgDua: "", imgTiga: ""
+    },
+    {
+        name: "Warung Rohenda", 
+        lat: -6.9487262, lng: 109.7867974, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Rohenda",
+        jamOperasional: "-",
+        desc_en: "Owner: Rohenda",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "", imgDua: "", imgTiga: ""
+    },
+    {
+        name: "Toko Umi", 
+        lat: -6.949432, lng: 109.795726, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Mba Umi",
+        jamOperasional: "-",
+        desc_en: "Owner: Mba Umi",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "", imgDua: "", imgTiga: ""
+    },
+    {
+        name: "Warung Migunani", 
+        lat: -6.9505993, lng: 109.7930771, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Migunani",
+        jamOperasional: "-",
+        desc_en: "Owner: Migunani",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
     {
         name: "Jajanan Mbak Desi", 
-        lat:  -6.9497366, lng: 109.7796443, 
+        lat: -6.9497366, lng: 109.7796443, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Desi",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Desi",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
     {
-        name: "Warung Ibu Tamika", 
-        lat:  -6.9500395, lng: 109.7958928, 
+        name: "Warung Homsatun", 
+        lat: -6.9486889, lng: 109.7941302, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Homsatun",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Homsatun",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
     {
-        name: "Toko Warung Kelontong", 
-        lat:  -6.946635, lng: 109.792616, 
+        name: "SRC TK Endang", 
+        lat: -6.9492587, lng: 109.7845467, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Ibu Endang",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Ibu Endang",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "https://lh3.googleusercontent.com/d/1bOtQAIXAwPOfim6wUwEAFDJZyrjABRnE", 
+        imgDua: "", 
+        imgTiga: ""
     },
-   {
-        name: "Sahabat Bintang", 
-        lat:  -6.9492015, lng: 109.7813190, 
+    {
+        name: "Warung Ibu Wastuti", 
+        lat: -6.9489781, lng: 109.7837812, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Ibu Wastuti",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Ibu Wastuti",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
-   {
-        name: "Toko Umi", 
-        lat:  -6.949432, lng: 109.795726, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-   {
-        name: "Warung Ika Sulistyaningsih", 
-        lat:  -6.947829, lng: 109.791979, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-   {
-        name: "Warung Resti", 
-        lat:  -6.9468441, lng: 109.7845034, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-   {
-        name: "Warung Takoyaki", 
-        lat:  -6.9464141, lng: 109.7818712, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-   {
+    {
         name: "Warung Darsinah", 
-        lat:  -6.9461096, lng: 109.7803390, 
+        lat: -6.9461096, lng: 109.7803390, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Darsinah",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Darsinah",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
-  {
+    {
+        name: "Sahabat Bintang", 
+        lat: -6.9492015, lng: 109.7813190, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Dwi",
+        jamOperasional: "-",
+        desc_en: "Owner: Dwi",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "", 
+        imgDua: "", 
+        imgTiga: ""
+    },
+    {
+        name: "barokah", 
+        lat: -6.9474740, lng: 109.7935860, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: solikhin",
+        jamOperasional: "-",
+        desc_en: "Owner: solikhin",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "barokah 2.jpeg", 
+        imgDua: "barokah.jpg", 
+        imgTiga: "barokah3.jpeg"
+    },
+    {
+        name: "Toko Sinta", 
+        lat: -6.9486583, lng: 109.7934955, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Asih",
+        jamOperasional: "-",
+        desc_en: "Owner: Asih",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "", 
+        imgDua: "", 
+        imgTiga: ""
+    },
+    {
+        name: "Gerai Kuning", 
+        lat: -6.9497380, lng: 109.7803983, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Siti",
+        jamOperasional: "-",
+        desc_en: "Owner: Siti",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "", imgDua: "", imgTiga: ""
+    },
+    {
+        name: "Warung ika sulistyaningsih", 
+        lat: -6.947829, lng: 109.791979, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: ika sulistyaningsih",
+        jamOperasional: "-",
+        desc_en: "Owner: ika sulistyaningsih",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "", imgDua: "", imgTiga: ""
+    },
+    {
+        name: "Warung Makan Mbak Patun", 
+        lat: -6.950263, lng: 109.781254, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Supriyatun",
+        jamOperasional: "-",
+        desc_en: "Owner: Supriyatun",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "", imgDua: "", imgTiga: ""
+    },
+    {
+        name: "toko warung kelontong", 
+        lat: -6.946635, lng: 109.792619, 
+        type: "Pelaku Usaha",
+        desc: "Pemilik: Rosi",
+        jamOperasional: "-",
+        desc_en: "Owner: Rosi",
+        jamOperasional_en: "-",
+        whatsapp: "",
+        imgSatu: "", imgDua: "", imgTiga: ""
+    },
+    {
         name: "Warung Bu Siti", 
-        lat:  -6.9474685, lng: 109.7817545, 
+        lat: -6.9474685, lng: 109.7817545, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Siti Fatonah",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Siti Fatonah",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
-   {
-        name: "Es Teh Dylan", 
-        lat:  -6.946554, lng: 109.783619, 
+    {
+        name: "Warung Coffee Giras", 
+        lat: -6.9491625, lng: 109.7787236, 
         type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
+        desc: "Pemilik: Wayati",
         jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
+        desc_en: "Owner: Wayati",
+        jamOperasional_en: "-",
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-   {
-        name: "Toko Anis", 
-        lat:  -6.945870, lng: 109.778859, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-   {
-        name: "Warung Migunani", 
-        lat:  -6.9505993, lng: 109.7930771, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-   {
-         name: "Warung Rohenda", 
-        lat:  -6.9487262, lng: 109.7867974, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-   {
-         name: "Toko Aisah", 
-        lat:  -6.946655, lng: 109.784013, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-   {
-         name: "Warung Ibu Sumirah", 
-        lat:  -6.948311, lng: 109.785467, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-   {
-         name: "Harum Wangi Laundry", 
-        lat:  -6.949016, lng: 109.790953, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-   {
-         name: "Warung Sarkumi", 
-        lat:  -6.9483611, lng: 109.7864591, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-   {
-         name: "Warung Homsatun", 
-        lat:  -6.9486889, lng: 109.7941302, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
-    },
-   {
-         name: "Mie Ayam Rauna", 
-        lat:  -6.949305, lng: 109.784647, 
-        type: "Pelaku Usaha",
-      
-        // Bahasa Indonesia
-        desc: "-",
-        jamOperasional: "-",
-        
-        // Bahasa Inggris 
-        desc_en: "-",
-        jamOperasional_en: "",
-        
-        whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
 
 //FFASILITAS KEAMANAN
@@ -1003,7 +910,7 @@ const locations = [
         jamOperasional_en: "24-Hour Security Post",
         
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
     {
         name: "Poskamling Gondangan", 
@@ -1019,7 +926,7 @@ const locations = [
         jamOperasional_en: "24-Hour Security Post",
         
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
     {
         name: "Poskamling", 
@@ -1035,11 +942,11 @@ const locations = [
         jamOperasional_en: "24-Hour Security Post",
         
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
 //FASILITAS IBADAH
     {
-        name: "Masjid Tulis", 
+        name: "Masjid Baitul Izzah", 
         lat: -6.949011, lng: 109.787278, 
         type: "Fasilitas Ibadah",
         
@@ -1052,7 +959,7 @@ const locations = [
         jamOperasional_en: "24 Hours",
         
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
     {
         name: "Masjid At-Taqwa", 
@@ -1068,11 +975,11 @@ const locations = [
         jamOperasional_en: "24 Hours",
         
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     },
     {
-        name: "Mushola dan TPQ Hidayah", 
-        lat: -6.948801, lng: 109.778228, 
+        name: "Masjid Jami 'Nurul Yaqin'", 
+        lat: -6.947549, lng: 109.779929, 
         type: "Fasilitas Ibadah",
         
         // Bahasa Indonesia
@@ -1084,7 +991,7 @@ const locations = [
         jamOperasional_en: "24 Hours",
         
         whatsapp: "",
-        imgSatu: "random.jpg", imgDua: "random.jpg", imgTiga: "random.jpg"
+        imgSatu: "", imgDua: "", imgTiga: ""
     }
 ];
 
