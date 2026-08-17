@@ -25,6 +25,7 @@ const batasDesaData = {
 // DATA LOKASI (MULTILINGUAL)
 // ==========================================
 const locations = [
+// PEMERINTAH
     {
         "name": "Balai Desa",
         "lat": -6.947617,
@@ -39,6 +40,7 @@ const locations = [
         "imgDua": "B.jpg",
         "imgTiga": "C.jpg"
     },
+// KESEHATAN
     {
         "name": "Poliklinik 'Sejahtera'",
         "lat": -6.9489,
@@ -59,7 +61,7 @@ const locations = [
         "lng": 109.808075,
         "type": "Fasilitas Kesehatan",
         "desc": "Puskesmas Tulis merupakan fasilitas kesehatan bagi masyarakat Kecamatan Tulis, Kabupaten Batang, yang memberikan pelayanan kesehatan terpadu melalui beberapa klaster pelayanan.",
-        "jamOperasional": "Jam pendaftaran: Senin - Kamis: 07.00 - 12.00 WIB, Jumat: 07.00 - 10.00 WIB, Sabtu: 07.00 - 11.00 WIB. Jam pelayanan: Senin - Kamis: 07.00 - 14.00 WIB, Jumat: 07.00 - 11.00 WIB, Sabtu: 07.00 - 12.30 WIB. Ruang bersalin: Melayani persalinan dan kegawatdaruratan maternal selama 24 jam. Hari libur: Minggu Tanggal merah mengikuti hari libur/cuti nasional yang ditetapkan pemerintah",
+        "jamOperasional": "<b>Jam pendaftaran:</b> <br>• Senin - Kamis: 07.00 - 12.00 WIB <br>• Jumat: 07.00 - 10.00 WIB <br>• Sabtu: 07.00 - 11.00 WIB. <br> <b>Jam pelayanan:</b> <br>• Senin - Kamis: 07.00 - 14.00 WIB <br>• Jumat: 07.00 - 11.00 WIB <br>• Sabtu: 07.00 - 12.30 WIB. <br> <b>Ruang bersalin:</b> <br> Melayani persalinan dan kegawatdaruratan maternal selama 24 jam. <br> <b>Hari libur:</b> <br> Minggu Tanggal merah mengikuti hari libur/cuti nasional yang ditetapkan pemerintah",
         "desc_en": "Primary healthcare facility for the local community.",
         "jamOperasional_en": "5 Hours",
         "whatsapp": "082322173998",
@@ -101,7 +103,7 @@ const locations = [
         "lng": 109.718856,
         "type": "Fasilitas Kesehatan",
         "desc": "RSUD Kabupaten Batang adalah rumah sakit tipe C milik Pemerintah Kabupaten Batang yang menyediakan pelayanan kesehatan bagi masyarakat.",
-        "jamOperasional": "24 jam (Informasi perubahan jam operasional tiap pelayanan cek instagram @rsud_batang) Jam besuk: Setiap hari (11.00 - 13.00 WIB & 16.00 - 19.00 WIB)",
+        "jamOperasional": "<br>• 24 Jam (Info perubahan cek IG @rsud_batang)<br>• <b>Jam besuk Siang:</b> 11.00 - 13.00 WIB<br>• <b>Jam besuk Sore:</b> 16.00 - 19.00 WIB",
         "desc_en": "",
         "jamOperasional_en": "",
         "whatsapp": "",
@@ -179,6 +181,7 @@ const locations = [
         "imgDua": "",
         "imgTiga": ""
     },
+//PENDIDIKAN
     {
         "name": "SDN 01 TULIS",
         "lat": -6.949718,
@@ -198,7 +201,7 @@ const locations = [
         "lat": -6.948789,
         "lng": 109.794374,
         "type": "Fasilitas Pendidikan",
-        "desc": "SD Negeri Tulis 01 merupakan sekolah dasar negeri yang berlokasi di Jl. Raya Tulis No. 45, Desa Tulis, Kecamatan Tulis, Kabupaten Batang, Jawa Tengah. Sekolah ini memiliki NPSN 20322859 dan telah berdiri sejak tahun 1985 berdasarkan SK Pendirian No. 421.2/021/X/43/85 tertanggal 1 April 1985. SD Negeri Tulis 01 dikenal sebagai sekolah yang unggul dan memiliki akreditasi A berdasarkan SK Akreditasi  tertanggal 20 Oktober 2015. Sekolah ini menerapkan sistem pembelajaran sehari penuh dengan 6 hari pembelajaran dalam seminggu. Dengan akses internet Telkom Speedy dan sumber listrik PLN, SD Negeri Tulis 01 siap mendukung proses belajar mengajar yang efektif dan modern",
+        "desc": "SD Negeri Tulis 02 merupakan sekolah dasar negeri yang berlokasi Desa Tulis, Kecamatan Tulis, Kabupaten Batang, Jawa Tengah. Sekolah ini memiliki NPSN 20322859 dan telah berdiri sejak tahun 1985 berdasarkan SK Pendirian No. 421.2/021/X/43/85 tertanggal 1 April 1985. SD Negeri Tulis 01 dikenal sebagai sekolah yang unggul dan memiliki akreditasi A berdasarkan SK Akreditasi  tertanggal 20 Oktober 2015. Sekolah ini menerapkan sistem pembelajaran sehari penuh dengan 6 hari pembelajaran dalam seminggu. Dengan akses internet Telkom Speedy dan sumber listrik PLN, SD Negeri Tulis 01 siap mendukung proses belajar mengajar yang efektif dan modern",
         "jamOperasional": "Senin - Sabtu (07:00 - 14:00)",
         "desc_en": "The main public elementary school in Tulis Village.",
         "jamOperasional_en": "Monday - Saturday (07:00 AM - 02:00 PM)",

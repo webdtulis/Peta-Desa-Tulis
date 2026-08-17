@@ -31,7 +31,14 @@ const terjemahan = {
         katFasilitasKesehatan: "Fasilitas Kesehatan",
         katFasilitasPendidikan: "Fasilitas Pendidikan",
         katPelakuUsaha: "Pelaku Usaha",
-        katKeamananLingkungan: "Keamanan Lingkungan"
+        katKeamananLingkungan: "Keamanan Lingkungan",
+        btnFilter: "<span class='btn-icon'>⚙️</span><span class='btn-text'>Filter Kategori</span>",
+        btnLacak: "<span class='btn-icon'>🔍</span><span class='btn-text'>Cek Laporan</span>",
+        btnTentang: "<span class='aksi-ikon'>ℹ️</span> <span class='aksi-teks'>Tentang Web</span>",
+        btnPanduan: "<span class='aksi-ikon'>📖</span> <span class='aksi-teks'>Buku Panduan</span>",
+        txtSembunyiSemua: "Sembunyikan Semua",
+        txtTampilSemua: "Tampilkan Semua",
+        headerSub: "Pemetaan Potensi & Fasilitas Desa"
     },
     en: {
         cariLokasi: "Search location...",
@@ -60,7 +67,14 @@ const terjemahan = {
         katFasilitasKesehatan: "Health Facility",
         katFasilitasPendidikan: "Education Facility",
         katPelakuUsaha: "Local Business", 
-        katKeamananLingkungan: "Neighborhood Security"
+        katKeamananLingkungan: "Neighborhood Security",
+        btnFilter: "<span class='btn-icon'>⚙️</span><span class='btn-text'>Category Filter</span>",
+        btnLacak: "<span class='btn-icon'>🔍</span><span class='btn-text'>Check Report</span>",
+        btnTentang: "<span class='aksi-ikon'>ℹ️</span> <span class='aksi-teks'>About Web</span>",
+        btnPanduan: "<span class='aksi-ikon'>📖</span> <span class='aksi-teks'>User Guide</span>",
+        txtSembunyiSemua: "Hide All",
+        txtTampilSemua: "Show All",
+        headerSub: "Village Potential & Facilities Mapping"
     }
 };
 
@@ -300,6 +314,37 @@ function getPopupHTML(index) {
         teksDeskripsiBersih = parts[0].trim() !== "" ? parts[0].trim() : "-";
     }
 
+    // --- LOGIKA OTOMATIS KOTAK SCROLL OPERASIONAL ---
+    let operasionalHTML = '';
+    // Jika teks lebih dari 45 karakter, otomatis buat kotak scroll
+    if (operasional && operasional.length > 45) {
+        operasionalHTML = `
+            <div style="margin-bottom: 4px; font-size: 12px;">
+                <strong>${t.txtOperasional}:</strong>
+                <div style="max-height: 85px; overflow-y: auto; padding: 6px; margin-top: 4px; background-color: #f1f5f9; border-radius: 4px; border-left: 3px solid #e74c3c; font-size: 11px; line-height: 1.4;">
+                    ${operasional}
+                </div>
+            </div>
+        `;
+    } else {
+        // Jika teks pendek, tampilkan normal
+        operasionalHTML = `<div style="margin-bottom: 4px; font-size: 12px;"><strong>${t.txtOperasional}:</strong>${operasional}</div>`;
+    }
+    // ------------------------------------------------
+
+    // --- LOGIKA TOMBOL SEMUA FOTO ---
+    // Cek apakah ada minimal 1 foto dari ketiga slot yang tersedia
+    let hasPhotos = (loc.imgSatu && loc.imgSatu !== "" && loc.imgSatu !== "-") || 
+                    (loc.imgDua && loc.imgDua !== "" && loc.imgDua !== "-") || 
+                    (loc.imgTiga && loc.imgTiga !== "" && loc.imgTiga !== "-");
+
+    let btnSemuaFotoHTML = '';
+    if (hasPhotos) {
+        // Hanya buat tombol jika ada fotonya
+        btnSemuaFotoHTML = `<button onclick="window.bukaGaleriFoto(${index}, event)" style="background: #f39c12; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">📷 Semua Foto</button>`;
+    }
+    // --------------------------------
+
     return `
         <div class="popup-content" style="position: relative; min-width: 220px; max-width: 270px; text-align: left; padding-top: 2px;">
             ${imgThumbnailHTML}
@@ -313,7 +358,7 @@ function getPopupHTML(index) {
             <!-- Memasukkan Baris Pemilik (Hanya muncul jika ada datanya) -->
             ${infoPemilikHTML}
             
-            <div style="margin-bottom: 4px; font-size: 12px;"><strong>${t.txtOperasional}:</strong> ${operasional}</div>
+            ${operasionalHTML}
             
             <div style="max-height: 85px; overflow-y: auto; overflow-wrap: break-word; word-wrap: break-word; padding-right: 5px; margin-bottom: 10px; margin-top: 8px; font-size: 12px; line-height: 1.4; background: rgba(0,0,0,0.03); padding: 5px; border-radius: 4px; border-left: 3px solid #3498db;">
                 <strong>${t.txtInfo}:</strong> ${teksDeskripsiBersih}
@@ -321,8 +366,8 @@ function getPopupHTML(index) {
             
             ${waButtonHTML}
             
-            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #bdc3c7; padding-top: 8px;">
-                <button onclick="window.bukaGaleriFoto(${index}, event)" style="background: #f39c12; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">📷 Semua Foto</button>
+            <div style="display: flex; justify-content: ${hasPhotos ? 'space-between' : 'flex-end'}; align-items: center; border-top: 1px solid #bdc3c7; padding-top: 8px;">
+                ${btnSemuaFotoHTML}
                 <button onclick="window.buatRute(${index}, event)" title="${t.txtNavigasi}" style="background-color: #3498db; color: white; border: none; border-radius: 50%; width: 34px; height: 34px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.3);">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
                 </button>
@@ -384,12 +429,26 @@ const searchBtn = document.getElementById('search-btn');
 const searchSuggestions = document.getElementById('search-suggestions');
 
 function jalankanPencarian(query) {
-    let found = searchData.find(item => item.name.startsWith(query));
-    if(found && query !== "") {
+    if (query === "") return;
+    
+    // 1. UBAH LOGIKA: Gunakan includes() agar bisa mencari kata di tengah/akhir
+    let matches = searchData.filter(item => item.name.includes(query));
+    
+    if (matches.length > 0) {
+        // 2. SORTING CERDAS: Prioritaskan lokasi yang huruf awalnya sama persis ke urutan teratas
+        matches.sort((a, b) => {
+            let aStarts = a.name.startsWith(query) ? -1 : 1;
+            let bStarts = b.name.startsWith(query) ? -1 : 1;
+            return aStarts - bStarts;
+        });
+        
+        let found = matches[0]; // Ambil hasil paling relevan (teratas)
         map.flyTo([found.lat, found.lng], 18, { animate: true, duration: 1.5 });
         setTimeout(() => found.marker.openPopup(), 1500);
         searchSuggestions.classList.add('hidden'); 
-    } else { alert(terjemahan[bahasaSaatIni].alertTidakKetemu); }
+    } else { 
+        alert(terjemahan[bahasaSaatIni].alertTidakKetemu); 
+    }
 }
 
 searchBtn.addEventListener('click', function() { let query = searchInput.value.toLowerCase().trim(); jalankanPencarian(query); });
@@ -398,24 +457,58 @@ let debounceTimer;
 searchInput.addEventListener('input', function() {
     clearTimeout(debounceTimer); 
     let query = this.value.toLowerCase().trim();
+    
     debounceTimer = setTimeout(() => {
         searchSuggestions.innerHTML = ''; 
         if (query === '') { searchSuggestions.classList.add('hidden'); return; }
-        let matches = searchData.filter(item => item.name.startsWith(query));
+        
+        // Cek kecocokan huruf di mana pun posisinya
+        let matches = searchData.filter(item => item.name.includes(query));
+        
         if (matches.length > 0) {
             searchSuggestions.classList.remove('hidden');
+            
+            // Urutkan prioritas list rekomendasi
+            matches.sort((a, b) => {
+                let aStarts = a.name.startsWith(query) ? -1 : 1;
+                let bStarts = b.name.startsWith(query) ? -1 : 1;
+                if (aStarts !== bStarts) return aStarts - bStarts;
+                return a.name.localeCompare(b.name); // Jika sama, urutkan sesuai abjad
+            });
+
             matches.forEach(match => {
                 let li = document.createElement('li');
-                li.textContent = match.name; 
-                li.addEventListener('click', function() { searchInput.value = match.name.replace(/\b\w/g, l => l.toUpperCase()); jalankanPencarian(match.name); });
+                
+                // 3. FITUR HIGHLIGHT: Warnai huruf yang sedang diketik user agar mirip Google Search
+                let safeQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // Aman dari simbol khusus
+                let regex = new RegExp(`(${safeQuery})`, "gi");
+                
+                // Mengembalikan format huruf kapital asli untuk estetika list
+                let originalName = match.name.replace(/\b\w/g, l => l.toUpperCase());
+                
+                // Teks yang cocok diubah warnanya jadi merah
+                let highlightedName = originalName.replace(regex, "<b style='color: #3c3ce7;'>$1</b>");
+                
+                li.innerHTML = highlightedName; 
+                
+                li.addEventListener('click', function() { 
+                    searchInput.value = originalName; 
+                    // 4. DIREKSI AKURAT: Langsung terbang ke marker spesifik yang diklik dari daftar
+                    map.flyTo([match.lat, match.lng], 18, { animate: true, duration: 1.5 });
+                    setTimeout(() => match.marker.openPopup(), 1500);
+                    searchSuggestions.classList.add('hidden');
+                });
+                
                 searchSuggestions.appendChild(li);
             });
-        } else { searchSuggestions.classList.add('hidden'); }
+        } else { 
+            searchSuggestions.classList.add('hidden'); 
+        }
     }, 200); 
 });
 
+// Sembunyikan rekomendasi jika user mengklik area lain di peta
 document.addEventListener('click', function(e) { if (!document.getElementById('search-container').contains(e.target)) { searchSuggestions.classList.add('hidden'); } });
-
 document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', function() {
         const category = this.getAttribute('data-category');
@@ -438,7 +531,7 @@ if (btnToggleAll) {
                     if (layerGroups[category]) map.removeLayer(layerGroups[category]); 
                 }
             });
-            this.setAttribute('data-state', 'show'); this.className = 'filter-action-btn btn-semua'; this.innerHTML = 'Tampilkan Semua';
+            this.setAttribute('data-state', 'show'); this.className = 'filter-action-btn btn-semua'; this.innerHTML = terjemahan[bahasaSaatIni].txtTampilSemua;
         } else {
             allFilterBtns.forEach(btn => {
                 if (!btn.classList.contains('active')) {
@@ -447,7 +540,7 @@ if (btnToggleAll) {
                     if (layerGroups[category]) map.addLayer(layerGroups[category]); 
                 }
             });
-            this.setAttribute('data-state', 'hide'); this.className = 'filter-action-btn btn-kosong'; this.innerHTML = 'Sembunyikan Semua';
+            this.setAttribute('data-state', 'hide'); this.className = 'filter-action-btn btn-kosong'; this.innerHTML = terjemahan[bahasaSaatIni].txtSembunyiSemua;
         }
     });
 }
@@ -667,8 +760,12 @@ window.prosesKirimLaporan = function(kategori, lat, lng) {
 // 9. TOGGLE BAHASA, LABEL & MODAL TENTANG
 // ==========================================
 window.toggleBahasa = function() {
-    bahasaSaatIni = bahasaSaatIni === 'id' ? 'en' : 'id'; const t = terjemahan[bahasaSaatIni];
-    const searchInput = document.getElementById('search-input'); if(searchInput) searchInput.placeholder = t.cariLokasi;
+    bahasaSaatIni = bahasaSaatIni === 'id' ? 'en' : 'id'; 
+    const t = terjemahan[bahasaSaatIni];
+    
+    // 1. Update Pencarian & Floating Button
+    const searchInput = document.getElementById('search-input'); 
+    if(searchInput) searchInput.placeholder = t.cariLokasi;
     
     const laporBtn = document.getElementById('btn-lapor-html'); 
     if(laporBtn) { 
@@ -676,9 +773,14 @@ window.toggleBahasa = function() {
         else { laporBtn.innerHTML = bahasaSaatIni === 'id' ? `<span class='btn-icon'>📢</span><span class='btn-text'>Lapor Cepat</span>` : `<span class='btn-icon'>📢</span><span class='btn-text'>Report Issue</span>`; }
     }
     
+    // 2. Update Popup Marker
     map.closePopup();
     if (userMarker) { userMarker.setTooltipContent(t.labelLokasiAnda); }
+    searchData.forEach((item, index) => {
+        item.marker.setPopupContent(getPopupHTML(index));
+    });
     
+    // 3. Update Menu Kanan (Hamburger)
     document.getElementById('btn-bahasa').innerHTML = bahasaSaatIni === 'id' ? "<span class='btn-icon'>🌐</span><span class='btn-text'>Ganti Bahasa</span>" : "<span class='btn-icon'>🌐</span><span class='btn-text'>Change Language</span>";
     document.getElementById('btn-legenda').innerHTML = bahasaSaatIni === 'id' ? "<span class='btn-icon'>📜</span><span class='btn-text'>Legenda Peta</span>" : "<span class='btn-icon'>📜</span><span class='btn-text'>Map Legend</span>";
     
@@ -687,6 +789,41 @@ window.toggleBahasa = function() {
         if (isLabelTampil) { btnLabel.innerHTML = bahasaSaatIni === 'id' ? "<span class='btn-icon'>🏷️</span><span class='btn-text'>Sembunyi Label</span>" : "<span class='btn-icon'>🏷️</span><span class='btn-text'>Hide Labels</span>"; } 
         else { btnLabel.innerHTML = bahasaSaatIni === 'id' ? "<span class='btn-icon'>🏷️</span><span class='btn-text'>Tampil Label</span>" : "<span class='btn-icon'>🏷️</span><span class='btn-text'>Show Labels</span>"; }
     }
+
+    const btnFilter = document.getElementById('filter-toggle-btn');
+    if (btnFilter) btnFilter.innerHTML = t.btnFilter;
+
+    const btnLacak = document.getElementById('btn-lacak-laporan');
+    if (btnLacak) btnLacak.innerHTML = t.btnLacak;
+
+    // 4. Update Teks Header
+    const headerSub = document.querySelector('.header-title p');
+    if (headerSub) headerSub.innerHTML = t.headerSub;
+
+    const btnTentang = document.getElementById('btn-tentang');
+    if (btnTentang) btnTentang.innerHTML = t.btnTentang;
+
+    const btnPanduan = document.getElementById('btn-panduan');
+    if (btnPanduan) btnPanduan.innerHTML = t.btnPanduan;
+
+    // 5. Update Daftar Teks Kategori di Panel Filter
+    const btnToggleAll = document.getElementById('btn-toggle-all');
+    if (btnToggleAll) {
+        if (btnToggleAll.getAttribute('data-state') === 'hide') {
+            btnToggleAll.innerHTML = t.txtSembunyiSemua;
+        } else {
+            btnToggleAll.innerHTML = t.txtTampilSemua;
+        }
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        const cat = btn.getAttribute('data-category');
+        const key = "kat" + cat.replace(/\s+/g, '');
+        // Jika kategori ada terjemahannya di kamus, maka ubah (Dusun akan dilewati karena tidak ada terjemahan)
+        if (t[key]) {
+            btn.innerHTML = t[key];
+        }
+    });
 };
 
 let isLabelTampil = false; 
@@ -703,15 +840,21 @@ if (getUrlParameter('mode') === 'lapor') { setTimeout(function() { const btnLapo
 window.bukaTentang = function() {
     const content = `
         <div id="tentang-overlay" class="galeri-overlay" onclick="window.tutupTentang()">
-            <div style="background: rgba(30, 40, 50, 0.95); backdrop-filter: blur(5px); border: 2px solid #3498db; padding: 25px 20px; border-radius: 16px; width: calc(100% - 40px); max-width: 520px; box-sizing: border-box; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.5); font-family: 'Segoe UI', Tahoma, sans-serif; cursor: default;" onclick="event.stopPropagation()">
+            <div style="background: rgba(30, 40, 50, 0.95); backdrop-filter: blur(5px); border: 2px solid #3498db; padding: 25px 20px; border-radius: 16px; width: calc(100% - 40px); max-width: 520px; box-sizing: border-box; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.5); font-family: 'Segoe UI', Tahoma, sans-serif; cursor: default; display: flex; flex-direction: column;" onclick="event.stopPropagation()">
+                
                 <button onclick="window.tutupTentang()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 20px; color: #e74c3c; cursor: pointer; transition: transform 0.2s; padding: 5px; line-height: 1;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">✖</button>
+                
+                <!-- BAGIAN HEADER (TETAP) -->
                 <div style="text-align: center; margin-bottom: 20px;">
                     <h3 style="margin: 0; font-size: 20px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">Tentang WebGIS</h3>
                     <div style="height: 3px; width: 40px; background: #3498db; margin: 10px auto 0; border-radius: 2px;"></div>
                 </div>
-                <div style="font-size: 13px; line-height: 1.7; color: #cbd5e1; text-align: justify; max-height: 60vh; overflow-y: auto; padding-right: 8px;">
+                
+                <!-- BAGIAN KONTEN (BISA DI-SCROLL) -->
+                <div style="font-size: 13px; line-height: 1.7; color: #cbd5e1; text-align: justify; max-height: 60vh; overflow-y: auto; padding-right: 8px; margin-bottom: 15px;">
                     <p style="margin-top: 0;"><strong>WebGIS Desa Tulis</strong> adalah platform sistem informasi geografis interaktif yang dikembangkan untuk memetakan potensi, tata guna lahan, fasilitas umum, dan infrastruktur di wilayah Desa Tulis, Kabupaten Batang.</p>
                     <p>Website ini diinisiasi dan dibangun sepenuhnya oleh <strong style="color: #ffffff;">Tim KKN Universitas Diponegoro Tahun 2026</strong> sebagai bentuk pengabdian masyarakat dan digitalisasi informasi desa guna membantu perangkat desa serta warga setempat.</p>
+                    <p>Kami menyadari bahwa dalam pengembangan platform ini mungkin masih terdapat keterbatasan. Oleh karena itu, kami memohon maaf apabila masih ada kekurangan pada website ini. Kami senantiasa terbuka terhadap kritik dan saran yang membangun demi penyempurnaan sistem di masa mendatang.</p>
                     <div style="margin-top: 20px; padding: 15px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px;">
                         <strong style="color: #ffffff; font-size: 13.5px; display: block; margin-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 6px;">✨ Fitur Utama:</strong>
                         <ul style="margin: 0; padding-left: 20px; color: #cbd5e1;">
@@ -721,10 +864,13 @@ window.bukaTentang = function() {
                             <li>Sistem Navigasi dan Deteksi Lokasi</li>
                         </ul>
                     </div>
-                    <div style="text-align: center; margin-top: 25px; font-weight: 500; color: #94a3b8; font-size: 11px; letter-spacing: 0.5px;">
-                        Dibuat dengan <span style="color: #e74c3c;">❤️</span> oleh KKN Undip 2026
-                    </div>
                 </div>
+
+                <!-- BAGIAN FOOTER KKN (TETAP DI BAWAH) -->
+                <div style="text-align: center; font-weight: 500; color: #94a3b8; font-size: 11px; letter-spacing: 0.5px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    Dibuat dengan <span style="color: #e74c3c;">❤️</span> oleh KKN Undip 2026
+                </div>
+
             </div>
         </div>
     `;
