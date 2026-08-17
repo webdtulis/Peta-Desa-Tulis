@@ -746,10 +746,10 @@ window.prosesKirimLaporan = function(kategori, lat, lng) {
     let urlTujuan = '', templateGmaps = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
     
     if (kategori === 'keamanan') {
-        urlTujuan = `https://wa.me/62895392011414?text=${encodeURIComponent(`*LAPORAN DARURAT KEAMANAN (PANIC BUTTON)*\n\nMohon bantuan segera, ada indikasi gangguan keamanan/kejahatan di titik ini:\n${templateGmaps}\n\nPengirim: Warga Desa Tulis`)}`;
+        urlTujuan = `https://wa.me/6281391797986?text=${encodeURIComponent(`*LAPORAN DARURAT KEAMANAN (PANIC BUTTON)*\n\nMohon bantuan segera, ada indikasi gangguan keamanan/kejahatan di titik ini:\n${templateGmaps}\n\nPengirim: Warga Desa Tulis`)}`;
         window.open(urlTujuan, '_blank');
     } else if (kategori === 'kesehatan') {
-        urlTujuan = `https://wa.me/6289876543210?text=${encodeURIComponent(`*LAPORAN DARURAT MEDIS*\n\nMohon bantuan medis segera di titik lokasi ini:\n${templateGmaps}\n\nPengirim: Warga Desa Tulis`)}`;
+        urlTujuan = `https://wa.me/628854495222?text=${encodeURIComponent(`*LAPORAN DARURAT MEDIS*\n\nMohon bantuan medis segera di titik lokasi ini:\n${templateGmaps}\n\nPengirim: Warga Desa Tulis`)}`;
         window.open(urlTujuan, '_blank');
     } else if (kategori === 'infrastruktur') {
         window.open(`https://docs.google.com/forms/d/e/1FAIpQLScA-jsmUPdBB_sa-eftZU5gCZWxMR3q5FDGNQOsRLA1MT_kuw/viewform?entry.1856517992=${lat}&entry.1981551024=${lng}`, '_blank');
